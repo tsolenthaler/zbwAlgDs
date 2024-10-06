@@ -16,6 +16,23 @@ mindmap
             Graphen
 
         Algorithmen
+            Übersicht
+                Datenstrukturen
+                    Peformance vergleichen
+                    Datenstrukturen
+                Algorithmen
+                    Algorithmen
+                    Spezielle Programme
+            Bausteine für Algorithmen
+                Elementare Operationen
+                Sequenz
+                    Hintereinander ablaufende Schritte
+                Parallelität
+                Bedingung
+                Schleife
+                Unterprogramme
+                Rekursion
+
             Big O notation
             Hashtabel
             Tree
