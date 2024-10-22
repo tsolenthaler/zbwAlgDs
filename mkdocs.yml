@@ -26,7 +26,8 @@ theme:
 
 plugin:
   - search
-  - tags
+  - tags:
+      tags_file: tags.md
   - awesome-pages
   - git-revision-date-localized:
       enable_creation_date: false

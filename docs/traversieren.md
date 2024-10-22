@@ -1,3 +1,9 @@
+---
+tags:
+  - 
+  - 
+---
+
 # Traversieren 
 
 Das Traversieren eines Binärbaums bedeutet, die Knoten des Baums in einer bestimmten Reihenfolge zu besuchen. Es gibt verschiedene Methoden, um dies zu tun, und jede Methode hat ihre eigenen Anwendungsfälle und Vorteile. Hier sind die gängigsten Traversierungsverfahren:

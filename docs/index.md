@@ -32,6 +32,7 @@ mindmap
                 Schleife
                 Unterprogramme
                 Rekursion
+            Algorithmen Schemas
 
             Big O notation
             Hashtabel
@@ -42,4 +43,8 @@ mindmap
                 Binary search array
                 Binary search tree
                 Hashing
+
+            Rekursion
+                lineare Rekursion
+                baumartige Rekursion
 ```
