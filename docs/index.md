@@ -8,6 +8,8 @@ mindmap
     root((Datenstrukturen und Algorithmen))
         Datentyp
         Datenstrukturen
+            Abstrakte Datentypen
+            Lineare Datenstrukturen
             Listen-
             Baumstrukturen (Tree)
             Warteschlangen (Queue)
