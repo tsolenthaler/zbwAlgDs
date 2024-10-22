@@ -43,26 +43,26 @@ vorhandenen Datentypen gebildet, z.B. int A [] = new int[10]; int length = 0;
 ### List Abstract Data Type
 Contains elements of same type arranged in sequential order
 
-Initialize() - Initialize the list to be empty.
-get() - Return an element from the list at any given position.
-insert() - Insert a new element at any position of the list.
-remove() - Remove first occurrence of any element from a non empty list.
-removeAt() - Remove the element at a specified location from a non empty list.
-replace() - Replace an element at any position by another element.
-size() - Return the number of elements in the list.
-isEmpty() - Return true if the list is empty, otherwise return false.
-isFull() - Return true if the list is full, otherwise return false.
+* Initialize() - Initialize the list to be empty.
+* get() - Return an element from the list at any given position.
+* insert() - Insert a new element at any position of the list.
+* remove() - Remove first occurrence of any element from a non empty list.
+* removeAt() - Remove the element at a specified location from a non empty list.
+* replace() - Replace an element at any position by another element.
+* size() - Return the number of elements in the list.
+* isEmpty() - Return true if the list is empty, otherwise return false.
+* isFull() - Return true if the list is full, otherwise return false.
 
 ### Stack Abstract Data Type
 Contains elements of same type arranged in sequential order
 
-Initailize() - Initialize the stack to be empty.
-Push() - Insert an element at one end of the stack called top.
-Pop() - Remove and return the element at the top of the stack
-Peek() - Return the element at the top of the stack without removing it
-size() - Return the number of elements in the stack.
-isEmpty() - Return true if stack is empty
-isFull() - Return true if no more elements can be pushed
+* Initailize() - Initialize the stack to be empty.
+* Push() - Insert an element at one end of the stack called top.
+* Pop() - Remove and return the element at the top of the stack
+* Peek() - Return the element at the top of the stack without removing it
+* size() - Return the number of elements in the stack.
+* isEmpty() - Return true if stack is empty
+* isFull() - Return true if no more elements can be pushed
 
 ## Anmerkung
 C# unterstutzt den Umgang mit ADT's durch die Bereitstellung von Klassenund Interfaces.
