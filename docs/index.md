@@ -50,3 +50,31 @@ mindmap
                 lineare Rekursion
                 baumartige Rekursion
 ```
+
+
+## Übersicht
+
+- [ ] MB01
+    * [ ] Performance
+- [ ] MB02
+    * [ ] Schemas
+    * [ ] Abstrakte Datentypen - Datenstrukturen
+- [ ] MB03
+    * [ ] List
+    * [ ] Stack
+    * [ ] Queue
+- [ ] MB04
+    * [ ] Hashtable
+- [ ] MB05
+    * [ ] Sortieren
+- [ ] MB06
+    * [ ] Binary Tree
+- [ ] MB07
+    * [ ] AVL Tree
+- [ ] MB08
+    * [ ] Heap & Priorityqueue
+    * [ ] B-Tree
+- [ ] MB09
+    * [ ] Sortieren mit .NET
+    * [ ] Suchen
+- [ ] MB10
