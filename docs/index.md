@@ -54,23 +54,25 @@ mindmap
 
 ## Übersicht
 
-- [ ] MB01
+- [ ] MB01 - Einführung
+    * [ ] [Datenstrukturen](datenstrukturen/abstrakte-datentypen/)
     * [ ] Performance
         * [ ] O Notation
         * [ ] Komplexitätsklassen
         * [ ] Logarithmen
-        * [ ] Binäre Suche
+            * [ ] Binäre Suche
     * [ ] Möglichkeiten für Performancemessung
 - [ ] MB02
     * [ ] Schemas
     * [ ] Abstrakte Datentypen - Datenstrukturen
-    * [ ] Eliminierung der Rekursion
-    * [ ] Hanoi Demo
-    * [ ] Schema Aufgaben
+        * [ ] [Eliminierung der Rekursion](rekursion/rekursion)
+        * [ ] Hanoi Demo
+        * [ ] Schema Aufgaben
 - [ ] MB03
     * [ ] List
     * [ ] Stack
     * [ ] Queue
+    * [ ] Lineare Datenstrukturen
 - [ ] MB04
     * [ ] Hashtable
 - [ ] MB05
