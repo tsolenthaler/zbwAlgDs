@@ -14,6 +14,7 @@ tags:
     * Deswegen ist es wichtig, die verschiedenen Schemas zu kennen
 
 
+## Iteration
 * Iteration - bspwl. Loop (while oder for-Schleife)
     * Algorithmus verwendet einen Loop (while- oder for-Schleife)
     * Beispiel: Daten in Array (oder List) und mit jedem Element müssen die gleichen Schritte durchgeführt werden
@@ -27,7 +28,7 @@ public static BigInteger Factorial(int n) {
     return result;
 }
 ```
-
+## Rekursion
 * Rekursion - bspw. Fibonacci
     * Fundamentales Konzept der Informatik
     * Ein Algorithmus heisst rekursiv, wenn er sich direkt oder indirekt selber aufruft
@@ -47,7 +48,7 @@ public static BigInteger FactorialRecursive(int n) {
     Mathe - Fibonacci
     Mathe - Fakultät
 
-
+## Divide and Conquer
 * Divide and Conquer - bspw. Türme von Hanoi
     * «Teile und Herrsche»
         * Ablauf:
@@ -73,6 +74,7 @@ public static BigInteger FactorialRecursive(int n) {
             * Die Scheiben sind schwer und zerbrechlich, daher darf immer nur eine der Scheiben bewegt werden, niemals mehrere zur gleichen Zeit.
             * Niemals darf eine Scheibe auf einer kleineren Scheibe liegen.
 
+## Greedy
 * Greedy
     * Vor allem für Optimierungsprobleme
     * Arbeitet in Schritten, ohne mehr als einen Schritt voraus- oder zurückzublicken. Bei jedem Schritt wird aus einer Menge von möglichen Wegen derjenige ausgesucht, der den Bedingungen des Problems genügt und lokal optimal ist
