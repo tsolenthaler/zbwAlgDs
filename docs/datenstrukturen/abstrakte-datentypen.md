@@ -27,7 +27,7 @@ und die darauf defineriten Operationen wie
 
 ### ADT (abstrakter Datentyp)
 * Ein Datentyp, d.h.
-    * eine **Menge** von ***Werten** und
+    * eine **Menge** von **Werten** und
     * **Operationen** auf diesen Werten,
     * der **nur** über eine Schnittstelle zugänglich ist, sowie
     * **Regeln** über die Wirkung der Operationen auf den Werten.
