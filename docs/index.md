@@ -56,9 +56,17 @@ mindmap
 
 - [ ] MB01
     * [ ] Performance
+        * [ ] O Notation
+        * [ ] Komplexitätsklassen
+        * [ ] Logarithmen
+        * [ ] Binäre Suche
+    * [ ] Möglichkeiten für Performancemessung
 - [ ] MB02
     * [ ] Schemas
     * [ ] Abstrakte Datentypen - Datenstrukturen
+    * [ ] Eliminierung der Rekursion
+    * [ ] Hanoi Demo
+    * [ ] Schema Aufgaben
 - [ ] MB03
     * [ ] List
     * [ ] Stack
