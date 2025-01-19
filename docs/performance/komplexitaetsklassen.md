@@ -3,29 +3,17 @@
 ```markdown
 | #       | Komplexitätsklasse | Beschreibung | Beispiel |
 | ------- | ------------------ | ------------ | -------- |
-| <span style="background-color:#f03c15">![](https://via.placeholder.com/15/f03c15/000000?text=+)</span> | `O(1)`             | **Konstant**
-Ein Algorithmus, der unabhängig von der Größe des Datensatzes immer in der gleichen Zeit ausführt, unabhängig von der Größe des Datensatzes. Effizient bei jedem Datensatz. | ```public double GetPi() { return Math.Pi; }``` |
+| <span style="background-color:#f03c15">![](https://via.placeholder.com/15/f03c15/000000?text=+)</span> | `O(1)`             |  Konstant Ein Algorithmus, der unabhängig von der Größe des Datensatzes immer in der gleichen Zeit ausführt, unabhängig von der Größe des Datensatzes. Effizient bei jedem Datensatz. | ```public double GetPi() { return Math.Pi; }``` |
 | <span style="background-color:#4caf50">![](https://via.placeholder.com/15/4caf50/000000?text=+)</span> | `O(log(n))`        | **Logarithmisch**
 Ein Algorithmus, der den Datensatz in jedem Durchgang halbiert. Im Gegensatz zu exponentiell. Effizient bei großen Datensätzen.
 | ```void Procedure4(int n) { int j=n; while(j > 0) { j = j/2; do_something(i,j,n); } }``` |
-| <span style="background-color:#ffdd57">![](https://via.placeholder.com/15/ffdd57/000000?text=+)</span> | `O(n)`             | **Linear**
-Ein Algorithmus, dessen Leistung mit wachsendem Datensatz abnimmt
-wächst. Reduziert die Effizienz bei immer größeren Datensätzen. | ```public int GetCount(int[] array) { int n = 0; foreach (int i in array) n++; return n; }``` |
-| <span style="background-color:#2196f3">![](https://via.placeholder.com/15/2196f3/000000?text=+)</span> | `O(n log(n))`      | **Überlinear**
-Die Komplexität verhält sich loglinear zur Anzahl der Eingabewerte und liegt über der linearen Kurve.
-Beispiel: Sortalgorithmen wie MergeSort
-bei linearer Laufzeit verdoppelt sich die Laufzeit bei Verdoppelung der Eingabewerte
-bei konstanter Laufzeit bleibt die Laufzeit bei Verdoppelung der Eingabewerte gleich
-bei quadratischer Laufzeit steigt die Laufzeit bei Verdoppelung der Eingabewerte quadratisch an|  |
-| <span style="background-color:#9c27b0">![](https://via.placeholder.com/15/9c27b0/000000?text=+)</span> | `O(n^2)`           | **Quadratisch**
-Die Komplexität verhält sich quadratisch zur Anzahl der Eingabewerte. Beispiel: Sortierverfahren wie BubbleSort oder Vergleich jedes Wertes mit jedem anderen| ```foreach (n1 in werte) { foreach(n2 in werte) { if(n1 == n2) ... } }``` |
+| <span style="background-color:#ffdd57">![](https://via.placeholder.com/15/ffdd57/000000?text=+)</span> | `O(n)`             | Linear Ein Algorithmus, dessen Leistung mit wachsendem Datensatz abnimmt wächst. Reduziert die Effizienz bei immer größeren Datensätzen. | ```public int GetCount(int[] array) { int n = 0; foreach (int i in array) n++; return n; }``` |
+| <span style="background-color:#2196f3">![](https://via.placeholder.com/15/2196f3/000000?text=+)</span> | `O(n log(n))`      | Überlinear Die Komplexität verhält sich loglinear zur Anzahl der Eingabewerte und liegt über der linearen Kurve. Beispiel: Sortalgorithmen wie MergeSort bei linearer Laufzeit verdoppelt sich die Laufzeit bei Verdoppelung der Eingabewerte bei konstanter Laufzeit bleibt die Laufzeit bei Verdoppelung der Eingabewerte gleich bei quadratischer Laufzeit steigt die Laufzeit bei Verdoppelung der Eingabewerte quadratisch an|  |
+| <span style="background-color:#9c27b0">![](https://via.placeholder.com/15/9c27b0/000000?text=+)</span> | `O(n^2)`           | Quadratisch Die Komplexität verhält sich quadratisch zur Anzahl der Eingabewerte. Beispiel: Sortierverfahren wie BubbleSort oder Vergleich jedes Wertes mit jedem anderen| ```foreach (n1 in werte) { foreach(n2 in werte) { if(n1 == n2) ... } }``` |
 | <span style="background-color:#795548">![](https://via.placeholder.com/15/795548/000000?text=+)</span> | `O(n^k)`           | **Polynomial**
 Ein Algorithmus, dessen Leistung proportional ist zum dem Quadrat der Größe des Datensatzes ist. Erhebliche Verringerung der Effizienz bei immer größeren Datensätzen. Tiefer geschachtelte Iterationen führen zu O(N3), O(N4), usw., je nach Anzahl der Dimensionen. | ```foreach (n1 in werte) foreach(n2 in werte) foreach(n3 in werte) sum += n1 + n2 + n3;``` |
 |   | `O(2^n)` | **Exponential**
-Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgang verdoppelt. Im Gegensatz zum logarithmischen Algorithmus. Ineffizient. | ```Function fib(x)
-  If x <= 1 Then Return x
-  Return fib(x - 2) + fib(x - 1)
-End Function```  |
+Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgang verdoppelt. Im Gegensatz zum logarithmischen Algorithmus. Ineffizient. | ```Function fib(x) If x <= 1 Then Return x Return fib(x - 2) + fib(x - 1) End Function```  |
 ```
 
 ## Aufgabe 
