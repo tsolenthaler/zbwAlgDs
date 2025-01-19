@@ -1,5 +1,7 @@
 # Komplexitätsklassen
 
+![Komplexitätsklassen](https://images.squarespace-cdn.com/content/v1/5c5c91c1b7c92c593c4f65b1/1634157762557-YMNNZPL0011WZW1M2NW3/big-o-notation-graph.png){ align=left }
+
 ```markdown
 | #       | Komplexitätsklasse | Beschreibung | Beispiel |
 | ------- | ------------------ | ------------ | -------- |
@@ -66,5 +68,5 @@ Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgan
 
 - **Aufgabe:** 
     ```
-    Erstelle mir eine Aufgabe welche eine Komplexitätsklasse von O(1), O(n), O(log(n)), O(n log(n)), O(n^2) oder O(n^k) hat und ich die Komplexität bei einem C# Beispiel berechnen muss.
+    Erstelle mir eine Aufgabe welche zufällig eine von diesen Komplexitätsklasse von O(1), O(n), O(log(n)), O(n log(n)), O(n^2) oder O(n^k) verwendet und ich die Komplexität bei einem C# Beispiel berechnen muss.
     ```
