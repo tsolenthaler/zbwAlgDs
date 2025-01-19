@@ -14,25 +14,43 @@
 ### Aufgabenstellungen
 
 1. **Konstante Komplexität (O(1))**
-    - **Aufgabe:** ```Implementiere eine Funktion, die immer denselben Wert zurückgibt, unabhängig von der Eingabe.```
+    - **Aufgabe:** 
+    ```
+    Implementiere eine Funktion, die immer denselben Wert zurückgibt, unabhängig von der Eingabe.
+    ```
     - **Beispiel:** ```public double GetPi() { return Math.Pi; }```
 
 2. **Lineare Komplexität (O(n))**
-    - **Aufgabe:** ```Implementiere eine Funktion, die die Anzahl der Elemente in einem Array zählt.```
+    - **Aufgabe:** 
+    ```
+    Implementiere eine Funktion, die die Anzahl der Elemente in einem Array zählt.
+    ```
     - **Beispiel:** ```public int GetCount(int[] array) { int n = 0; foreach (int i in array) n++; return n; }```
 
 3. **Logarithmische Komplexität (O(log(n)))**
-    - **Aufgabe:** ```Implementiere eine Funktion, die eine Schleife enthält, die die Eingabegröße bei jedem Schritt halbiert.```
+    - **Aufgabe:** 
+    ```
+    Implementiere eine Funktion, die eine Schleife enthält, die die Eingabegröße bei jedem Schritt halbiert.
+    ```
     - **Beispiel:** ```void Procedure4(int n) { int j=n; while(j > 0) { j = j/2; do_something(i,j,n); } }```
 
 4. **Überlineare Komplexität (O(n log(n)))**
-    - **Aufgabe:** ```Implementiere einen Sortieralgorithmus wie MergeSort.```
+    - **Aufgabe:** 
+    ```
+    Implementiere einen Sortieralgorithmus wie MergeSort.
+    ```
     - **Beispiel:** ```public void MergeSort(int[] array) { /* MergeSort Implementation */ }```
 
 5. **Quadratische Komplexität (O(n^2))**
-    - **Aufgabe:** ```Implementiere eine Funktion, die jedes Element eines Arrays mit jedem anderen vergleicht.```
+    - **Aufgabe:** 
+    ```
+    Implementiere eine Funktion, die jedes Element eines Arrays mit jedem anderen vergleicht.
+    ```
     - **Beispiel:** ```foreach (n1 in werte) { foreach(n2 in werte) { if(n1 == n2) ... } }```
 
 6. **Polynomiale Komplexität (O(n^k))**
-    - **Aufgabe:** ```Implementiere eine Funktion, die drei verschachtelte Schleifen enthält, die alle Kombinationen von Elementen eines Arrays durchlaufen.```
+    - **Aufgabe:** 
+    ```
+    Implementiere eine Funktion, die drei verschachtelte Schleifen enthält, die alle Kombinationen von Elementen eines Arrays durchlaufen.
+    ```
     - **Beispiel:** ```foreach (n1 in werte) foreach(n2 in werte) foreach(n3 in werte) sum += n1 + n2 + n3;```
