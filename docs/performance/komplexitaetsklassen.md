@@ -1,6 +1,7 @@
 ---
 tags:
-  - property
+  - komplexitätsklassen
+  - o-notation
 hide:
   - navigation
   - toc
