@@ -11,8 +11,7 @@
 |  | `O(n log(n))`      | Überlinear Die Komplexität verhält sich loglinear zur Anzahl der Eingabewerte und liegt über der linearen Kurve. Beispiel: Sortalgorithmen wie MergeSort bei linearer Laufzeit verdoppelt sich die Laufzeit bei Verdoppelung der Eingabewerte bei konstanter Laufzeit bleibt die Laufzeit bei Verdoppelung der Eingabewerte gleich bei quadratischer Laufzeit steigt die Laufzeit bei Verdoppelung der Eingabewerte quadratisch an|  |
 |  | `O(n^2)`           | Quadratisch Die Komplexität verhält sich quadratisch zur Anzahl der Eingabewerte. Beispiel: Sortierverfahren wie BubbleSort oder Vergleich jedes Wertes mit jedem anderen| ```foreach (n1 in werte) { foreach(n2 in werte) { if(n1 == n2) ... } }``` |
 |  | `O(n^k)`           | Polynomial - Ein Algorithmus, dessen Leistung proportional ist zum dem Quadrat der Größe des Datensatzes ist. Erhebliche Verringerung der Effizienz bei immer größeren Datensätzen. Tiefer geschachtelte Iterationen führen zu O(N3), O(N4), usw., je nach Anzahl der Dimensionen. | ```foreach (n1 in werte) foreach(n2 in werte) foreach(n3 in werte) sum += n1 + n2 + n3;``` |
-|   | `O(2^n)` | **Exponential**
-Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgang verdoppelt. Im Gegensatz zum logarithmischen Algorithmus. Ineffizient. | ```Function fib(x) If x <= 1 Then Return x Return fib(x - 2) + fib(x - 1) End Function```  |
+|   | `O(2^n)` | Exponential - Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgang verdoppelt. Im Gegensatz zum logarithmischen Algorithmus. Ineffizient. | ```Function fib(x) If x <= 1 Then Return x Return fib(x - 2) + fib(x - 1) End Function```  |
 ```
 
 ## Aufgabe 
