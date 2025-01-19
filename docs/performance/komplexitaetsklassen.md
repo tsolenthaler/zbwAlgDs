@@ -13,7 +13,7 @@
 
 | #       | Komplexitätsklasse | Beschreibung | Beispiel |
 | ------- | ------------------ | ------------ | -------- |
-|  | `O(1)`             |  Konstant - Ein Algorithmus, der unabhängig von der Größe des Datensatzes immer in der gleichen Zeit ausführt, unabhängig von der Größe des Datensatzes. Effizient bei jedem Datensatz. | ```public double GetPi() { return Math.Pi; }``` |
+|  <span style="background-color:#f03c15">![](https://via.placeholder.com/15/f03c15/000000?text=+)</span> | `O(1)`             |  **Konstant** - Ein Algorithmus, der unabhängig von der Größe des Datensatzes immer in der gleichen Zeit ausführt, unabhängig von der Größe des Datensatzes. Effizient bei jedem Datensatz. | ```public double GetPi() { return Math.Pi; }``` |
 | | `O(log(n))`        | Logarithmisch - Ein Algorithmus, der den Datensatz in jedem Durchgang halbiert. Im Gegensatz zu exponentiell. Effizient bei großen Datensätzen. | ```void Procedure4(int n) { int j=n; while(j > 0) { j = j/2; do_something(i,j,n); } }``` |
 |  | `O(n)`             | Linear Ein Algorithmus, dessen Leistung mit wachsendem Datensatz abnimmt wächst. Reduziert die Effizienz bei immer größeren Datensätzen. | ```public int GetCount(int[] array) { int n = 0; foreach (int i in array) n++; return n; }``` |
 |  | `O(n log(n))`      | Überlinear Die Komplexität verhält sich loglinear zur Anzahl der Eingabewerte und liegt über der linearen Kurve. Beispiel: Sortalgorithmen wie MergeSort bei linearer Laufzeit verdoppelt sich die Laufzeit bei Verdoppelung der Eingabewerte bei konstanter Laufzeit bleibt die Laufzeit bei Verdoppelung der Eingabewerte gleich bei quadratischer Laufzeit steigt die Laufzeit bei Verdoppelung der Eingabewerte quadratisch an|  |
