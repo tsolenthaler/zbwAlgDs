@@ -3,7 +3,7 @@ tags:
   - property
 hide:
   - navigation
-  - tabs
+  - toc
 ---
 
 # Komplexitätsklassen
