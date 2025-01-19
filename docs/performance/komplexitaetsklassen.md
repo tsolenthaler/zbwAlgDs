@@ -30,29 +30,74 @@ hide:
 |  | `O(n^k)`           | **Polynomial** - Ein Algorithmus, dessen Leistung proportional ist zum dem Quadrat der Größe des Datensatzes ist. Erhebliche Verringerung der Effizienz bei immer größeren Datensätzen. Tiefer geschachtelte Iterationen führen zu O(N3), O(N4), usw., je nach Anzahl der Dimensionen. | ```foreach (n1 in werte) foreach(n2 in werte) foreach(n3 in werte) sum += n1 + n2 + n3;``` |
 |   | `O(2^n)` | **Exponential** - Ein Algorithmus, der sich mit jeder Hinzufügung zum Datensatz in jedem Durchgang verdoppelt. Im Gegensatz zum logarithmischen Algorithmus. Ineffizient. | ```Function fib(x) If x <= 1 Then Return x Return fib(x - 2) + fib(x - 1) End Function```  |
 
-### Aufgabenstellungen pro Komplexitätsklasse
+## Beispiel Codes pro Komplexitätsklasse
 
-1. **Konstante Komplexität (O(1))**
-    - **Beispeil Aufgabe:** Implementiere eine Funktion, die immer denselben Wert zurückgibt, unabhängig von der Eingabe.
-    - **Beispiel:** ```public double GetPi() { return Math.Pi; }```
+### Konstante Komplexität (O(1))
 
-2. **Lineare Komplexität (O(n))**
-    - **Aufgabe:** Implementiere eine Funktion, die die Anzahl der Elemente in einem Array zählt.
-    - **Beispiel:** ```public int GetCount(int[] array) { int n = 0; foreach (int i in array) n++; return n; }```
+**Aufgabe:** Implementiere eine Funktion, die immer denselben Wert zurückgibt, unabhängig von der Eingabe.
+**Code:** 
+```C#
+public double GetPi()
+{
+    return Math.Pi;
+}
+```
 
-3. **Logarithmische Komplexität (O(log(n)))**
-    - **Aufgabe:** Implementiere eine Funktion, die eine Schleife enthält, die die Eingabegröße bei jedem Schritt halbiert.
-    - **Beispiel:** ```void Procedure4(int n) { int j=n; while(j > 0) { j = j/2; do_something(i,j,n); } }```
+### **Logarithmische Komplexität (O(log(n)))**
+**Aufgabe:** Implementiere eine Funktion, die eine Schleife enthält, die die Eingabegröße bei jedem Schritt halbiert.
+**Code:** 
+```C# 
+void Procedure4(int n) {
+    int j=n;
+    while(j > 0) {
+   	 j = j/2;
+   	 do_something(i,j,n);
+    }
+}
+```
 
-4. **Überlineare Komplexität (O(n log(n)))**
-    - **Aufgabe:** Implementiere einen Sortieralgorithmus wie MergeSort.
-    - **Beispiel:** ```public void MergeSort(int[] array) { /* MergeSort Implementation */ }```
+### **Lineare Komplexität (O(n))**
+**Aufgabe:** Implementiere eine Funktion, die die Anzahl der Elemente in einem Array zählt.
+**Code:** 
+```C#
+public int GetCount(int[] array)
+{
+    int n = 0;
+    foreach (int i in array)
+        n++;
+    return n;
+}
+```
 
-5. **Quadratische Komplexität (O(n^2))**
-    - **Aufgabe:** Implementiere eine Funktion, die jedes Element eines Arrays mit jedem anderen vergleicht.
-    - **Beispiel:** ```foreach (n1 in werte) { foreach(n2 in werte) { if(n1 == n2) ... } }```
+### **Überlineare Komplexität (O(n log(n)))**
+**Aufgabe:** Implementiere einen Sortieralgorithmus wie MergeSort.
+**Code:** 
+```C# 
+public void MergeSort(int[] array) 
+{ 
+    /* MergeSort Implementation */ 
+}
+```
 
-6. **Polynomiale Komplexität (O(n^k))**
-    - **Aufgabe:** Implementiere eine Funktion, die drei verschachtelte Schleifen enthält, die alle Kombinationen von Elementen eines Arrays durchlaufen.
-    - **Beispiel:** ```foreach (n1 in werte) foreach(n2 in werte) foreach(n3 in werte) sum += n1 + n2 + n3;```
+### **Quadratische Komplexität (O(n^2))**
+**Aufgabe:** Implementiere eine Funktion, die jedes Element eines Arrays mit jedem anderen vergleicht.
+**Code:** 
+```C#
+foreach (n1 in werte)
+{
+   foreach(n2 in werte)
+   {
+      if(n1 == n2) ...
+}
+```
+
+### **Polynomiale Komplexität (O(n^k))**
+**Aufgabe:** Implementiere eine Funktion, die drei verschachtelte Schleifen enthält, die alle Kombinationen von Elementen eines Arrays durchlaufen.
+**Code:** 
+```C#
+foreach (n1 in werte)
+   foreach(n2 in werte)
+      foreach(n3 in werte)
+         sum += n1 + n2 + n3;
+```
 
