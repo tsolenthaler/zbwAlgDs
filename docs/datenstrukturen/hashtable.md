@@ -113,7 +113,7 @@ _array[index] = Jane;
 
 --> Kollisionen!
 
-```mermaid
+``` mermaid
 flowchart LR
     1 2 3[Jane] 4 5 6 7 8 9
 ```
