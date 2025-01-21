@@ -151,7 +151,7 @@ flowchart TD
     Steve --x 3
     Steve --> 4
     subgraph Array
-        Direction LR
+        direction LR
         1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
     end
 ```
@@ -171,7 +171,7 @@ _array[index].AddFirst(Person);
 ``` mermaid
 flowchart TD
     subgraph Array
-        Direction LR 
+        direction LR 
         1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
     end
     3 --> Steve
