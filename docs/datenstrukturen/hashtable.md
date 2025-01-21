@@ -128,14 +128,14 @@ flowchart LR
     * Werte werden dem gleichen Index in der Hashtable zugewiesen
 * Zwei verbreitete Strategien (Lesen Sie im Buch S. 87-90)
     * Verkettung
-        * Speicherung der Werte in einer LinkedList
-        * manchmal auch «geschlossene Adressierung» genannt
     * Offene Adressierung
-        * Verschiebung zum nächsten freien Index
-        * Manchmal «linear probing» bzw. «lineares Sondieren» genannt
-        * Manchmal mittels «doppeltem Hashing»
+
 
 ##### Offene Adressierung
+
+* Verschiebung zum nächsten freien Index
+* Manchmal «linear probing» bzw. «lineares Sondieren» genannt
+* Manchmal mittels «doppeltem Hashing»
 
 ```C#
 int arrayLength = 9;
@@ -153,6 +153,10 @@ flowchart LR
 ```
 
 ##### Verkettung
+
+* Speicherung der Werte in einer LinkedList
+* manchmal auch «geschlossene Adressierung» genannt
+
 ```C#
 int arrayLength = 9;
 int hashCode = GetHashCode(Jane.Name);
