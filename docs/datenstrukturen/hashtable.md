@@ -150,7 +150,7 @@ _array[index] = Person;
 flowchart TD
     Steve --x 3
     Steve --> 4
-    subgraph Block
+    subgraph Array
         Direction LR
         1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
     end
@@ -170,7 +170,7 @@ _array[index].AddFirst(Person);
 
 ``` mermaid
 flowchart TD
-    subgraph Block
+    subgraph Array
         Direction LR 
         1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
     end
