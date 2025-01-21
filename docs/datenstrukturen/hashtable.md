@@ -22,8 +22,10 @@ hide:
 * Der Key-Typ wird zu einem Index gemappt
 * Bsp: Hashtable mit Personen
     * Hinzufügen von Jane
-        * int index = GetIndex(Jane.Name)
-        * _array[index] = Jane;
+```C#
+int index = GetIndex(Jane.Name)
+_array[index] = Jane;
+```
 
 
 ### Hashing Übersicht
@@ -58,6 +60,7 @@ hide:
         ``` l|o|r|e|m| |i|p|s|um |d|o|l|o|r| ```
 
 lorem -->
+
 * l = 108 = 01101100
 * o = 111 = 01101111
 * r = 114 = 01110010
@@ -113,9 +116,10 @@ _array[index] = Jane;
 
 --> Kollisionen!
 
+
 ``` mermaid
 flowchart LR
-    1 2 3[Jane] 4 5 6 7 8 9
+    1 --> 2 --> 3[Jane] --> 4 --> 5 --> 6 --> 7 --> 8 --> 9
 ```
 
 #### Kollisionen behandeln
@@ -188,7 +192,7 @@ public class Person {
 
 # Selbststudium
 
-* Lesen Sie Kapitel 2.5 in [Cordts2018], Lösen Sie die Aufgaben zum Kapitel (mindestens Aufgabe 1 und 2)
+* Lesen Sie Kapitel 2.5 in Cordts2018, Lösen Sie die Aufgaben zum Kapitel (mindestens Aufgabe 1 und 2)
     * Errata: Bei Aufgabe 1 ist nicht «Methode HashtableLinearProbing» gemeint sondern «Klasse HashtableLinearProbing»
-* Bearbeiten Sie das Beispiel in [Cordts2018] (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
+* Bearbeiten Sie das Beispiel in Cordts2018 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Maschinelle Lernverfahren – 1-Rule Klassifizierer (S. 97ff)
