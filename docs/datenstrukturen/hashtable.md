@@ -114,10 +114,9 @@ _array[index] = Jane;
 --> Kollisionen!
 
 ``` mermaid
-block-beta
+flowchart TD
     1 2 3[Jane] 4 5 6 7 8 9
 ```
-
 
 #### Kollisionen behandeln
 
