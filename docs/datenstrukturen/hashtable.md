@@ -148,8 +148,10 @@ _array[index] = Person;
 
 ``` mermaid
 flowchart LR
-    1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
     Steve --> 4
+    subgraph Block
+    1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
+    end
 ```
 
 ##### Verkettung
@@ -166,7 +168,9 @@ _array[index].AddFirst(Person);
 
 ``` mermaid
 flowchart LR
+    subgraph Block
     1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
+    end
     3 --> Steve
 ```
 
