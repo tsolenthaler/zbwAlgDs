@@ -148,6 +148,7 @@ _array[index] = Person;
 
 ``` mermaid
 flowchart LR
+    Steve --x 3
     Steve --> 4
     subgraph Block
     1 ~~~ 2 ~~~ 3[Jane] ~~~ 4 ~~~ 5 ~~~ 6 ~~~ 7 ~~~ 8 ~~~ 9
