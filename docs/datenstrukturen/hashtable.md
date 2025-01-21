@@ -113,8 +113,8 @@ _array[index] = Jane;
 
 --> Kollisionen!
 
-``` mermaid
-flowchart TD
+```mermaid
+block-beta
     1 2 3[Jane] 4 5 6 7 8 9
 ```
 
@@ -140,4 +140,13 @@ int index = hashCode % arrayLength;
 while(_array[index] != null)
     index++;
 _array[index] = Person;
+```
+
+
+##### Verkettung
+```C#
+int arrayLength = 9;
+int hashCode = GetHashCode(Jane.Name);
+int index = hashCode % arrayLength;
+_array[index].AddFirst(Person);
 ```
