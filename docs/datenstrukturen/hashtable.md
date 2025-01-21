@@ -12,7 +12,7 @@ hide:
 
 - **Promt:** 
     ```
-    
+    Erstelle mir eine Aufgabe welche ich lösen muss und zum Thema Hashtabel und sich auf C# bezieht.
     ```
 
 ## Übersicht
@@ -58,10 +58,10 @@ hide:
         ``` l|o|r|e|m| |i|p|s|um |d|o|l|o|r| ```
 
 lorem -->
-l = 108 = 01101100
-o = 111 = 01101111
-r = 114 = 01110010
-e = 101 = 01100101
+* l = 108 = 01101100
+* o = 111 = 01101111
+* r = 114 = 01110010
+* e = 101 = 01100101
 
 → 01100101 01110010 01101111 01101100 = 1701998444
 
@@ -71,7 +71,7 @@ e = 101 = 01100101
         * Integer-Werte sind 4 Bytes (32Bits)
         ``` l|o|r|e|m| |i|p|s|um |d|o|l|o|r| ```
 
-Zerteil in 4 Zeichen (Bytes):
+Zerteilt in 4 Zeichen (Bytes):
 
 | Werte         | 'lore '    | 'm ip'     | 'sum '     | 'dolo'     | 'r   '        |
 | -------       | -------    | ---------  | ---------- | --------   | --------      |
