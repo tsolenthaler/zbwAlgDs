@@ -114,7 +114,7 @@ _array[index] = Jane;
 --> Kollisionen!
 
 ```mermaid
-block-beta
+flowchart LR
     1 2 3[Jane] 4 5 6 7 8 9
 ```
 
@@ -150,3 +150,45 @@ int hashCode = GetHashCode(Jane.Name);
 int index = hashCode % arrayLength;
 _array[index].AddFirst(Person);
 ```
+
+#### Hashtable vergrössern
+
+* Load Factor
+    * Auslastung – sollte maximal 80% betragen
+    * Auch bekannt als Füllgrad
+* Add(item)
+```C#
+if(fillFactor >= maxFillFactor) {
+    _newArray = new Array[_array.Length * 2];
+    foreach(item in _array) {
+        AddItemToHashTable(_newArray, item);
+    }
+    _array = newArray;
+}
+AddItemToHashTable(_array, newItem)
+```
+
+#### .NET GetHashCode()
+
+* Wird von object implementiert
+* Wenn nicht überschrieben, wird der HashCode von der Objektreferenz abgeleitet
+* Wird verwendet, wenn das Objekt in eine Hashtable eingefügt wird
+* Beispiel:
+```C#
+public class Person {
+    public string Firstame { get; set; }
+    public string Lastname { get; set; }
+    public string Email { get; set; }
+
+    public override int GetHashCode() {
+        HashCode.Combine(this.Firstame, this.Lastname, this.Email);
+    }
+}
+```
+
+# Selbststudium
+
+* Lesen Sie Kapitel 2.5 in [Cordts2018], Lösen Sie die Aufgaben zum Kapitel (mindestens Aufgabe 1 und 2)
+    * Errata: Bei Aufgabe 1 ist nicht «Methode HashtableLinearProbing» gemeint sondern «Klasse HashtableLinearProbing»
+* Bearbeiten Sie das Beispiel in [Cordts2018] (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
+    * Maschinelle Lernverfahren – 1-Rule Klassifizierer (S. 97ff)
