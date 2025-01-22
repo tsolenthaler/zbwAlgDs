@@ -102,7 +102,7 @@ Zerteilt in 4 Zeichen (Bytes):
 
 !!! question
 
-    Was bedeutet uniform?? -->
+    Was bedeutet uniform?? --> Hashwerte sollen gleichmässig über den verfügbaren Bereich verteilt sein.
 
 
 ### Werte zum Array hinzufügen
