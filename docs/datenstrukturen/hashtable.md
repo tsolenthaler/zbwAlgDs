@@ -8,6 +8,13 @@ hide:
 
 # Hashtable
 
+## Ziele
+
+- [x] Ich wisse, was eine Hashtable ist
+- [ ] Ich wisse, was eine Hash-Funktion ist
+- [ ] Ich kennen die Eigenschaften einer Hash-Funktion
+- [ ] Ich wisse, wie mit Kollisionen beim Hinzufügen umgegangen werden kann
+
 ### Übungen 
 
 - **Promt:** 
