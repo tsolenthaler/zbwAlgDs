@@ -138,7 +138,7 @@ flowchart LR
     * Offene Adressierung
 
 
-##### Offene Adressierung
+##### Offene Adressierung / linear probing / lineares Sondieren
 
 * Verschiebung zum nächsten freien Index
 * Manchmal «linear probing» bzw. «lineares Sondieren» genannt
@@ -163,7 +163,7 @@ flowchart LR
     end
 ```
 
-##### Verkettung
+##### Verkettung / geschlossene Adressierung
 
 * Speicherung der Werte in einer LinkedList
 * manchmal auch «geschlossene Adressierung» genannt
@@ -225,3 +225,60 @@ public class Person {
     * Errata: Bei Aufgabe 1 ist nicht «Methode HashtableLinearProbing» gemeint sondern «Klasse HashtableLinearProbing»
 * Bearbeiten Sie das Beispiel in Cordts2018 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Maschinelle Lernverfahren – 1-Rule Klassifizierer (S. 97ff)
+
+
+## Aufgaben
+
+### 1. Aufgabe
+Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu: 
+a) geschlossene Adressierung 
+b) offene Adressierung 
+c) Doppeltes Hashing 
+
+b……. Bei einer Kollision wird einfach der nächste offene Platz gesucht. 
+c……. Hierbei wird bei einer Kollision einen zweiten Hashwert berechnet. Das Resultat des zweiten Hashwertes entspricht dann den Anzahl Stellen um welche verschoben wird. 
+a……. Bei einer Kollision werden weitere Objekte in einer verketteten Liste abgelegt. Diese Variante erfordert eine weitere Datenstruktur, was zusätzlicher Speicherverbrauch bedeutet.
+
+### 2. Aufgabe 
+Bestimmen Sie die Komplexitätsklasse einer Hashtable (für Add() sowie Remove(). Begründen Sie Ihre Antwort.
+
+### 3. Aufgabe: 
+Das Lineare Sondieren als Konfliktbehandlungsalgorithmus hat den Nachteil, dass es leicht zur Bildung 
+von Clustern führt. Wie können Sie diesen Nachteil vermeiden?
+
+### 4. Aufgabe
+Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt.  
+Die Länge der Hashtable beträgt N = 7 
+Die Hashfunktion sei index(k) = k % N 
+Geben Sie nach jeder Operation die resultierende Hashtable an. 
+Add(22) 
+Add(3) 
+Add(7) 
+Add(14) 
+Add(0) 
+Remove(14) 
+
+### 5. Aufgabe
+Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt. 
+Diesmal wird die Schrittweite mittels einer zweiten Hashfunktion (Doppel-Hashing) berechnet.  
+Die Länge der Hashtable beträgt N = 10 
+Die Hashfunktion sei i𝑛𝑑𝑒𝑥(𝑘) = (k/100) % 𝑁 
+Die Hashfunktion für die Schrittweite sei 𝑠𝑡𝑒𝑝𝑠(𝑖𝑛𝑑𝑒𝑥) = 7 −(𝑖𝑛𝑑𝑒𝑥 %7)
+
+Geben Sie nach jeder Operation die resultierende Hashtable an. 
+
+Add(1001)
+
+Add(1542)
+
+Add(429)
+
+Add(1420)
+
+Add(2116)
+
+Add(1146)
+
+Remove(2116)
+
+Remove(1146)
