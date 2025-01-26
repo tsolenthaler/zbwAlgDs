@@ -10,10 +10,10 @@ hide:
 
 ## Ziele
 
-- [x] Ich wisse, was eine Hashtable ist
-- [x] Ich wisse, was eine Hash-Funktion ist
+- [x] Ich weiss, was eine Hashtable ist
+- [x] Ich weiss, was eine Hash-Funktion ist
 - [ ] Ich kennen die Eigenschaften einer Hash-Funktion
-- [ ] Ich wisse, wie mit Kollisionen beim Hinzufügen umgegangen werden kann
+- [ ] Ich weiss, wie mit Kollisionen beim Hinzufügen umgegangen werden kann
 
 ### Übungen 
 
@@ -231,16 +231,19 @@ public class Person {
 
 ### 1. Aufgabe
 Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu: 
-a) geschlossene Adressierung 
-b) offene Adressierung 
-c) Doppeltes Hashing 
 
-b……. Bei einer Kollision wird einfach der nächste offene Platz gesucht. 
-c……. Hierbei wird bei einer Kollision einen zweiten Hashwert berechnet. Das Resultat des zweiten Hashwertes entspricht dann den Anzahl Stellen um welche verschoben wird. 
-a……. Bei einer Kollision werden weitere Objekte in einer verketteten Liste abgelegt. Diese Variante erfordert eine weitere Datenstruktur, was zusätzlicher Speicherverbrauch bedeutet.
+* a) geschlossene Adressierung 
+* b) offene Adressierung 
+* c) Doppeltes Hashing 
+
+* b……. Bei einer Kollision wird einfach der nächste offene Platz gesucht. 
+* c……. Hierbei wird bei einer Kollision einen zweiten Hashwert berechnet. Das Resultat des zweiten Hashwertes entspricht dann den Anzahl Stellen um welche verschoben wird. 
+* a……. Bei einer Kollision werden weitere Objekte in einer verketteten Liste abgelegt. Diese Variante erfordert eine weitere Datenstruktur, was zusätzlicher Speicherverbrauch bedeutet.
 
 ### 2. Aufgabe 
 Bestimmen Sie die Komplexitätsklasse einer Hashtable (für Add() sowie Remove(). Begründen Sie Ihre Antwort.
+
+
 
 ### 3. Aufgabe: 
 Das Lineare Sondieren als Konfliktbehandlungsalgorithmus hat den Nachteil, dass es leicht zur Bildung 
