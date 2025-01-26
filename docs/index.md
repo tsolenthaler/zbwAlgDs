@@ -57,8 +57,8 @@ mindmap
 - [ ] MB01 - Einführung
     * [ ] [Datenstrukturen](datenstrukturen/abstrakte-datentypen/)
     * [ ] Performance
-        * [ ] O Notation
-        * [ ] Komplexitätsklassen
+        * [x] O Notation
+        * [x] Komplexitätsklassen
         * [ ] Logarithmen
             * [ ] Binäre Suche
     * [ ] Möglichkeiten für Performancemessung
@@ -74,7 +74,8 @@ mindmap
     * [ ] Queue
     * [ ] Lineare Datenstrukturen
 - [ ] MB04
-    * [ ] Hashtable
+    * [x] Hashtable
+    
 - [ ] MB05
     * [ ] Sortieren
 - [ ] MB06
