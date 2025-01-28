@@ -63,30 +63,28 @@ flowchart TD
 
 ###  Exkurs: Geometrische Reihe
 Eine geometrische Reihe ist die Reihe einer geometrischen Folge. Bei einer geometrischen Folge an ist der Quotient r zweier benachbarter Folgenglieder konstant: 
-a(n+1) = a(nr) !!!! <--- Formel nicht korrekt
+a_(n+1) = a_n(r)
 
-* Ebene 0: Auf der untersten Ebene gibt es nur 1 Node. Das sind 20 Nodes.
-* Ebene 1: Auf der nächsten Ebene können bis zu 2 Nodes sein. Das sind 21 Nodes.
-* Ebene 2: Auf der dritten Ebene können bis zu 4 Nodes sein. Das sind 22 Nodes.
+* Ebene 0: Auf der untersten Ebene gibt es nur 1 Node. Das sind 2^0 Nodes.
+* Ebene 1: Auf der nächsten Ebene können bis zu 2 Nodes sein. Das sind 2^1 Nodes.
+* Ebene 2: Auf der dritten Ebene können bis zu 4 Nodes sein. Das sind 2^2 Nodes.
 * …
-* Ebene h: Auf der h-ten Ebene können bis zu 2h Nodes sein.
+* Ebene h: Auf der h-ten Ebene können bis zu 2^h Nodes sein.
 
-Maximale Anzahl der Knoten=20+21+22+⋯+2h
+Maximale Anzahl der Knoten = 2^0+2^1+2^2+⋯+2^h
+
 Die Summe einer solchen geometrischen Reihe ist:
 
-$
-S_n = a \frac{1 - r^n}{1 - r} \quad \text{für } r \neq 1
-$
+S = a * (1 - r^n) / (1 - r)  für r ≠ 1
 
-\[
-S_n = a \frac{1 - r^n}{1 - r} \quad \text{für } r \neq 1
-\]
+S = 1* (1 - 2(h+1)) / (1-2)
 
-Hierbei ist:
-- \( S_n \) die Summe der ersten \( n \) Terme,
-- \( a \) der erste Term,
-- \( r \) der gemeinsame Faktor (der Quotient zwischen aufeinanderfolgenden Termen),
-- \( n \) die Anzahl der Terme.
+Erklärung:
+* S: Summe der ersten n Terme
+* a: erster Term
+* r: gemeinsamer Faktor (Quotient)
+* n: Anzahl der Terme
+
 
 ### Binary Search Tree
 
