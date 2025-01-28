@@ -57,7 +57,7 @@ flowchart TD
         1 --> 3[Inner]
         1 --> 4
         2 --> 5
-        2 --> 6[Leaf (Blatt)]
+        2 --> 6[Leaf / Blatt]
     end
 ```
 
