@@ -15,4 +15,4 @@ Das Traversieren eines Binärbaums bedeutet, die Knoten des Baums in einer besti
 
 Diese Traversierungsverfahren werden oft in verschiedenen Algorithmen und Anwendungen verwendet, wie z.B. in der Suche, Sortierung und im Ausdruck von mathematischen Ausdrücken.
 
-Binärbaum – Wikipedia. https://de.wikipedia.org/wiki/Bin%C3%A4rbaum.
+[Binärbaum – Wikipedia](https://de.wikipedia.org/wiki/Bin%C3%A4rbaum)
