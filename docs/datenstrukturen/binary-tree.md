@@ -74,9 +74,9 @@ a(n+1) = a(nr) !!!! <--- Formel nicht korrekt
 Maximale Anzahl der Knoten=20+21+22+⋯+2h
 Die Summe einer solchen geometrischen Reihe ist:
 
-$$
+$
 S_n = a \frac{1 - r^n}{1 - r} \quad \text{für } r \neq 1
-$$
+$
 
 \[
 S_n = a \frac{1 - r^n}{1 - r} \quad \text{für } r \neq 1
@@ -111,13 +111,11 @@ flowchart TD
 
 #### Implementierung
 
-##### 1
-
 ``` mermaid
 flowchart TD
     subgraph Datenobjekt
-        nextLeft -->
-        nextRight -->
+        nextLeft
+        nextRight
     end
 ```
 
@@ -130,7 +128,6 @@ public class Node
 }
 ```
 
-##### 2
 ```C#
 public class BinaryTree<T> where T : IComparable<T>
 {
@@ -175,9 +172,9 @@ flowchart TD
     6 --> 7
 ```
 
-Find(Root, 3)
-Find(Root, 5)
-Find(Root, 8)
+* Find(Root, 3)
+* Find(Root, 5)
+* Find(Root, 8)
 
 ##### Löschen
 
@@ -221,7 +218,7 @@ flowchart TD
 ``` mermaid
 flowchart TD
     4 --> 2
-    4 --> 6
+    4 --> 7
     2 --> 1
     2 --> 3
     7 --> 8
@@ -243,7 +240,7 @@ flowchart TD
 ``` mermaid
 flowchart TD
     4 --> 2
-    4 --> 6
+    4 --> 7
     2 --> 1
     2 --> 3
     7 --> 5
@@ -385,14 +382,14 @@ flowchart TD
     5 --> 4
     5 --> 6
     11 --> 9
-    11 --> 3
+    11 --> 13
     9 --> 8
     9 --> 10
     13 --> 12
     13 --> 14
 ```
 
-+ 15
+* --> +15
 
 ``` mermaid
 flowchart TD
