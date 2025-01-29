@@ -2,8 +2,8 @@
 
 ## Ziele
 
-* Ich kenne den Unterschied zwischen einem BinaryTree und einem B-Tree
-* Ich weiss, wie die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet werden
+- [ ] Ich kenne den Unterschied zwischen einem BinaryTree und einem B-Tree
+- [ ] Ich weiss, wie die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet werden
 
 ## Motivation
 
@@ -13,7 +13,7 @@ Die Verwendung von AVL-Trees für die Indexierung der Datenbank könnte zwar ein
 
 * Erfunden von Rudolf Bayer und Edward M. McCreight 1972 für die Verwaltung von Indizes in relationalen Datenbanken (erfunden von Edgar F. Codd 1970)
 * Keine Erklärung für Herkunft des Namens. Interpretation: B für balanciert, Bayer, Barbara (Frau von Bayer), Boeing (Bayer arbeitete für Boeing Scientific Research)
-* >1 Key pro Node
+* kleiner als ">1" 1 Key pro Node
 * ≥ 2 Child Nodes
 * Self-Balancing
 * Grössere Verzweigungsgrad reduziert die Baumhöhe und somit die Anzahl Lesezugriffe
