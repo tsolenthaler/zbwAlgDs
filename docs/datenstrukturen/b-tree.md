@@ -30,7 +30,13 @@ Die Verwendung von AVL-Trees für die Indexierung der Datenbank könnte zwar ein
 
 ``` mermaid
 flowchart TD
-    2 --> 1
-    2 --> 3
-    3 --> 4
+    1[34]
+    1 --> 2[12 29]
+    1 --> 3[46 67]
+    2 --> 4[2 8 9 10]
+    2 --> 5[15 19 22 24]
+    2 --> 6[30 31 32]
+    3 --> 7[36 39]
+    3 --> 8[53 57 63 65]
+    3 --> 9[72 83 94 96]
 ```
