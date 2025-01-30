@@ -86,7 +86,7 @@ Erklärung:
 * n: Anzahl der Terme
 
 
-### Binary Search Tree
+## Binary Search Tree
 
 * Sortierte Hierarchie von Daten
 * Ein Root-Node
@@ -107,7 +107,7 @@ flowchart TD
 ```
 
 
-#### Implementierung
+## Implementierung
 
 ``` mermaid
 flowchart TD
@@ -144,7 +144,7 @@ public class BinaryTree<T> where T : IComparable<T>
 }
 ```
 
-##### Suchen
+### Suchen
 ```C#
 Find(Node current, Data value) {
     if(current == null) {
@@ -174,7 +174,7 @@ flowchart TD
 * Find(Root, 5)
 * Find(Root, 8)
 
-##### Löschen
+### Löschen
 
 * Suchen des zu löschenden Nodes
     * Wenn er nicht exisitert → exit
@@ -184,7 +184,7 @@ flowchart TD
     * Child-Node suchen, mit dem der zu löschende Node ersetzt wird
     * Drei Szenarios …
 
-###### Szenario 1
+#### Szenario 1
 * Szenario 1: Node hat keinen Right Child
     * Left Child ersetzt gelöschten Node
 * Remove(8)
@@ -220,7 +220,7 @@ flowchart TD
     style 7 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-###### Szenario 2
+#### Szenario 2
 * Szenario 2: Node hat keinen Left Child
     * Right Child ersetzt gelöschten Node
 * Remove(6)
@@ -254,7 +254,7 @@ flowchart TD
     style 8 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-###### Szenario 3
+#### Szenario 3
 
 * Szenario 3: Right Child des gelöschten Nodes hat einen Left Child
     * Most Left Child ersetzt den gelöschten Node
@@ -289,7 +289,7 @@ flowchart TD
     style 7 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-#### Traversieren
+### Traversieren
 * Nodes werden in einer definierte Reihenfolge iteriert / Ausgabe als Text
 * Drei verschiedene Algorithmen
 * Grundlegender Algorithmus
@@ -301,7 +301,7 @@ flowchart TD
     * In-Order
     * Post-Order
 
-##### Pre-Order
+#### Pre-Order
 Node → links → rechts
 
 ```C#
@@ -327,7 +327,7 @@ flowchart TD
     8 --> 9
 ```
 
-##### Post-Order
+#### Post-Order
 links → rechts → Node
 
 ```C#
@@ -353,7 +353,7 @@ flowchart TD
     8 --> 9
 ```
 
-##### In-Order
+#### In-Order
 
 links → Node → rechts
 
@@ -380,7 +380,7 @@ flowchart TD
     8 --> 9
 ```
 
-##### Aufgabe
+## Aufgabe
 * Implementieren Sie in der Klasse BinaryTree<T> (siehe BinaryTreeDemo auf Moodle) die Methode Traverse() gemäss den vorgängigen Definitionen.
     * Den gewünschten Mode können Sie aus dem Property TraverseMode lesen
 
@@ -418,7 +418,7 @@ private void Traverse(Node<T> node, int level, ref string s) {
 }
 ```
 
-#### Balancierung 
+### Balancierung 
 
 * Erstellen Sie einen Binary Search Tree mit folgenden Werten (die Werte sollen in dieser Reihenfolgen eingefügt werden): 
 140, 150, 130, 110, 135, 160
@@ -426,7 +426,7 @@ private void Traverse(Node<T> node, int level, ref string s) {
 110, 130, 135, 140, 150, 160
 * Was stellen Sie fest?
 
-##### Balancierter Baum
+#### Balancierter Baum
 ``` mermaid
 flowchart TD
     140 --> 130
@@ -434,7 +434,7 @@ flowchart TD
     130 --> 110
     130 --> 135
 ```
-##### Nicht Balancierter Baum
+#### Nicht Balancierter Baum
 ``` mermaid
 flowchart TD
     110 --> 130 --> 135 --> 140 --> 150 --> 160
@@ -486,7 +486,7 @@ flowchart TD
 
 * AVL-Tree, B-Tree, Red-Black-Tree
 
-#### Selbststudium
+## Selbststudium
 * Lesen Sie Kapitel 2.6 in Cordts2023, Lösen Sie die Aufgaben zum Kapitel
 * Bearbeiten Sie das Beispiel in Cordts2023 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Suchen nach Firmenbezeichnungen (S. 120ff)
