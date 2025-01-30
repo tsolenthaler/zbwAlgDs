@@ -202,9 +202,7 @@ flowchart TD
     8 --> 9[?]
     6 --> 5
     6 --> 7
-    style 6 color:red
-    style 5 color:red
-    style 7 color:red
+    style 8 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
 
 Remove(8)
@@ -217,9 +215,9 @@ flowchart TD
     2 --> 3
     6 --> 5
     6 --> 7
-    style 6 color:red
-    style 5 color:red
-    style 7 color:red
+    style 6 fill:#f9f,stroke:#333,stroke-width:4px
+    style 5 fill:#f9f,stroke:#333,stroke-width:4px
+    style 7 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ###### Szenario 2
@@ -239,8 +237,7 @@ flowchart TD
     6 --> ?
     6 --> 7
     7 --> 8
-    style 7 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-    style 8 fill:#f9f,stroke:#333,stroke-width:4px
+    style 6 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
 
 Remove(6)
@@ -253,8 +250,8 @@ flowchart TD
     2 --> 3
     7 --> ?
     7 --> 8
-    style 7 color:red
-    style 8 color:red
+    style 7 fill:#f9f,stroke:#333,stroke-width:4px
+    style 8 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ###### Szenario 3
@@ -270,12 +267,26 @@ flowchart TD
 ``` mermaid
 flowchart TD
     4 --> 2
+    4 --> 6
+    2 --> 1
+    2 --> 3
+    6 --> 5
+    6 --> 8
+    8 --> 7
+    style 7 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+```
+
+Remove(6)
+
+``` mermaid
+flowchart TD
+    4 --> 2
     4 --> 7
     2 --> 1
     2 --> 3
     7 --> 5
     7 --> 8
-    style 7 color:red
+    style 7 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 #### Traversieren
