@@ -384,6 +384,39 @@ flowchart TD
 * Implementieren Sie in der Klasse BinaryTree<T> (siehe BinaryTreeDemo auf Moodle) die Methode Traverse() gemäss den vorgängigen Definitionen.
     * Den gewünschten Mode können Sie aus dem Property TraverseMode lesen
 
+```C#
+private string Traverse() {
+    var s = "";
+    var level = 0;
+
+    Traverse(root, level, ref s);
+    return s;
+}
+
+private void Traverse(Node<T> node, int level, ref string s) {
+    if (node == null) {
+        return;
+    }
+
+    var reverse = TraverseMode == TraverseModeEnum.ReverseInOrder;
+    
+    if (TraverseMode == TraverseModeEnum.PreOrder) {
+        s += "".PadLeft(level, ' ') + node.Item + "\n";
+    }
+
+    Traverse(reverse ? node.Right : node.Left, level + 2, ref s);
+    
+    if (TraverseMode == TraverseModeEnum.InOrder || TraverseMode == TraverseModeEnum.ReverseInOrder) {
+        s += "".PadLeft(level, ' ') + node.Item + "\n";
+    }
+
+    Traverse(reverse ? node.Left : node.Right, level + 2, ref s);
+    
+    if (TraverseMode == TraverseModeEnum.PostOrder) {
+        s += "".PadLeft(level, ' ') + node.Item + "\n";
+    }
+}
+```
 
 #### Balancierung 
 
