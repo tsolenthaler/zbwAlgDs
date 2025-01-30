@@ -233,11 +233,26 @@ flowchart TD
 ``` mermaid
 flowchart TD
     4 --> 2
+    4 --> 6
+    2 --> 1
+    2 --> 3
+    6 --> ?
+    6 --> 7
+    7 --> 8
+    style 7 color:red
+    style 8 color:red
+```
+
+Remove(6)
+
+``` mermaid
+flowchart TD
+    4 --> 2
     4 --> 7
     2 --> 1
     2 --> 3
-    7 --> 8
     7 --> ?
+    7 --> 8
     style 7 color:red
     style 8 color:red
 ```
