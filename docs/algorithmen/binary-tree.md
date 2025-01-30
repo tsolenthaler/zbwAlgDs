@@ -426,6 +426,7 @@ private void Traverse(Node<T> node, int level, ref string s) {
 110, 130, 135, 140, 150, 160
 * Was stellen Sie fest?
 
+##### Balancierter Baum
 ``` mermaid
 flowchart TD
     140 --> 130
@@ -433,7 +434,7 @@ flowchart TD
     130 --> 110
     130 --> 135
 ```
-
+##### Nicht Balancierter Baum
 ``` mermaid
 flowchart TD
     110 --> 130 --> 135 --> 140 --> 150 --> 160
@@ -441,7 +442,7 @@ flowchart TD
 
 * Ziel eines Baumes: weitgehend balanciert
 * Binärer Baum berücksichtigt die Balancierung nicht
-* Worst-Case: Suche O(n) – wenn der Baum zu Liste entartet
+* Worst-Case: Suche O(n) – wenn der Baum zu Liste entartet!
 * Im vollständig balancierten Baum:
     O(h) – wobei h = Höhe des Baumes, ℎ ≥ 𝑙𝑜𝑔2(𝑛 + 1)
 * Balancierte Bäume müssen ggf. reorganisiert werden:
@@ -463,7 +464,7 @@ flowchart TD
     13 --> 14
 ```
 
-* --> +15
+* Hinzufügen von +15
 
 ``` mermaid
 flowchart TD
