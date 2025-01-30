@@ -167,7 +167,9 @@ flowchart TD
 
 ## Vom Binary-Tree zum AVL-Tree
 
-* AVL-Tree entspricht einem Binary Tree, welcher nach Add() sowie Remove() neu balancier
+!!! info
+
+    AVL-Tree entspricht einem Binary Tree, welcher nach Add() sowie Remove() neu balancier
 
 ## AVLTreeView
 
