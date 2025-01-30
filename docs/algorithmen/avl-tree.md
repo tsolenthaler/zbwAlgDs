@@ -188,3 +188,39 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
     * https://en.wikipedia.org/wiki/Tree_rotation
 * Binary Tree
     * https://en.wikipedia.org/wiki/Binary_tree
+
+
+## Aufgaben
+
+### Aufgabe 1
+Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rotationen sollen sichtbar sein. D.h. zeichnen Sie den Baum jeweils vor und nach der Rotation (inkl. Teilrotationen) auf.
+
+70, 77, 65, 85, 83, 63, 61, 81, 82, 80, 73, 72, 75, 60
+
+### Aufgabe 2
+
+Analog Aufgabe 1 jedoch mit folgenden Daten:
+
+67, 6, 4, 80, 55, 40, 58, 48, 2, 50, 36, 49
+
+### Aufgabe 3
+
+In folgendem AVLTree sollen der Reihe nach, folgende Elemente gelöscht werden:
+
+4, 8, 6, 5, 2, 1, 7, 3, 10
+
+Zeichnen Sie den Baum nach jeder Löschoperation neu auf.
+
+``` mermaid
+flowchart TD
+    5 --> 3
+    5 --> 8
+    3 --> 2
+    3 --> 4
+    2 --> 1
+    8 --> 7
+    8 --> 10
+    7 --> 6
+    10 --> 9
+    10 --> 11
+```
