@@ -169,13 +169,15 @@ flowchart TD
 
 !!! info
 
-    AVL-Tree entspricht einem Binary Tree, welcher nach Add() sowie Remove() neu balancier
+    AVL-Tree entspricht einem Binary Tree, welcher nach Add() sowie Remove() neu balanciert
 
 ## AVLTreeView
 
 * Demo
-* Verwendet «Microsoft Automatic Graph Layout» - diese Lib ist in der Lage, Graphen zu zeichnen
+* Verwendet «Microsoft Automatic Graph Layout» - diese Lib ist in der Lage, Graphen zu zeichnen 
+
 https://github.com/Microsoft/automatic-graph-layout
+
 https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
 
 ## Selbststudium
