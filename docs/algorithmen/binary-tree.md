@@ -239,8 +239,8 @@ flowchart TD
     6 --> ?
     6 --> 7
     7 --> 8
-    style 7 color:red
-    style 8 color:red
+    style 7 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+    style 8 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 Remove(6)
