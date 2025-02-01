@@ -109,7 +109,6 @@ public static long FibonacciRecursive(long len) {
 }
 ```
 
-
 Hinweis: FibonacciRecursive(6) berechnet die 6. Fibonacci-Zahl (=8)
 * 1te Zahl = 1, 2te zahl = 1, 3te Zahl = 2, 4te Zahl = 3 usw.
 
