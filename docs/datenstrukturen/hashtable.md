@@ -238,6 +238,7 @@ Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu:
 * b) offene Adressierung 
 * c) Doppeltes Hashing 
 
+
 * b……. Bei einer Kollision wird einfach der nächste offene Platz gesucht. 
 * c……. Hierbei wird bei einer Kollision einen zweiten Hashwert berechnet. Das Resultat des zweiten Hashwertes entspricht dann den Anzahl Stellen um welche verschoben wird. 
 * a……. Bei einer Kollision werden weitere Objekte in einer verketteten Liste abgelegt. Diese Variante erfordert eine weitere Datenstruktur, was zusätzlicher Speicherverbrauch bedeutet.
@@ -473,7 +474,7 @@ index(1146)= (1146 / 100) % 10 = 11 % 10 = 1
 
 | Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    | 8    | 9     |
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- | ---- | ---- |
-| 1001    | 2116    |      | 1146  | 429   | 1542  |      | 1420 |       |       |
+| 1001    | 2116    |      | 1146  | 429   | 1542  |      | 1420 |      |       |
 
 Remove(2116)
 
