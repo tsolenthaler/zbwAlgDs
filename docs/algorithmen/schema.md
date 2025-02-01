@@ -42,6 +42,46 @@ public static BigInteger Factorial(int n) {
     * Rekursion macht dort Sinn, wenn der Algorithmus dadurch klarer und kürzer wird
     * Rekursionselimination
 
+### Beispiele
+
+#### Beispiel 1
+* Löse das Problem, indem du es auf das gleiche Problem, aber in kleinerem Masse zurückführst.
+* Beispiel:
+    * Fakultät
+    * Problem
+    * Wie berechne ich 4! ?
+        * gleiches Problem, jedoch kleiner:
+            * --> Wie berechne ich 3! ?
+        * Wenn ich weiss, was 3! ist, so weiss ich auch was 4! ist
+            * --> 4! = 1 * 2 * 3 * 4 = ( 1 * 2 * 3 ) * 4 = 3! * 4
+
+* 2! = 1 * 2
+* 3! = 1 * 2 * 3
+* 4! = 1 * 2 * 3 * 4 = 3! * 4
+* 5! = 1 * 2 * 3 * 4 * 5
+
+#### Beispiel 2
+* allgemein
+    * n! = (n-1)! * n
+    * Aufruf: n! = Problem "Grösse" n
+    * Aufruf: (n-1)! = Problem "Grösse" n-1
+
+#### Beispiel 3
+
+n! = 1 = falls n=1 --> Terminierender Fall (n minimal)
+n! = (n-1)! * n = falls n>1 --> Rekursiver Fall (n wird kleiner!)
+
+#### Zusammengefasst
+* Schreibweise in Pseudeocode
+    * fac(n) = Fakultät = n!
+* Lösung
+    * Problem = fac(n)
+    * Kleineres Problem = fac(n-1)
+    * Wenn kleineres Problem gelöst = n * fac(n-1)
+    * Trivialer Fall = fac(1) = 1
+    * Unterscheidung kl. Problem / triv. Fall = n=1 --> Triv. Fall
+
+#### Rekursion: Beispiel Code
 ```c#
 public static BigInteger FactorialRecursive(int n) {
     if (n == 0)
@@ -50,6 +90,59 @@ public static BigInteger FactorialRecursive(int n) {
     return n * FactorialRecursive(n - 1);
 }
 ```
+
+#### Rekursion – Beispiel Fibonacci
+* Fibonacci-Reihe: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …
+
+fibonacci(1) = 1
+
+fibonacci(2) = 1
+
+fibonacci(n) = fibonacci(n-1)+fibonacci(n-2)
+
+```c#
+public static long FibonacciRecursive(long len) {
+    if (len == 1 || len == 2) {
+        return 1;
+    }
+    return FibonacciRecursive(len-1) + FibonacciRecursive(len-2);
+}
+```
+
+
+Hinweis: FibonacciRecursive(6) berechnet die 6. Fibonacci-Zahl (=8)
+* 1te Zahl = 1, 2te zahl = 1, 3te Zahl = 2, 4te Zahl = 3 usw.
+
+#### Rekursion – Beispiel Fibonacci - Laufzeit
+``` mermaid
+flowchart TD
+    1[F6]
+    1 --> 2[F5]
+    1 --> 3[F4]
+    2 --> 4[F4]
+    2 --> 5[F3]
+    3 --> 6[F3]
+    3 --> 7[F2]
+    4 --> 8[F3]
+    4 --> 9[F2]
+    5 --> 10[F2]
+    5 --> 11[F1]
+    6 --> 12[1]
+    7 --> 13[1]
+    8 --> 14[1]
+    9 --> 15[1]
+    10 --> 16[1]
+    11 --> 17[1]
+```
+
+### Rekursionselimination
+
+* Prinzipielles Vorgehen
+    * Umdrehen der Berechnung (von unten nach oben)
+    * Abspeichern der Zwischenresultate
+
+* Aufgabe: Implementieren Sie die Berechnung der Fibonacci-Zahl iterativ und vergleichen Sie anschliessend die Laufzeiten z.B. für Fibonacci(40)
+
 !!! note "Hinweis"
     Mathe - Fibonacci
     Mathe - Fakultät
