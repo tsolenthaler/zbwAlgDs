@@ -210,7 +210,7 @@ In nachfolgender Tabelle sollen in zeitlicher Reihenfolge die Ausgaben des Progr
 2. Multiplikation: 2 * 2
 3. Multiplikation: 2 * 4 * 4
 
-### Rekursion Schritt für Schritt:
+#### Rekursion Schritt für Schritt:
 * Erster Aufruf: Rec(2, 5)
     * p2 ist ungerade (5 % 2 != 0).
     * Aufruf: y = Rec(2, (5 - 1) / 2) = Rec(2, 2)
@@ -227,7 +227,7 @@ In nachfolgender Tabelle sollen in zeitlicher Reihenfolge die Ausgaben des Progr
     * p2 ist 0.
     * Rückgabe: 1
 
-### Rückkehr zu den vorherigen Aufrufen:
+#### Rückkehr zu den vorherigen Aufrufen:
 * Dritter Aufruf: Rec(2, 1)
     * y ist jetzt 1.
     * Ausgabe: 2 * 1 * 1 (Zeile 8)
@@ -244,16 +244,16 @@ In nachfolgender Tabelle sollen in zeitlicher Reihenfolge die Ausgaben des Progr
     * Rückgabe: 2 * 4 * 4 = 32 (Zeile 9)
 
 
-### Start Main --> Rec(2,5)
+#### Start Main --> Rec(2,5)
 1. Aufruf Zeile 7 - Rec(2, (5 - 1) / 2) = Rec(2, 2)
-1.1. Rec(2, 2) = Rec(2, 1)
-1.1.1. Rec(2, 1) = Rec(2, (1 - 1) / 2) = Rec(2,0)
-1.1.1.1. Rec(2, 0) = return 1;
-2.1.1. Rec(2,1)
+* 1.1. Rec(2, 2) = Rec(2, 1)
+* 1.1.1. Rec(2, 1) = Rec(2, (1 - 1) / 2) = Rec(2,0)
+* 1.1.1.1. Rec(2, 0) = return 1;
+* 2.1.1. Rec(2,1)
 Console.Write("2 * 1 * 1)
 return 2 * 1 * 1
 Rückgabe 2 * 1 * 1 = 2
-2.1. Rec(2,2)
+* 2.1. Rec(2,2)
 Console.Write("2 * 2)
 Rückgabe 2 * 2 = 4
 2. Rec(2,5)
