@@ -284,7 +284,8 @@ Mit Taschenrechner
 
 Add(3)
 
-3 % 7 = 3
+```3 % 7 = 3```
+
 Mit Taschenrechner
 ```
 3 / 7 = 0.42857142857142857142857142857143
