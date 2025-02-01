@@ -190,6 +190,7 @@ flowchart LR
     * Auslastung – sollte maximal 80% betragen
     * Auch bekannt als Füllgrad
 * Add(item)
+
 ```C#
 if(fillFactor >= maxFillFactor) {
     _newArray = new Array[_array.Length * 2];
@@ -207,6 +208,7 @@ AddItemToHashTable(_array, newItem)
 * Wenn nicht überschrieben, wird der HashCode von der Objektreferenz abgeleitet
 * Wird verwendet, wenn das Objekt in eine Hashtable eingefügt wird
 * Beispiel:
+
 ```C#
 public class Person {
     public string Firstame { get; set; }
@@ -243,29 +245,97 @@ Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu:
 ### 2. Aufgabe 
 Bestimmen Sie die Komplexitätsklasse einer Hashtable (für Add() sowie Remove(). Begründen Sie Ihre Antwort.
 
+Add() = O(1)
 
+Remove() = O(1)
+
+Weil Array-Zugriffmechanik.
 
 ### 3. Aufgabe: 
 Das Lineare Sondieren als Konfliktbehandlungsalgorithmus hat den Nachteil, dass es leicht zur Bildung 
 von Clustern führt. Wie können Sie diesen Nachteil vermeiden?
 
+In dem quadratisches Sondieren oder doppeltes Hashing (zweites Hashing) verwenden.
+
 ### 4. Aufgabe
 Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt.  
+
 Die Länge der Hashtable beträgt N = 7 
+
 Die Hashfunktion sei index(k) = k % N 
-Geben Sie nach jeder Operation die resultierende Hashtable an. 
+
+Geben Sie nach jeder Operation die resultierende Hashtable an.
+
 Add(22) 
-Add(3) 
+
+```22 % 7 = 1```
+
+Mit Taschenrechner
+```
+22 / 7 = 3.1428571428571428571428571428571
+3.1428571428571428571428571428571 - 3 = 0.14285714285714285714285714285714
+0.14285714285714285714285714285714 * 7 = 1
+```
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+|         | 22      |      |       |       |       |      |      |
+
+Add(3)
+
+3 % 7 = 3
+Mit Taschenrechner
+```
+3 / 7 = 0.42857142857142857142857142857143
+0.42857142857142857142857142857143 * 7 = 
+```
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+|         | 22      |      | 3     |       |       |      |      |
+
 Add(7) 
+
+7 % 7 = 0
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+| 7       | 22      |      | 3     |       |       |      |      |
+
 Add(14) 
-Add(0) 
+
+14 % 7 = 0
+
+--> Index 0 und 1 ist besetzt, daher auf den nächsten freien Index 2
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+| 7       | 22      | 14   | 3     |       |       |      |      |
+
+Add(0)
+
+0 % 7 = 0
+
+--> Index 0 besetzt, also auf den nächsten freien Index = 4
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+| 7       | 22      | 14   | 3     | 0     |       |      |      |
+
 Remove(14) 
+
+| Index 0 |  1      | 2    | 3     | 4     | 5     | 6    | 7    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+| 7       | 22      |      | 3     | 0     |       |      |      |
 
 ### 5. Aufgabe
 Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt. 
 Diesmal wird die Schrittweite mittels einer zweiten Hashfunktion (Doppel-Hashing) berechnet.  
+
 Die Länge der Hashtable beträgt N = 10 
+
 Die Hashfunktion sei i𝑛𝑑𝑒𝑥(𝑘) = (k/100) % 𝑁 
+
 Die Hashfunktion für die Schrittweite sei 𝑠𝑡𝑒𝑝𝑠(𝑖𝑛𝑑𝑒𝑥) = 7 −(𝑖𝑛𝑑𝑒𝑥 %7)
 
 Geben Sie nach jeder Operation die resultierende Hashtable an. 
