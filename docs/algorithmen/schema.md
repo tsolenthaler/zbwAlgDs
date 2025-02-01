@@ -176,7 +176,7 @@ Algorithm Max(S)
     return max(max1, max2) // Das Maximum von S
 ```
 
-### 4. Aufgabe
+### 4. Aufgabe 🔴
 Gegeben ist folgendes Programm: 
 
 ```C#
