@@ -86,15 +86,22 @@ flowchart LR
     * Keine Neuerstellung und umkopieren nötig
 * Kann für die Implementierung von List, Stack, Queue verwendet werden
 
+![Singly Linked List](SinglyLinkedList.png)
+
 Knoten einer Singly Linked List: Data|Link
 
 Start --> 10|Link --> 23|Link --> 43|Link --> 23|End
 
+``` mermaid
+flowchart LR
+    start --> 10 --> 20 --> 43 --> 13
+```
+
 ### Implementierung
 
-### Konten
+#### Konten
 
-```c#
+```C#
 private sealed class Node {
     public object Data { get; set; }
     public Node Link { get; set; }
@@ -103,7 +110,7 @@ private sealed class Node {
 
 Welche Methoden und Eigenschaften sollen für die Linked List implementiert werden?
 
-```c#
+```C#
 public void Add(Object item)
 public bool Contains(Object item)
 public bool Remove(Object item)
@@ -111,7 +118,7 @@ public bool FindByIndex(int index)
 public int Count { get; }
 ```
 
-### Add-Methode
+#### Add-Methode
 
 ```c#
 public void Add(object data)
@@ -122,7 +129,7 @@ public void Add(object data)
 3. Ermitteln des letzten Knotens in der Liste
 4. Next-Eigenschaft des letzten Knotens auf neuen Knoten setzen
 
-### Contains-Methode
+#### Contains-Methode
 
 ```c#
 public bool Contains(object data)
@@ -131,25 +138,26 @@ public bool Contains(object data)
 }
 ```
 
-### Remove-Methode
+#### Remove-Methode
 
 ```c#
 public bool Remove(object data)
 ```
 
-[Image]!!!!!
+![List Remove-Methode](list-remove.png)
 
 
-### Find-Methode
+#### Find-Methode
 ```c#
 public bool FindByIndex(int index)
 ```
 
-### Exkurs «Indexer»
+#### Exkurs «Indexer»
 Zugriff auf Elemente in einer Klasse über einen Index wie bei einem Array
 
 Deklaration:
-```c#
+
+```C#
 public object this[int index] {
     get {
         …
@@ -161,6 +169,8 @@ public object this[int index] {
 ```
 
 ## Doubly Linked List (doppelt verkettete Liste)
+
+![Doubly Linked List](doublyLinkedList.png)
 
 Start --> -|Data|Link --> PrevLink|Data|Link --> PrevLink|Data|Link --> PrevLink|Data|-
 
@@ -174,8 +184,9 @@ Nachteile
 
 
 ### Implementierung
-Knoten
-```c#
+* Knoten
+
+```C#
 private sealed class Node {
     public object Data { get; set; }
     public Node Link { get; set; }
@@ -184,19 +195,19 @@ private sealed class Node {
 ```
 
 ## Liste über Array
-Vorteil
-* direkter Zugriff auf Element: Laufzeit O(1)
+* Vorteil
+    * direkter Zugriff auf Element: Laufzeit O(1)
 
-Nachteil
-* statische Grösse
-* Lösung
-    * Methode zum Vergrössern/Verkleinern des Arrays
-    * kostet Zeit
-    * daher nicht bei jedem Einfügen/Löschen
+* Nachteil
+    * statische Grösse
+    * Lösung
+        * Methode zum Vergrössern/Verkleinern des Arrays
+        * kostet Zeit
+        * daher nicht bei jedem Einfügen/Löschen
 
 ### System.Collections.ArrayList (1)
 
-```c#
+```C#
 public virtual int Add(Object value) {
     Contract.Ensures(Contract.Result<int>() >= 0);
     if (_size == _items.Length) EnsureCapacity(_size + 1);
@@ -219,7 +230,7 @@ private void EnsureCapacity(int min) {
 
 ### System.Collections.ArrayList (2)
 
-```c#
+```C#
 public virtual int Capacity {
     get {
         Contract.Ensures(Contract.Result<int>() >= Count);
@@ -249,7 +260,7 @@ public virtual int Capacity {
 ```
 
 ### System.Collections.ArrayList (3)
-```c#
+```C#
 // Removes the element at the given index. The size of the list is
 // decreased by one.
 
@@ -270,12 +281,91 @@ public virtual void RemoveAt(int index) {
 
 ## Vergleich ArrayList - LinkedList
 
-| Methode | Komplexitäts-klasse | Hinweise |
+| Methode | Komplexitäts-Klasse | Hinweise |
 | ------- | ------------------- | --------- |
 | ArrayList.Add | O(1) | bei Vergrößerung des Arrays: O(n) |
 | LinkedList.Add | O(1) |
 
 
-## Dokumente
+## Selbststudium
 
-file:///C:/Users/tsole/Documents/ZbW/3.Semester/Algorithmen%20und%20Datenstrukturen/AlgDs_1708963530/Kurs_Algorithmen_und_Datenstr..._.39826/Datei_List_.47365/content/Lineare%20Datenstrukturen%20-%20List.pdf
+* Lesen Sie Kapitel 2.2 in Cordts2023
+    * SinglyLinkedList: S.25 – 2
+        * Bearbeiten Sie das Beispiel «Rechtschreibeprüfung»
+        * Implementieren Sie die Klasse SinglyLinkedListEnumerator
+            * Studieren Sie dazu das Interface IEnumverator
+            * Studieren Sie das Schlüsselwort yield
+        *Ändern Sie die Klasse Klasse SinglyLinkedList so, dass generische Typen verwendet werden können
+    * DoublyLinkedList: S. 43 – 49
+    * ArrayList: S. 49 - 53
+* Lösen Sie die Übungsaufgaben zu Kapitel 2.2
+
+## Aufgaben
+
+### 1. Aufgabe
+Die Nodes einer LinkedList werden in einem zusammenhängenden Speicherbereich gespeichert. Richtig  oder Falsch? Begründen Sie. 
+
+* Falsch. Note verweist auf den Speicher
+
+### 2. Aufgabe
+Wenn temp den letzten Node in einer Doubly Linked List referenziert, welche Anweisung löscht diesen aus der Linked List? 
+ 
+1) temp.Prev = null 
+2) temp.Next.Prev = null 
+3) temp.Prev.Next = null 
+
+* 3. Ist korrekt. Prev geht eins Zurück und Löscht den Next
+
+### 3. Aufgabe
+Welche Komplexitätsklasse weisst LinkedList.Add(o) auf? Welche LinkedList.Remove(o)? Begründen Sie.
+
+* LinkedList.Add() = O(1)
+    * 
+* LinkedList.Remove() = O(n) - linear
+    * Zuerst finden/suchen des Knoten und jeden Knoten überprüft werden muss
+
+### 4. Aufgabe
+Wieso weisst der Zugriff auf ein Element in einem Array (array[i]) die Komplexitätsklasse O(1) auf, der Zugriff in einer LinkedList (linkedList[i]) jedoch O(n)? 
+
+* Weile alle Element mit einer For Schlaufe durchsucht werden müssen bei einer LinkedList.
+* Nicht zusammenhängende Knoten.
+
+### 5. Aufgabe
+Gegeben Sie den Inhalt des Stack S am Ende der folgenden Operationen an:
+
+```C#
+S.Push(3); 
+
+S.Push(7); 
+
+S.Pop(); 
+
+S.Push(9); 
+
+S.Peek(); 
+
+S.Push(7); 
+
+S.Push(1); 
+
+S.Push(81); 
+
+S.Pop(); 
+
+S.Pop();
+```
+
+Der Stack soll nach jeder Operation dargestellt werden.
+
+1. S: 3
+2. S: 3, 7
+3. S: 3
+4. S: 3, 9
+5. S: 3, 9
+6. S: 3, 9, 7
+7. S: 3, 9, 7, 1
+8. S: 3, 9, 7, 1, 81
+9. S: 3, 9, 7, 1
+10. S: 3, 9, 7
+
+Der endgültige Inhalt des Stacks S ist also: 3, 9, 7
