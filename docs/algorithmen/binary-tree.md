@@ -500,9 +500,8 @@ flowchart TD
 ### 1. Aufgabe
 Was ist das Hauptmerkmal eines Binary Tree? 
 
-Children - hirachisch
-
-Jeder knoten kann maximum 2 Nachkommen haben.
+* Children - hirachisch
+* Jeder Knoten kann maximum 2 Nachkommen haben.
 
 ### 2. Aufgabe
 Worin unterscheiden sich ein Binary Tree mit einem Binary Search Tree hauptsächlich? 
@@ -550,8 +549,9 @@ public int Frage(BinaryTreeNode root) {
 }
 ```
 Was berechnet diese Methode? 
+
 * a) Sie zählt die Blattknoten. 
-* b) X - Sie zählt die internen Knoten. 
+* X b) Sie zählt die internen Knoten. 
 * c) Sie berechnet die Höhe des Binärbaumes. 
 * d) Etwas anderes – nämlich: ………………………………………………………………… 
 
@@ -589,7 +589,7 @@ flowchart TD
     15 --> 20
 ```
 
---> balonzierter Baum --> O(log n)
+* balonzierter Baum --> O(log n)
 
 
 b) Bauen Sie einen Binary Search Tree mit folgenden Elementen (in der gegebenen Reihenfolge):
@@ -606,9 +606,10 @@ flowchart TD
     5 --> 8
 ```
 
---> unbalonzierter Baum --> O(n)
+* unbalonzierter Baum --> O(n)
 
 Lösen des Problems durch:
+
 1. Selbstbalancierende Bäume verwenden
 2. Rpalancing durchführen
 3. Heaps verwenden
