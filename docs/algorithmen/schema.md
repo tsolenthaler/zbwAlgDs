@@ -68,8 +68,8 @@ public static BigInteger Factorial(int n) {
 
 #### Beispiel 3
 
-n! = 1 = falls n=1 --> Terminierender Fall (n minimal)
-n! = (n-1)! * n = falls n>1 --> Rekursiver Fall (n wird kleiner!)
+* n! = 1 = falls n=1 --> Terminierender Fall (n minimal)
+* n! = (n-1)! * n = falls n>1 --> Rekursiver Fall (n wird kleiner!)
 
 #### Zusammengefasst
 * Schreibweise in Pseudeocode

@@ -7,6 +7,12 @@ tags:
 
 # List
 
+- [ ] Ich weiss, was unter «Lineare Datenstruktur» verstanden wird
+- [ ] Ich kennen die Unterschiede zwischen einem Array und einer dynamischen Liste
+- [ ] Ich weiss, wie Sie eine List implementieren können
+
+## Ziel
+
 * Lineare Datenstruktur
     * ordnet die Elemente sequentiell an
     * es kann nur ein Element direkt angesprochen werden
@@ -31,18 +37,42 @@ tags:
 * Anzahl Dimensionen und die Länge jeder Dimension werden bei der Erstellung festgelegt und können nicht geändert werden
 
 ### Eindimensionales Array
+```C#
 int[] array = new int[5];
+```
+
+``` mermaid
+flowchart LR
+    1 ~~~ 2 ~~~ 3 ~~~ 4 ~~~ 5
+```
+
 
 ### Multidimensionales Array
+```C#
 int[,] array = new int[2, 4];
 int[,,] array1 = new int[2, 4, 3];
+```
+
+``` mermaid
+flowchart LR
+    1 ~~~ 2 ~~~ 3 ~~~ 4 ~~~ 5
+    6 ~~~ 7 ~~~ 8 ~~~ 9 ~~~ 10
+```
 
 ### Jagged Array
+```C#
 int[][] jaggedArray = new int[3][];
 jaggedArray[0] = new int[5];
 jaggedArray[1] = new int[2];
 jaggedArray[2] = new int[4];
+```
 
+``` mermaid
+flowchart LR
+    1 ~~~ 2 ~~~ 3 ~~~ 4 ~~~ 5
+    6 ~~~ 7
+    8 ~~~ 9 ~~~ 10 ~~~ 11 ~~~ 12
+```
 
 ### Nachteile von Array?
 
