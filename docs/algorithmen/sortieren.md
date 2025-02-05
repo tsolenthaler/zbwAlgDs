@@ -63,3 +63,34 @@ Function Bubblesort(Array a) {
 * Selectionsort
 * Quicksort
 * Introsort
+
+
+### Sortieralgorithmus
+
+### Sortierverfahren Vergleichstabelle
+
+| Sortierverfahren       | Best-Case       | Average-Case    | Worst-Case     | Stabil | Zusätzlicher Speicherbedarf |
+|------------------------|-----------------|-----------------|----------------|--------|-----------------------------|
+| Binary Tree Sort       | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | O(n)                        |
+| Binary Tree Sort       | O(n log(n))     | O(n log(n))     | O(n^2)         | ja     | O(n)                        |
+| Bubblesort             | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
+| Bucketsort             | O(n)            | O(n)            | O(n^2)         | (ja) / nein | O(n)                    |
+| Combsort               | O(n log(n))     | O(n^2)          | O(n^2)         | nein   | –                           |
+| Gnomesort              | O(n)            | O(n^2)          | O(n^2)         | ja     | –                           |
+| Heapsort               | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
+| Insertionsort          | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
+| Introsort              | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
+| Merge Insertion        | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | –                           |
+| Mergesort              | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | Implementierung auf verketteter Liste: in-place, übliche Implementierungen (auf Array): O(n), Es gibt in-place auf Array, jedoch dann Zeitkomplex. = n * (log n) * (log n) |
+| Natural Mergesort      | O(n)            | O(n log(n))     | O(n log(n))    | ja     | –                           |
+| Quicksort              | O(n log(n))     | O(n log(n))     | O(n^2)         | nein   | O(n log(n)), übliche Implementierungen benötigen meist mehr |
+| Selectionsort          | O(n^2)          | O(n^2)          | O(n^2)         | nein   | –                           |
+| Shakersort (Cocktailsort) | O(n)         | O(n^2)          | O(n^2)         | ja     | –                           |
+| Shellsort              | O(n log(n)^2)   | O(n log(n)^2)   | O(n log(n)^2)  | nein   | –                           |
+| Smoothsort             | O(n)            | O(n log(n))     | O(n log(n))    | nein   | –                           |
+| Timsort                | O(n)            | O(n log(n))     | O(n log(n))    | ja     | –                           |
+| Pigeonholesort         | O(N+n)          | –               | –              | ja     | –                           |
+| OddEventsort           | O(n)            | O(n^2)          | ?              | –      | O(1)                        |
+| Cyclesort              | O(n^2)          | O(n^2)          | O(n^2)         | nein   | O(n) total, O(1) mit Hilfsmittel |
+
+
