@@ -44,6 +44,27 @@
     * Right Child
 * Jedes Child ist selber wieder ein Baum
 
+### Beispiel
+
+``` mermaid
+flowchart TD
+    subgraph Level0
+        0
+    end
+    subgraph Level1
+        0 --> 1
+        0 --> 2
+    end
+    subgraph Level2
+        1 --> 3
+        1 --> 4
+        2 --> 5
+        2 --> 6
+    end
+```
+
+### Bezeichnungen
+
 ``` mermaid
 flowchart TD
     subgraph Level0
