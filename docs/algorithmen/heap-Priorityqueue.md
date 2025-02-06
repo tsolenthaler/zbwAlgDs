@@ -55,6 +55,8 @@
 
 #### Beispiel MaxHeap
 
+#### Werte
+
 ``` mermaid
 flowchart TD
     1[89] --> 2[72]
@@ -64,4 +66,17 @@ flowchart TD
     3 --> 6[15]
     3 --> 7[3]
     4 --> 8[39]
+```
+
+#### Positionen / Index
+
+``` mermaid
+flowchart TD
+    1 --> 2
+    1 --> 3
+    2 --> 4
+    2 --> 5
+    3 --> 6
+    3 --> 7
+    4 --> 8
 ```
