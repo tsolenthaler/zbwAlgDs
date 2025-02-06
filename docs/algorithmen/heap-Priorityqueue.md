@@ -27,3 +27,41 @@
     * Notfälle im Wartezimmer
 * Lösung: die Elemente in einer Queue werden mit Prioritäten versehen
 * Priorityqueue: Elemente werden in Abhängigkeit ihrer Priorität und ihrer Position aus der Warteschlange entnommen
+
+### Realisierung
+
+* Intuitiv
+    * Prioritätswarteschlangen können ebenfalls mit Hilfe von Listen implementiert werden.
+    * Wir unterscheiden hierbei zwei Varianten:
+        1. Verwendung einer Schlangen-Datenstruktur mit Einfügen neuer Elemente am Ende der Liste.
+        2. Geordnetes Einfügen neuer Elemente in die Liste gemäß ihrer Priorität.
+
+* Nachteil Variante 1
+    * Die Entnahme (dequeue) des Elements mit der höchsten Priorität läuft in O(n), da dieses Element erst gesucht werden muss.
+
+* Nachteil Variante 2
+    * Das Einfügen (enqueue) eines Elements gemäß seiner Priorität läuft in O(n), da die Einfügeposition nur durch sequentielles Durchlaufen der Liste bestimmt werden kann.
+
+### Optimierung: Heap (als Datenstruktur für Prioritätswarteschlangen)
+
+* Definition
+    * Ein Heap ist eine besondere Form eines binären Baums und es gilt, dass
+        * der Wert eines Nodes in einer Ordnungsrelation zu den Werten seiner Childs steht
+    * er perfekt balanciert ist und die Leafs der letzten Ebene linksbündig vollständig sind
+* Ordnungsrelation
+    * In Abhängigkeit der Beziehung zwischen einem Node und seinen Childs unterscheiden wir zwei Heapvarianten:
+        * MinHeap - Der Wert eines Nodes ist kleiner oder gleich den Werten seiner Childs.
+        * MaxHeap - Der Wert eines Nodes ist größer oder gleich den Werten seiner Childs.
+
+#### Beispiel MaxHeap
+
+``` mermaid
+flowchart LR
+    1[89] --> 2[72]
+    1 --> 3[18]
+    2 --> 4[43]
+    2 --> 5[49]
+    3 --> 6[15]
+    3 --> 7[3]
+    4 --> 8[39]
+```
