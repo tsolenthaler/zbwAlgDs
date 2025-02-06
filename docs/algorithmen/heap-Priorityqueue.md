@@ -56,7 +56,7 @@
 #### Beispiel MaxHeap
 
 ``` mermaid
-flowchart LR
+flowchart TD
     1[89] --> 2[72]
     1 --> 3[18]
     2 --> 4[43]
