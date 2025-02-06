@@ -80,3 +80,28 @@ flowchart TD
     3 --> 7
     4 --> 8
 ```
+
+### Implementierung
+
+* Konsequenz der Heap-Definition
+    * Alle Leafs befinden sich auf den letzten beiden Ebenen und bis auf die letzte Ebene sind alle Ebenen vollständig gefüllt, d.h. jede innere Ebene enthält doppelt so viele Elemente wie die Vorgängerebene. Des Weiteren befinden sich keine „Lücken“ zwischen den Leafs der letzten Ebene. Auf diesem Grund können Heaps mit Hilfe von Arrays dargestellt werden.
+* Darstellung als Array
+    * Die Parent-Child-Beziehung eines MaxHeaps in einem Array maxHeap der Länge 𝑁 kann wie folgt definiert werden:
+        * maxHeap[i] ≥ maxHeap[2*i+1] --> für 0 ≤ i < (N–1) / 2 --> (Relation zu linkem Kind)
+        * maxHeap[i] ≥ maxHeap[2*i+2] --> für 0 ≤ i < (N–2) / 2 --> (Relation zu rechtem Kind)
+* Konsequenz für Operationen
+    * Wir beschränken und aufgrund der Anwendungsbereiche neben dem Lesen des Root-Elements auf das Einfügen eines neuen Elements in einen Heap(heapEnqueue) und das Entfernen des Root-Elements (heapDequeue)
+
+####  Beispiel MaxHeap als Array
+
+| 1         |  2      | 3   | 4     | 5     | 6     | 7    | 8    |
+| ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
+| 89        | 72      | 18      | 43      | 49      | 15       | 3     | 39     |
+
+### heapEnqueue
+
+1. Einfügen eines Elements
+    * Um ein Element 𝑒 einem Heap hinzuzufügen, fügen wir 𝑒 als letztes Leaf hinzu (d.h. am Ende des Arrays)
+2. Rekonstruktion der Heap-Eigenschaft
+    * Nach dem Einfügen von 𝑒 ist in der Regel die Heap-Eigenschaft verletzt
+    * Diese wird wiederhergestellt, in dem 𝑒 gemäss derOrdnungsrelation solange mit seinem jeweiligen Parent-Node vertauscht wird, bis sich 𝑒 an der richtigen Position im Heap befindet
