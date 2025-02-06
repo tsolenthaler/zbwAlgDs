@@ -98,10 +98,48 @@ flowchart TD
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
 | 89        | 72      | 18      | 43      | 49      | 15       | 3     | 39     |
 
-### heapEnqueue
+### heapEnqueue 🔴
 
 1. Einfügen eines Elements
     * Um ein Element 𝑒 einem Heap hinzuzufügen, fügen wir 𝑒 als letztes Leaf hinzu (d.h. am Ende des Arrays)
 2. Rekonstruktion der Heap-Eigenschaft
     * Nach dem Einfügen von 𝑒 ist in der Regel die Heap-Eigenschaft verletzt
     * Diese wird wiederhergestellt, in dem 𝑒 gemäss derOrdnungsrelation solange mit seinem jeweiligen Parent-Node vertauscht wird, bis sich 𝑒 an der richtigen Position im Heap befindet
+
+### heapDequeue 🔴
+
+* Prinzip
+    * Entfernen des Root-Node und ersetzen durch den letzten Leaf-Node
+    * Wiederherstellung der Heap-Eigenschaft, indem das neue Root solange abwärts in Richtung Leaf-Level verschoben wird, bis sich dasElement gemäss Ordnungsrelation an der richtigen Position befindet
+    * Beim «abwärts schieben» stehen zwei Child-Nodes zur Auswahl:
+        * Auswahlstrategie bei MinHeap:
+        Ist der abwärts zu verschiebende Node grösser als beide Child-Nodes, dann vertausche ihn mit dem kleineren Child (das danach als Parent-Node des grösseren Childs fungiert)
+        * Auswahlstrategie bei MaxHeap:
+        Ist der abwärts zu verschiebende Node kleiner als beide Child-Nodes, dann vertausche ihn mit dem grösseren Child (das danach als Parent-Node des kleineren Childs fungiert)
+
+### Verwendung von Heaps
+
+* Heaps als Prioritätswarteschlangen (Priorityqueue’s)
+    * Mit Heaps lassen sich Prioritätswarteschlangen effizient realisieren, da sich das Element mit dem höchsten Wert (der höchsten Priorität) automatisch in der Wurzel eines MaxHeaps befinden würde
+* Komplexität
+    * Da Heaps perfekt balanciert sind, lässt sich ein Blatt von der Wurzel aus in O(log n) Schritten erreichen.
+    * Entnehmen der Wurzel aus Heap (= dequeue der Prioritätswarteschlange) benötigt maximal O(log n) Schritte um die Heapeigenschaft zu rekonstruieren.
+    * Einfügen eines Elements in den Heap (= enqueue der Prioritätswarteschlange) benötigt maximal O(log n) Schritte um die Heapeigenschaft zu rekonstruieren.
+* Konsequenz:
+    * Die zwei wesentlichen Operationen der Prioritätswarteschlange laufen in O(log n)
+
+
+* Heaps sind geeignet
+    * für das schnelle Auffinden in O(1) des Minimums (MinHeap) oder Maximums (MaxHeap)
+    * für das schnelle Entnehmen der Wurzel und das schnelle Einfügen eines neuen Knotens in den Heap, da beide Operationen in O(log n) laufen (Worst Case)
+* Heaps sind nicht geeignet
+    * für das Auffinden beliebiger Elemente im Baum, da Komplexität O(n)
+* Heapsort (wird bei den Sortieralgorithmen behandelt)
+
+## Selbststudium
+* Heap
+    * https://en.wikipedia.org/wiki/Heap_(data_structure)
+* Priorityqueue
+    * https://en.wikipedia.org/wiki/Priority_queue
+
+## Aufgaben 🔴
