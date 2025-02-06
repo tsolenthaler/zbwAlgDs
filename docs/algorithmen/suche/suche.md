@@ -1,5 +1,129 @@
 # Suche
 
+## Ziele
+
+- [ ] Ich kennen die zwei grundlegenden Suchalgorithmen
+    - [ ]  LinearSearch
+    - [ ]  BinarySearch
+- [ ] Ich weiss, wie Sie die lineare Suche optimieren können
+- [ ] Ich kennen die Komplexitätsklassen der beiden Algorithmen
+- [ ] Ich weiss, welche Suchalgorithmen das .NET-Framework implementiert
+
+## Grundlagen
+* Suchen ist eine der häufigsten Operationen mit dem Computer
+* Finden der richtigen Informationen in einer Menge von Daten
+    * Name → Mitgliedernummer
+    * Kontonummer (EC-Karte) → Konto
+    * Telefonnummer → Name
+
+### Lineare Suche
+* Sequentielle Suche
+* Start am Anfang der Liste
+* Jedes Element wird geprüft
+
+``` mermaid
+flowchart LR
+    1[Stop] --> 2[Wert gefunden] --> 3[→ erfolgreiche Suche]
+    1[Stop] --> 4[Ende der Liste erreicht] --> 5[→ erfolglose Suche]
+```
+#### Komplexität der linearen Suche
+
+* Best Case
+    * Gesuchter Wert befindet sich an Position 1
+    * 𝑂(1)
+* Worst Case
+    * Gesuchter Wert befindet sich nicht in der Liste
+    * 𝑂(𝑛)
+* Average Case
+    * Um ein Element an der i-ten Position zu finden: i Vergleiche
+    * Durchschnittliche Anzahl Vergleiche
+
+Formel:
+![Formel linearen Suche](formelLineareSuche.png)
+
+#### Lineare Suche mit Sentinel
+
+2 Vergleiche pro Loop
+
+Total 2n Vergleiche
+
+Optimierungspotential?
+
+```C#
+for (var i = 0; i < a.Length; i++) {
+    if (a[i] == searchvalue) {
+        return i;
+    }
+}
+```
+
+#### Lineare Suche in sortiertem Array
+
+* Array nicht sortiert
+    * Worst Case
+        * ganzes Array muss durchlaufen werden
+* Array sortiert
+    * Worst Case
+        * Array muss bis zum ersten Element, welches grösser ist, durchlaufen werden
+* Vergleiche im Falle einer erfolglosen Suche werden reduziert
+
+### Binäre Suche
+
+* Voraussetzung: Sortiertes Array
+* Prinzip: Divide and Conquer
+* Prozedur
+    * Vergleiche den gesuchten Wert mit dem mittleren Element des Arrays
+    * Wenn gleich
+        * Suche erfolgreich
+    * Wenn kleiner
+        * Weiter in der linken Hälfte
+    * Wenn grösser
+        * Weiter in der rechten Hälfte
+* Wiederhole
+* Process stoppt, wenn gefunden oder Teilarray hat Länge 0
+
+#### Komplexität der binären Suche
+
+* Best Case
+    * Gesuchter Wert befindet sich in der Mitte der Liste
+    * 𝑂(1)
+* Worst Case
+    * Gesuchter Wert befindet sich nicht in der Liste
+    * 𝑂(log 𝑛) – Erklärung siehe Slides zu Performance
+* Average Case
+    * 𝑂(log 𝑛) – Die Mathematik ersparen wir uns
+
+* Zusätzlicher Aufwand fürs Sortieren
+    * 𝑂(𝑛 log 𝑛)
+
+#### .NET
+
+* List<T>.BinarySearch(T item)
+    * Liste muss sortiert sein (siehe Dokumentation)
+    * Aufgabe: Was steht hier in idx und wieso?
+
+```C#
+var list = new List<int> { 4, 2, 3, 7, 10, 5 };
+var idx = list.BinarySearch(5);
+```
+
+* List<T>.Sort()
+    * Introsort
+        * Wenn die Grösse der Partition <16 Elemente: Insertionsort
+        * Wenn die Rekursionstiefe von Quicksort >2*log n: Heapsort
+        * Andernfalls: Quicksort
+
+## Selbststudium
+
+* Lesen Sie Kapitel 3.1 in Cordts2014
+* Bearbeiten Sie das Beispiel in Cordts2014 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
+    * Rechtschreibprüfung mit binärer Suche (S. 146ff)
+
+* Linear Search
+    * https://en.wikipedia.org/wiki/Linear_search
+* Binary Search
+    * https://en.wikipedia.org/wiki/Binary_search_algorithm
+
 ## Searching algorithms
 
 | Algorithm            | Best    | Average  | Worst   | Stabile | Worst-case space complexity |

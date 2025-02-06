@@ -72,3 +72,5 @@ public int Count
 * Lesen Sie Kapitel 2.4 in Cordts2023, Lösen Sie die Aufgaben zum Kapitel
 * Bearbeiten Sie das Beispiel in Cordts2023 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Webserver (S. 76ff)
+
+## Aufgaben 🔴
