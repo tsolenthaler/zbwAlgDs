@@ -101,6 +101,7 @@ S = a * (1 - r^n) / (1 - r)  für r ≠ 1
 S = 1* (1 - 2(h+1)) / (1-2)
 
 Erklärung:
+
 * S: Summe der ersten n Terme
 * a: erster Term
 * r: gemeinsamer Faktor (Quotient)
