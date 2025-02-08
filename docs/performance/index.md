@@ -108,3 +108,12 @@ foreach (n1 in werte)
          sum += n1 + n2 + n3;
 ```
 
+####  Komplexität bei Trees
+
+
+| Baumtyp               | Einfügen          | Suchen            | Löschen           | In-Order Traversierung |
+|----------------------|-------------------|-------------------|-------------------|------------------------|
+| **Binärer Search Tree** | O(log n)          | O(log n)          | O(log n)          | O(n)                   |
+|                      | O(n)              | O(n)              | O(n)              |                        |
+| **AVL-Tree**         | O(log n)          | O(log n)          | O(log n)          |                        |
+| **B-Tee**           | O(log n)          | O(log n)          | O(log n)          |                        |
