@@ -484,3 +484,68 @@ Remove(2116)
 Remove(1146)
 
 --> selbe Berechnung für Position / Index
+
+## Aufgaben - Teil 2 🔴
+
+### 1. Aufgabe Hashtable
+Implementieren Sie eine eigene Hashtable. Die Objekte, welche in der Hashtable gespeichert werden, sollen vom Typ Element sein:
+
+```C#
+public class Element {
+    public string Id;
+    public string Name;
+}
+```
+
+Die Hashtable soll folgendes Interface implementieren:
+```C#
+public interface IHashtable {
+    /// <summary>
+    /// Element in der Hashtabelle einfügen
+    /// </summary>
+    /// <param name="e">einzufügendes Element</param>
+    /// <returns>
+    /// true: Element wurde eingefügt;
+    /// false: Hashtabelle voll; Element nicht eingefügt
+    /// </returns>
+    bool Put(Element e);
+
+
+    /// <summary>
+    /// Element in der Hashtabelle suchen
+    /// </summary>
+    /// <param name="id">Schlüssel des zu suchenden Elementes</param>
+    /// <returns>
+    /// gesuchtes Element;
+    /// null-> Element nicht gefunden
+    /// </returns>
+    Element Get(string id);
+
+
+    /// <summary>
+    /// Element in der Hashtabelle löschen
+    /// </summary>
+    /// <param name="id">Schlüssel des zu löschenden Elementes</param>
+    /// <returns>
+    /// true: Element wurde gelöscht;
+    /// false: Element nicht gefunden
+    /// </returns>
+    bool Delete(string id);
+}
+```
+
+Die Hashtable soll «geschlossenes Hashing» verwenden.
+
+### 2. Aufgabe - Crossreferenztabelle
+
+Schreiben Sie ein Programm, welches ein C#-Programm einliest (d.h. *.cs-Datei) und in einer Hashtable alle C#-Keywords dieser Datei speichert. Zudem sollen für jeden Namen die Zeilennummern gespeichert werden, auf denen der Name vorkommt. Diese Zeilennummern sollen in einer einfach verketteten Liste abgelegt werden.
+
+Das Programm muss zudem folgende Funktionen zur Verfügung stellen:
+
+- Ausgabe der gesamten Hashtabelle (alphabetisch sortiert)
+- Ausgabe der Zeilennummern auf welcher ein bestimmter Name vorkommt.
+
+Die Datenstruktur besteht also aus einer Hashtable. Als Schlüssel zur Berechnung der Primärindizes werden die C#-Keywords verwendet. Zur Speicherung der Zeilennummern soll eine einfache verkettete Liste verwendet werden, deren Anker in den Elementen der Hashtable
+enthalten ist. 
+
+Sie können wahlweise Ihre Hashtable oder die .NET-Klasse Hashtable verwenden.
