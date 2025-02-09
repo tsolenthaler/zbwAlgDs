@@ -30,24 +30,34 @@ Zeichnung mit mermaid
 
 Push P
 
+![alt text](stack1.png)
+
 ### Ablauf 2
 
 Push Q
 
+![alt text](stack2.png)
+
 ### Ablauf 3
 
 Push S
+
+![alt text](stack3.png)
 
 ### Ablauf 4
 
 Pop
 Popped Item = S
 
+![alt text](stack4.png)
+
 ### Ablauf 5
 
 Pop
 Popped Item = S
 Popped Item = Q
+
+![alt text](stack5.png)
 
 ## Implementierung
 
