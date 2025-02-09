@@ -175,15 +175,18 @@ public object this[int index] {
 Start --> -|Data|Link --> PrevLink|Data|Link --> PrevLink|Data|Link --> PrevLink|Data|-
 
 Vorteile:
-    * Können in beide Richtungen traversiert werden
-    * Implementierung wird einfacher: Einfügen und Löschen
+
+* Können in beide Richtungen traversiert werden
+* Implementierung wird einfacher: Einfügen und Löschen
 
 Nachteile
-    * Zusätzlicher Speicher
-    * Es muss eine zusätzliche Referenz verwaltet werden
+
+* Zusätzlicher Speicher
+* Es muss eine zusätzliche Referenz verwaltet werden
 
 
 ### Implementierung
+
 * Knoten
 
 ```C#
