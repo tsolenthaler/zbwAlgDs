@@ -47,6 +47,7 @@ Push S
 ### Ablauf 4
 
 Pop
+
 Popped Item = S
 
 ![alt text](stack4.png)
@@ -54,7 +55,9 @@ Popped Item = S
 ### Ablauf 5
 
 Pop
+
 Popped Item = S
+
 Popped Item = Q
 
 ![alt text](stack5.png)
