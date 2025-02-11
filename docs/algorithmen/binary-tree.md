@@ -644,15 +644,7 @@ Lösen des Problems durch:
 
 ## Aufgabe Traversieren 
 
-### Aufgabe 1.
-
-          1
-        /   \
-       2     3
-      / \   / \
-     4   5 6   7
-    / \  / \
-   8  9 10 11
+### 1. Aufgabe
 
 ``` mermaid
 flowchart TD
@@ -668,9 +660,35 @@ flowchart TD
     3 --> 7
 ```
 
+```
+          1
+        /   \
+       2     3
+      / \   / \
+     4   5 6   7
+    / \  / \
+   8  9 10 11
+```
+
 | Traversieren  | Reihenfolge                           |
 | -------       | -----                                 | 
 | In-Order      | 8, 4, 9, 2, 10, 5, 11, 1, 6, 3, 7     |
-| Preorder      | 1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7     |
-| Postorder     | 8, 9, 4, 10, 11, 5, 2, 6, 7, 3, 1     |
+| Pre-Order     | 1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7     |
+| Post-Order    | 8, 9, 4, 10, 11, 5, 2, 6, 7, 3, 1     |
 
+### 2. Aufgabe
+```
+          15
+        /    \
+      10      20
+     /  \    /  \
+    8   12  17   25
+   / \    \
+  6   9   13
+```
+
+| Traversieren  | Reihenfolge                           |
+| -------       | -----                                 | 
+| In-Order      | 6, 8, 9, 10, 13, 12, 15, 17, 20, 25   | 
+| Pre-Order     | 15, 10, 8, 6, 9, 12, 13, 20, 17, 25   |
+| Post-Order    | 6, 9, 8, 13, 12, 10, 17, 25, 20, 15   |
