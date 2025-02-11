@@ -641,3 +641,36 @@ Lösen des Problems durch:
 !!! note
 
     n+1  ==> O(n) =  n1 + n0  // ist gleich
+
+## Aufgabe Traversieren 
+
+### Aufgabe 1.
+
+          1
+        /   \
+       2     3
+      / \   / \
+     4   5 6   7
+    / \  / \
+   8  9 10 11
+
+``` mermaid
+flowchart TD
+    1 --> 2
+    1 --> 3
+    2 --> 4
+    2 --> 5
+    4 --> 8
+    4 --> 9
+    5 --> 10
+    5 --> 11
+    3 --> 6
+    3 --> 7
+```
+
+| Traversieren  | Reihenfolge                           |
+| -------       | -----                                 | 
+| In-Order      | 8, 4, 9, 2, 10, 5, 11, 1, 6, 3, 7     |
+| Preorder      | 1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7     |
+| Postorder     | 8, 9, 4, 10, 11, 5, 2, 6, 7, 3, 1     |
+
