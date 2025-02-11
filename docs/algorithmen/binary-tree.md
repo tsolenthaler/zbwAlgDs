@@ -692,3 +692,19 @@ flowchart TD
 | In-Order      | 6, 8, 9, 10, 13, 12, 15, 17, 20, 25   | 
 | Pre-Order     | 15, 10, 8, 6, 9, 12, 13, 20, 17, 25   |
 | Post-Order    | 6, 9, 8, 13, 12, 10, 17, 25, 20, 15   |
+
+
+### 3. Aufgabe
+Gegebene Traversierungen:
+
+    In-Order: D, B, E, A, F, C
+    Pre-Order: A, B, D, E, C, F
+
+```
+          A
+        /    \
+      B       F
+     /  \      \ 
+    D    E      C
+```
+
