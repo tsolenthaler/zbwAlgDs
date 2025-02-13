@@ -349,32 +349,6 @@ flowchart TD
     8 --> 9
 ```
 
-#### Post-Order
-links → rechts → Node
-
-```C#
-Visit(Node current) {
-    if(current == null) {
-        return;
-    }
-    Visit(current.Left);
-    Visit(current.Right);
-    Process(current.Value);
-}
-```
-
-2 → 4 → 3 → 7 → 9 → 8 → 5
-
-``` mermaid
-flowchart TD
-    5 --> 3
-    5 --> 8
-    3 --> 2
-    3 --> 4
-    8 --> 7
-    8 --> 9
-```
-
 #### In-Order
 
 links → Node → rechts
@@ -391,6 +365,32 @@ Visit(Node current) {
 ```
 
 2 → 3 → 4 → 5 → 7 → 8 → 9
+
+``` mermaid
+flowchart TD
+    5 --> 3
+    5 --> 8
+    3 --> 2
+    3 --> 4
+    8 --> 7
+    8 --> 9
+```
+
+#### Post-Order
+links → rechts → Node
+
+```C#
+Visit(Node current) {
+    if(current == null) {
+        return;
+    }
+    Visit(current.Left);
+    Visit(current.Right);
+    Process(current.Value);
+}
+```
+
+2 → 4 → 3 → 7 → 9 → 8 → 5
 
 ``` mermaid
 flowchart TD
