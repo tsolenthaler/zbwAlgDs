@@ -107,11 +107,38 @@ internal void Balance() {
     * «4» wird Right Child von «2»
     * «3» wird Left Child von «4»
 
-``` mermaid
-flowchart TD
-    2 --> 1
-    2 --> 4
-    4 --> 3
+
+* Baum ist links-lastig
+```
+       4
+      /
+     2
+    / \
+   1  3
+```
+
+* 4 wird Right Child von 2
+
+```
+     2   4
+    / \
+   1  3
+```
+
+* 3 wird Left Child von 4
+```
+     2   4
+    /   /
+   1   3
+```
+
+* 4 wird Right Child von 2
+```
+     2
+    / \
+   1   4
+      /
+     3
 ```
 
 ### Left Rotation

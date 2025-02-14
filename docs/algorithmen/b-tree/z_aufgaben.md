@@ -1,5 +1,26 @@
 ## Aufgaben
 
+### Übungen
+
+#### 1. Aufgabe
+
+Zeichnen Sie den B-Tree 2. Ordnung welcher entsteht, wenn Elemente mit folgenden Schlüsseln
+eingegeben werden:
+
+```
+25, 37, 42, 7, 18, 54, 1, 82, 17, 3, 21, 47, 51, 62, 73, 69, 8, 15, 91, 12, 24, 85
+```
+
+Es sollen alle Schritte sichtbar sein.
+
+#### 2. Aufgabe
+
+Fügen Sie im folgenden B-Tree zuerst das Element 42 ein. Löschen Sie anschliessend die Elemente 28 und 45. Zeichnen Sie nach jeder Operation den entsprechenden Baum.
+
+#### 3. Aufgabe
+
+Mit einem B-Tree sollen 10'000'000 Elemente so gespeichert werden, dass die Page, welches das Element beinhaltet, mit der Durchführung von max. 5 Schritten im B-Tree gefunden werden kann. Berechnen Sie die minimale Anzahl Keys 𝑑 pro Page.
+
 ### Wiederholungsaufgaben
 
 #### 2. Aufgabe
