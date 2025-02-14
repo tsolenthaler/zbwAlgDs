@@ -108,7 +108,7 @@ internal void Balance() {
     * «3» wird Left Child von «4»
 
 
-* Baum ist links-lastig
+* Baum ist links-lastig --> Right Rotation
 ```
        4
       /
@@ -154,12 +154,39 @@ internal void Balance() {
     * «1» wird Left Child von «3»
 
 
-``` mermaid
-flowchart TD
-    3 --> 1
-    3 --> 4
-    1 --> 2
+* Baum ist rechts-lastig --> left Rotation
 ```
+     1
+      \
+       3
+      / \
+     2   4
+```
+
+* 1 wird Linke Höhe von Node 1 ist 0
+* 3 Wird neuer Root-Node
+```
+   1   3
+      / \
+     2   4
+```
+
+* 2 wird Right Child von 1
+```
+   1   3
+    \   \
+     2   4
+```
+
+* 1 wird Left Child von 3
+```
+       3
+     /  \
+    1    4
+     \
+      2
+```
+
 
 ### Left-Right Rotation
 * Right Rotation kann wiederum in einen unbalanced Tree resultieren
@@ -170,11 +197,52 @@ flowchart TD
     * Left Rotation von «1»
     * Right Rotation von «3»
 
-``` mermaid
-flowchart TD
-    2 --> 1
-    2 --> 3
+
+* Right Rotation dreht diesen Baum wieder ins unbalanced!
 ```
+       3
+     / 
+    1    
+     \
+      2
+```
+* Nach Right Rotation
+```
+      1
+       \
+        3 
+       /
+      2
+```
+
+* Lösung --> Left Rotation und Right Rotation = Left-Right Rotation
+* Beispiel
+    * Left Rotation 1
+    * Right Rotation 3
+
+1. Select 1
+```
+       3
+     / 
+    1    
+     \
+      2
+```
+2. Left Rotation von 1
+```
+       3
+     / 
+    2    
+   /
+  1
+```
+3. Right Rotation von 3
+```
+    2    
+   / \
+  1   3
+```
+
 
 ### Right-Left Rotation
 
