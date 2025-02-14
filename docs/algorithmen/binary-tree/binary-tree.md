@@ -2,11 +2,11 @@
 
 ## Ziele
 
-* [ ] Ich weiss, was im Allgemeinen ein Binary Tree ist
+* [x] Ich weiss, was im Allgemeinen ein Binary Tree ist
 * [ ] Ich weiss, was im Speziellen ein Binary Search Tree ist
 * [ ] Ich kann einen Binary Search Tree grafisch aufbauen
 * [ ] Ich kann Elemente suchen und löschen
-* [ ] Ich kann den Baum traversieren
+* [x] Ich kann den Baum traversieren
 
 ## Übersicht
 
