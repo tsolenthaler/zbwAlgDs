@@ -74,6 +74,16 @@ flowchart TD
     7 --> 8
 ```
 
+```
+              5
+           /     \
+          3       9
+         / \     /
+        1   4   7
+                 \
+                  8
+```
+
 Nun werden auf diesem Baum mehrere Baum-Traversierungen durchgeführt und von jedem Knoten die jeweilige 
 Zahl auf die Konsole ausgegeben. 
 Was ist die jeweilige Ausgabe auf der Konsole für
