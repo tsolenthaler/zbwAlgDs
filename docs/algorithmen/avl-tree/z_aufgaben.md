@@ -50,7 +50,9 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 
 * Balancefaktor von 70 ist -2.
 * Double Links-Rotation um 77
-
+* RL(77)?
+      * 1. LL(85)?
+      * 2. RR(77)?
 ```
    70
   /  \
@@ -80,7 +82,9 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 ```
 
 * unausgeglichen / Balancefaktor von 65 ist 2
-* Rechtsrotation um 65.
+* LL(65)?
+* Right Rotation um 63.
+      * 63 Root und 61 left und 65 Right Child
 
 ```
         70
@@ -180,10 +184,11 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 
 * unbalanced --> Double Left Rotation
 * Steps ???
-      * 
-      * 
+      * RL(70)
+      * 1. LL(81)
+      * 2. RR(70)
 
-###### Step 1 - LL Rotation bei 81
+###### Steps
 
 * 77 wird Root
 * 73 wird zum right Child von 70, mit 72.
