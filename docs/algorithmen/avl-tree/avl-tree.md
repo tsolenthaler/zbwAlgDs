@@ -313,7 +313,7 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
 
 ### Beispiel Rotationen
 
-#### Right Rotation
+#### Einfache Rotation - Right
 
 ```
       50
@@ -333,3 +333,40 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
          / \
        23  76
 ```
+#### Doppelte Rotation - Right Left
+
+https://de.wikipedia.org/wiki/AVL-Baum#Doppelrotation
+
+```
+      X
+     /  \
+    t1   Z
+        / \
+       Y  t4
+      / \
+    t2  t3
+```
+
+##### 1. Right Rotation zwischen Y und Z
+```
+      X
+     /  \
+    t1   Y
+        / \
+       t2   Z
+           / \
+         t3   t4
+```
+
+##### 2. Left Rotation zwischen X und Y
+```
+           Y
+        /    \
+       X      Z
+      / \    / \
+    t1  t2  t3  t4
+```
+
+Doppelrotation --> RechtsLinks(X, Z) = Rechts(Z) + Links(X)
+
+![AVL Doppelte Rotation](AVL-double-rl_K.svg)
