@@ -9,7 +9,7 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 70, 77, 65, 85, 83, 63, 61, 81, 82, 80, 73, 72, 75, 60
 ```
 
-##### Start 1.
+##### Start 1. Add 70
 
 ```
 70
@@ -78,6 +78,7 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
  /
 61
 ```
+
 * unausgeglichen / Balancefaktor von 65 ist 2
 * Rechtsrotation um 65.
 
@@ -116,6 +117,7 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 
 * unbalanced --> left Rotation von 81.
 
+
 ```
         70
      /      \
@@ -141,6 +143,7 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 ```
 
 * unbalanced --> Right Rotation von 81
+
 
 ```
         70
@@ -179,6 +182,21 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 * Steps ???
       * 70 zu 77
       * 
+
+###### Step 1 - LL Rotation bei 81
+```
+        70
+     /       \
+    63          81
+   /  \      /     \
+  61   65   77      83
+           / \      / \
+          73  80   82  85
+          /
+         72
+```
+
+###### Abschluss
 
 ```
                77
