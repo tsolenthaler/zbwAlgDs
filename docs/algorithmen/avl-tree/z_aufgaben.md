@@ -142,8 +142,8 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
             80
 ```
 
-* unbalanced --> Right Rotation von 81
-
+* unbalanced --> Right Rotation bei 81
+      * 82 wird zum left Child von 83!
 
 ```
         70
@@ -180,21 +180,14 @@ Entwickeln Sie den entstehenden AVLTree zeichnerisch. Alle durchzuführenden Rot
 
 * unbalanced --> Double Left Rotation
 * Steps ???
-      * 70 zu 77
+      * 
       * 
 
 ###### Step 1 - LL Rotation bei 81
-```
-        70
-     /       \
-    63          81
-   /  \      /     \
-  61   65   77      83
-           / \      / \
-          73  80   82  85
-          /
-         72
-```
+
+* 77 wird Root
+* 73 wird zum right Child von 70, mit 72.
+* 80 wird left Child von 81.
 
 ###### Abschluss
 

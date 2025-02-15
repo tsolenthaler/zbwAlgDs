@@ -309,3 +309,27 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
     * https://en.wikipedia.org/wiki/Tree_rotation
 * Binary Tree
     * https://en.wikipedia.org/wiki/Binary_tree
+
+
+### Beispiel Rotationen
+
+#### Right Rotation
+
+```
+      50
+      / \
+    17  76 
+   / \  
+  9  23 
+```
+
+* Ergebnis der Right Rotation
+    * 23 gehört zu 50!
+
+```
+      17
+      / \
+    9   50
+         / \
+       23  76
+```
