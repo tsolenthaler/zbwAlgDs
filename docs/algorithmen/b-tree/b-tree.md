@@ -128,3 +128,7 @@ flowchart TD
 * B-Tree
     * https://en.wikipedia.org/wiki/B-tree
         * Wichtig: die englische Variante verwenden – die deutsche Variante verwendet eine andere Definition des B-Tree’s
+
+### Hilfe
+
+[B-Tree](https://studyflix.de/informatik/b-baum-1435)
