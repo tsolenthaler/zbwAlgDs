@@ -519,3 +519,12 @@ Doppelrotation --> RechtsLinks(X, Z) = Rechts(Z) + Links(X)
 
 ## Selbststudium
 [AVL Baum Video](https://studyflix.de/informatik/avl-baum-1434)
+
+
+### Rotations Hilfe
+
+Rotation 	BF Oberer Knoten 	BF Unterer Knoten
+Rechts-Rotation 	-2 	-1
+Links-Rotation 	+2 	+1
+Rechts-Links-Rotation 	+2 	-1
+Links-Rechts-Rotation 	-2 	+1
