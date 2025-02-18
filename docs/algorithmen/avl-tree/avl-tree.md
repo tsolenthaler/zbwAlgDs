@@ -378,3 +378,144 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
 Doppelrotation --> RechtsLinks(X, Z) = Rechts(Z) + Links(X)
 
 ![AVL Doppelte Rotation](AVL-double-rl_K.svg)
+
+
+### Balance Faktor (BF)
+
+* Berechnung von unten nach Oben.
+
+* Formel
+    * Höhe (rechterteil Baum) - Höhe (linker Teilbaum)
+
+#### Beispiel
+```
+           7
+        /    \
+       3      24
+      /      / \
+    2       15  42
+```
+
+* 2 = BF 0 --> da keine Kinder
+* 15 = BF 0 --> da keine Kinder
+* 42 = BF 0 --> da keine Kinder
+* 24 = BF 0 --> 1 - 1 = 0
+* 3 = BF -1  --> 0 - 1 = -1
+* 7 = BF 0  --> 1 - 1 = 0
+
+##### Einfügen von 1
+```
+           7
+        /    \
+       3      24
+      /      / \
+    2       15  42
+   /
+  1
+```
+
+--> BF neu berechnen
+
+* 1 = BF 0 --> 1-1 = 0
+* 2 = BF 0 --> 1-0 = -1
+* 15 = BF 0 --> da keine Kinder
+* 42 = BF 0 --> da keine Kinder
+* 24 = BF 0 --> 1 - 1 = 0
+* 3 = BF -2  --> 0 - 2 = -2  --> verletzt die AVL Tree regel --> +/-1
+* 7 = BF -2  --> 2 - 3 = -1
+
+
+##### Rechts Rotation
+--> Rechtsrotation des verletzenden Knoten --> Knoten 3
+
+```
+           7
+        /    \
+       2      24
+      / \     / \
+    1    3   15  42
+```
+
+##### Links Rotation
+
+* Löschen von 15
+* Hinzfügen von 73
+
+```
+           7
+        /    \
+       2      24
+      / \       \
+    1    3       42
+                  \
+                  73
+```
+
+* BF 24 = 2 --> 2 - 0 = 2 --> verletzung der Regel +/-1
+
+```
+           7
+        /    \
+       2      42
+      / \     / \
+    1    3   24  73
+```
+
+
+##### Doppelrotation
+
+* Löschen von 1 und 3
+* Hinzufügen von 15
+
+```
+           7
+        /    \
+       2      42
+              / \
+             24  73
+             /
+            15
+```
+
+* --> unbalanced
+* BF Knoten 7 = 3 - 1 = +2 --> verletzung der Regel
+* BF Knoten 42 = 1 - 2 = -1
+
+###### Rechts Links Rotation
+
+1. Unter Knoten 42 ansehen und Rechts Rotation
+```
+           7
+        /    \
+       2      24
+              / \
+             15  42
+                   \
+                    73
+```
+
+2. Links Rotation
+```
+              24
+           /   | \
+          7   15  42
+          /         \
+        2          73
+```
+
+* !! Geht nicht da nur zwei Kinder möglich sind.
+* Knoten 15 wird zu Right Child von 7
+
+```
+              24
+           /     \
+          7       42
+         / \        \
+        2   15       73
+```
+
+* Fertig
+
+
+## Selbststudium
+[AVL Baum Video](https://studyflix.de/informatik/avl-baum-1434)
