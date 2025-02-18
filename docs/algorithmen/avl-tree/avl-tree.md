@@ -528,3 +528,10 @@ Rechts-Rotation 	-2 	-1
 Links-Rotation 	+2 	+1
 Rechts-Links-Rotation 	+2 	-1
 Links-Rechts-Rotation 	-2 	+1
+
+| Rotation                  |  BF Oberer Knoten      | BF Unterer Knoten   | 
+| -------                   | ----- | ---  | 
+| Rechts-Rotation           | -2    | -1   |
+| Links-Rotation            | +2    | +1   |
+| Rechts-Links-Rotation     | +2    | -1   |
+| Links-Rechts-Rotation     | -2    | +1   |
