@@ -517,7 +517,7 @@ Doppelrotation --> RechtsLinks(X, Z) = Rechts(Z) + Links(X)
 * Fertig
 
 
-## Selbststudium
+## Selbststudium / Hilfe
 [AVL Baum Video](https://studyflix.de/informatik/avl-baum-1434)
 
 
