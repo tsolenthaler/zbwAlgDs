@@ -227,7 +227,7 @@ flowchart TD
 5,10    30,55,66,77
 ``` 
 
-##### Löschen von inneren Knoten - Löschen von 30
+##### Löschen von inneren Knoten - Löschen von 20
 
 ```
                   30
@@ -235,4 +235,49 @@ flowchart TD
         10,20        40,50
     /     |       \
   3,7  12,15,17   23,25
+``` 
+
+* Nur mittlere Knoten 12,15,17, da aus 3 Elmenten besteht.
+
+* Regel
+    * Linker Nachfolger: grösstes Element --> bspw. 17
+        * Der mittlere Knoten ist der Linke Nachfolger der 20. Also wir die 17 (grösstes Element) genommen.
+    * Rechter Nachfolger: kleinstes Element
+
+```
+                  30
+            /         \
+        10,17        40,50
+    /     |       \
+  3,7  12,15    23,25
+``` 
+
+###### Löschen von 17
+```
+                  30
+            /         \
+        10,17        40,50
+    /     |       \
+  3,7  12,15    23,25
+``` 
+
+* verschmelzen
+
+```
+                  30
+            /         \
+        10        40,50
+    /     |       
+  3,7  12,15,23,25
+``` 
+
+* Fehlt noch ein Element im Knoten mit 10.
+* Rechter Nachfolger --> kleinstes Element 12 hochziehen
+
+```
+                  30
+            /         \
+        10,12        40,50
+    /     |       
+  3,7  15,23,25
 ``` 
