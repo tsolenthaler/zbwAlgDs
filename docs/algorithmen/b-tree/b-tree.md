@@ -140,3 +140,99 @@ flowchart TD
 * Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unterschiedliche Strukturen haben und ist oft einfacher, aber weniger effizient bei großen Datenmengen.
 
 * B-Baum: Jeder Knoten kann mehrere Schlüssel und Kinder haben, ist selbstbalancierend und optimiert für die Speicherung und den Zugriff auf große Datenmengen, insbesondere in externen Speichersystemen
+
+
+### Regel
+
+* von unten nach oben
+* Varbiable Anzahl Key pro Blatt (bspw. 2, 4) Begrenzung = minimum 2, maximal 4 Element pro Blatt.
+* Maximale Anzahl an Verweisen = Verzweigungsgrad oder Ordnung --> Verzweigungsgrad - 1 Eleme t
+    * Machmal auch "Ordnung = maxiamle Anzahl an Elementen pro Knoten"
+
+
+#### Beispiel
+
+##### B-Baum der Ordnung 4
+
+``` 
+20, 50, 70
+```
+
+###### Einfügen von 35
+
+``` 
+20, 35, 50, 70
+```
+
+* --> Ordnung 4 wird überschritten
+* aufteilen
+
+```
+    35
+    / \
+   20  50, 70
+``` 
+
+###### Löschen von 15
+
+```
+        20,50
+    /     |      \
+5,10,15  30,40   55,66,77
+``` 
+
+* Ordnung wird nicht verletzt.
+
+```
+        20,50
+    /     |      \
+5,10    30,40   55,66,77
+``` 
+
+###### Löschen von 40
+
+```
+        20,50
+    /     |      \
+5,10    30    55,66,77
+``` 
+
+* Ordnung wird verletzt
+* verschieben
+    * 55 nach oben
+    * 50 zu mitteleren Blatt
+
+```
+        20,55
+    /     |    \
+5,10    30,50  66,77
+``` 
+
+###### Löschen von 50
+
+```
+        20,55
+    /     |    \
+5,10    30    66,77
+``` 
+
+* Ordnung wieder verletzt
+* Knoten verschmelzen
+    * 55 zu rechten Blatt
+    * 30 zu rechten Blatt
+
+```
+       20
+    /      \
+5,10    30,55,66,77
+``` 
+
+##### Löschen von inneren Knoten - Löschen von 30
+
+```
+                  30
+            /         \
+        10,20        40,50
+    /     |       \
+  3,7  12,15,17   23,25
+``` 
