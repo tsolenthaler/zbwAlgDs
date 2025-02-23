@@ -97,6 +97,7 @@ flowchart TD
     A --> C[33 45]
     A --> D[67 86]
 ```
+
 * Wenn kein Element zum Angliedern vorhanden (d.h. P und Q enthalten 2𝑑 − 1 Elemente)
     * Page P und Q werden zusammengelegt und Element wird von Parent runtergezogen (Gegenteil von Einfügen)
 
@@ -132,3 +133,10 @@ flowchart TD
 ### Hilfe
 
 [B-Tree](https://studyflix.de/informatik/b-baum-1435)
+
+
+### Unterschied
+
+* Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unterschiedliche Strukturen haben und ist oft einfacher, aber weniger effizient bei großen Datenmengen.
+
+* B-Baum: Jeder Knoten kann mehrere Schlüssel und Kinder haben, ist selbstbalancierend und optimiert für die Speicherung und den Zugriff auf große Datenmengen, insbesondere in externen Speichersystemen
