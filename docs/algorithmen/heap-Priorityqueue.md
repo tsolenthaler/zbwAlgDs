@@ -142,6 +142,190 @@ flowchart TD
 * Priorityqueue
     * https://en.wikipedia.org/wiki/Priority_queue
 
+
+### Hilfe
+
+[Hilfe](https://studyflix.de/informatik/heap-1440)
+
+### Regel
+
+* Von Oben nach Unten
+* Von Link nach Rechts
+
+
+#### Mini-HEAP
+* Eltern-Knoten immer kleiner oder gleich des Kindsknoten ist.
+
+```
+            2
+        /       \
+      6          9
+    /  \       /  \
+   12  15     18   23
+``` 
+#### Einfügen von 26
+```
+            2
+        /       \
+      6          9
+    /  \       /  \
+   12  15     18   23
+  /
+ 26
+``` 
+#### Einfügen von 12
+```
+            2
+        /       \
+      6          9
+    /  \       /  \
+   12  15     18   23
+  / \
+ 26  10
+``` 
+
+* Heap-Bedingung verletzt --> 12 grösser als 10 
+* tauschen von 10 und 12
+
+```
+            2
+        /       \
+      6          9
+    /  \       /  \
+   10  15     18   23
+  / \
+ 26  12
+``` 
+#### Einfügen von 3
+```
+            2
+        /       \
+      6             9
+    /    \        /  \
+   10     15     18   23
+  / \     /
+ 26  12  3
+``` 
+
+* Heap-Bedingung verletzt --> 3 kleiner als 15 
+* tauschen mit 3 mit 15
+* und tauschen 3 mit 6
+
+```
+            2
+        /       \
+      3             9
+    /    \        /  \
+   10     6     18   23
+  / \     /
+ 26  12  15
+``` 
+
+#### Max-HEAP
+* Umgekehrt von min-Heap
+* Die Werte im Kinds-Knoten müssen kleiner oder gleich des Eltern-Knoten sein.
+
+```
+            60
+        /       \
+      45          55
+    /    \       
+   25     30 
+``` 
+
+#### Löschvorgang
+```
+            2
+        /       \
+      6             9
+    /    \        /  \
+   10     15     18   23
+  / \    
+ 12  26 
+``` 
+##### Löschen von 2 - Einfügen in Speicher
+```
+            
+        /       \
+      6             9
+    /    \        /  \
+   10     15     18   23
+  / \    
+ 12  26 
+``` 
+
+* verwenden des letzten Elements im Hepa --> 26
+
+```
+            26
+        /       \
+      6             9
+    /    \        /  \
+   10     15     18   23
+  /    
+ 12  
+``` 
+
+* tauschen mit kleineren Kindknoten
+
+```
+            6
+        /       \
+      10             9
+    /    \        /  \
+   12     15     18   23
+  /    
+ 26  
+``` 
+##### Löschen von 23 - Einfügen in Speicher
+```
+            6
+        /       \
+      10            9
+    /    \        /  \
+   12     15     18   
+  /    
+ 26  
+``` 
+
+* Baum muss von oben nach unten und von links nach rechts aufgebaut werden
+    * 3 Ebene wieder aufüllen
+
+```
+            6
+        /       \
+      10            9
+    /    \        /  \
+   12     15     18   26 
+``` 
+
+#### Heap als Array
+
+##### Formel
+``` 
+        n
+    /     \
+2x0+1     2x0+2
+``` 
+
+##### Baum
+```
+            2
+        /       \
+      6             9
+    /    \        /  \
+   10     15     18   23
+  / \    
+ 12  26 
+``` 
+
+
+##### Tabelle
+| Element       |  2     | 6   | 9     | 10    | 15   | 18   | 23   | 12   | 26   |
+| -------       | -----  | --- | ----- | ----- | ---- | ---- | ---- | ---- | ---- |
+| Speicherzelle | 0      | 1   | 2     | 3     | 4    | 5    | 6    | 7    | 8    |
+
+
 ## Aufgaben 🔴
 
 ### 1. Aufgabe 🔴
@@ -262,3 +446,4 @@ public bool ContainsKeySentinel(int key) {
 }
 
 ```
+
