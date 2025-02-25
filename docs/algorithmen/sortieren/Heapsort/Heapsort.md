@@ -38,6 +38,101 @@ using System;
 
 class Heapsort
 {
+    public static void Heapsort(int[] A)
+    {
+        // Schritt 1: Erstelle einen Max-Heap
+        BuildHeap(A);
+        AssertIsHeap(A, 0);
+
+        int tmp = A.Length; // Speichere die ursprüngliche Größe des Arrays
+
+        // Schritt 2: Sortiere das Array
+        while (A.Length > 1)
+        {
+            Swap(A, 0, A.Length - 1); // Vertausche das größte Element mit dem letzten Element
+            Array.Resize(ref A, A.Length - 1); // Verringere die Größe des Arrays
+            Heapify(A); // Stelle den Heap wieder her
+            AssertIsHeap(A, 0);
+        }
+
+        // Stelle die ursprüngliche Größe des Arrays wieder her (optional, je nach Bedarf)
+        Array.Resize(ref A, tmp);
+        AssertIsSorted(A);
+    }
+
+    private static void BuildHeap(int[] A)
+    {
+        int n = A.Length;
+        for (int i = n / 2 - 1; i >= 0; i--)
+        {
+            Heapify(A, n, i);
+        }
+    }
+
+    private static void Heapify(int[] A, int n, int i)
+    {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && A[left] > A[largest])
+        {
+            largest = left;
+        }
+
+        if (right < n && A[right] > A[largest])
+        {
+            largest = right;
+        }
+
+        if (largest != i)
+        {
+            Swap(A, i, largest);
+            Heapify(A, n, largest);
+        }
+    }
+
+    private static void Swap(int[] A, int a, int b)
+    {
+        int temp = A[a];
+        A[a] = A[b];
+        A[b] = temp;
+    }
+
+    private static void AssertIsHeap(int[] A, int index)
+    {
+        // Hier könnte eine Implementierung zur Überprüfung der Heap-Eigenschaft stehen
+        // Diese Methode ist nur ein Platzhalter
+    }
+
+    private static void AssertIsSorted(int[] A)
+    {
+        // Hier könnte eine Implementierung zur Überprüfung der Sortierung stehen
+        // Diese Methode ist nur ein Platzhalter
+    }
+
+    // Hauptprogramm zum Testen des Heapsort-Algorithmus
+    public static void Main(string[] args)
+    {
+        int[] array = { 23, 1, 6, 19, 14, 18, 8, 24, 15 };
+        Console.WriteLine("Unsortiertes Array:");
+        Console.WriteLine(string.Join(", ", array));
+
+        Heapsort(array);
+
+        Console.WriteLine("Sortiertes Array:");
+        Console.WriteLine(string.Join(", ", array));
+    }
+}
+```
+
+### Impelmentierung Bottom-Up-Heapsort
+
+```C#
+using System;
+
+class Heapsort
+{
     public static int HeapsortBu(int[] data, int n) // zu sortierendes Feld und seine Länge
     {
         int val, parent, child;
@@ -123,7 +218,6 @@ class Heapsort
         Console.WriteLine($"Anzahl der Vergleiche: {comparisons}");
     }
 }
-
 ```
 
 ## Link
