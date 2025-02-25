@@ -1,5 +1,17 @@
 # Binary Tree Sort
 
+## Prinzip
+
+Bei diesem Algorithmus werden alle zu sortierenden Elemente nacheinander in einen binären Suchbaum eingefügt. Anschließend wird dieser Baum in-order durchlaufen, wobei alle Elemente in sortierter Reihenfolge angetroffen werden.
+
+In seiner ganz elementaren Form ist der Algorithmus nicht stabil. Wird jedoch statt der üblichsten Suchfunktion Find eine Variante genommen, die auch bei vorhandenem Schlüssel entweder rechts- oder linksseitig immer bis zu den Blättern hinab sucht, wird der Sortieralgorithmus stabil. Dies kann mittels einer Vergleichsfunktion geschehen, die bei Gleichheit statt dem Rückgabewert 0 immer nur den Wert +1 oder immer nur den Wert −1 zurückgibt (bei gleicher Suchfunktion) resp. einer angepassten Suchfunktion, wie z. B. FindDupGE. 
+
+## Komplexität
+
+Die durchschnittliche Komplexität beträgt O ( n log ⁡ n ), im Worst Case einer bereits sortierten Liste ist sie jedoch Θ ( n 2 ). Wird statt des unbalancierten ein balancierter binärer Suchbaum genommen, ist die Komplexität auch im Worst Case O ( n log ⁡ n ).
+
+Für den aufzubauenden Suchbaum wird O ( n ) zusätzlicher Speicher benötigt. 
+
 ## Vor- und Nachteile
 Der Algorithmus wird üblicherweise anhand einer existierenden Implementierung zur Verwaltung und Manipulation von binären Bäumen implementiert. Auf dieser Grundlage kann er auf zwei einfache Arbeitsschritte – das Anlegen des Baumes und den in-order-Durchlauf – reduziert werden und damit sehr schnell umgesetzt werden.
 
