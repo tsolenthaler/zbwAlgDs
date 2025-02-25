@@ -73,7 +73,7 @@ Function Bubblesort(Array a) {
 |------------------------|-----------------|-----------------|----------------|--------|-----------------------------|
 | [Binary Tree Sort](Binary-Tree-Sort/Binary-Tree-Sort.md)       | O(n log(n))     | O(n log(n))     | O(n^2)    | ja     | O(n)                        |
 | Bubblesort             | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
-| Bucketsort             | O(n)            | O(n)            | O(n^2)         | (ja) / nein | O(n)                    |
+| [Bucketsort](Bucketsort/Bucketsort.md)             | O(n)            | O(n)            | O(n log(n))         | ja | O(n)                    |
 | Combsort               | O(n log(n))     | O(n^2)          | O(n^2)         | nein   | –                           |
 | Gnomesort              | O(n)            | O(n^2)          | O(n^2)         | ja     | –                           |
 | Heapsort               | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
