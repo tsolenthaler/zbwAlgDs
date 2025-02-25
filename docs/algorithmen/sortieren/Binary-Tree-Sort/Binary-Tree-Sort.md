@@ -12,7 +12,21 @@ Die durchschnittliche Komplexität beträgt O ( n log ⁡ n ), im Worst Case ein
 
 Für den aufzubauenden Suchbaum wird O ( n ) zusätzlicher Speicher benötigt. 
 
-## Vor- und Nachteile
+## Vorteile
+
+* Einfache Implementierung: Der Algorithmus kann auf zwei einfache Arbeitsschritte reduziert werden – das Anlegen des Baumes und den In-Order-Durchlauf – was eine schnelle Umsetzung ermöglicht.
+* Nutzung existierender Implementierungen: Wenn balancierte Suchbäume zur Verfügung stehen, können viele der Nachteile des Binary Tree Sort vermieden werden.
+
+## Nachteile
+
+* Hohe Zeitkomplexität im Worst Case: Im schlimmsten Fall kann die Zeitkomplexität ineffizient sein.
+* Großer Aufwand für Operationen: Die einzelnen Operationen können aufwendig sein, insbesondere bei unbalancierten Bäumen.
+* Zusätzlicher Speicherbedarf: Jeder Knoten benötigt zusätzlichen Speicher für Zeiger auf die Kindknoten.
+* Aufwendige Implementierung: Wenn der Algorithmus von Grund auf neu implementiert werden muss, kann dies im Verhältnis zu seiner Effizienz aufwendig sein.
+* Seltene Anwendung in der Praxis: Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt.
+
+
+### Zusammenfassung
 Der Algorithmus wird üblicherweise anhand einer existierenden Implementierung zur Verwaltung und Manipulation von binären Bäumen implementiert. Auf dieser Grundlage kann er auf zwei einfache Arbeitsschritte – das Anlegen des Baumes und den in-order-Durchlauf – reduziert werden und damit sehr schnell umgesetzt werden.
 
 Gegen ihn spricht die hohe Zeitkomplexität im Worst Case, der große Aufwand für die einzelnen Operationen, der zusätzliche Speicherbedarf sowie die im Verhältnis zu seiner Effizienz aufwendige Implementierung, falls diese von Grund auf neu erfolgen muss.
@@ -20,7 +34,6 @@ Gegen ihn spricht die hohe Zeitkomplexität im Worst Case, der große Aufwand f�
 Stellt die genannte existierende Implementierung allerdings balancierte Suchbäume zur Verfügung, fällt ein Großteil dieser Nachteile weg.
 
 Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt. 
-
 
 
 ### Links
