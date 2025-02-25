@@ -76,7 +76,7 @@ Function Bubblesort(Array a) {
 | [Bucketsort](Bucketsort/Bucketsort.md)             | O(n)            | O(n)            | O(n log(n))         | ja | O(n)                    |
 | Combsort               | O(n log(n))     | O(n^2)          | O(n^2)         | nein   | –                           |
 | Gnomesort              | O(n)            | O(n^2)          | O(n^2)         | ja     | –                           |
-| Heapsort               | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
+| [Heapsort](Heapsort/Heapsort.md)               | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
 | Insertionsort          | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
 | Introsort              | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
 | Merge Insertion        | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | –                           |
