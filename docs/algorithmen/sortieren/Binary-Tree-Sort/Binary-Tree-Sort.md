@@ -35,6 +35,93 @@ Stellt die genannte existierende Implementierung allerdings balancierte Suchbäu
 
 Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt. 
 
+## Implementierung
+
+```C#
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Legt die zu sortierenden Elemente fest
+        string[] zuSortierendeElemente = { "Birne", "Apfel", "Kirsche", "Banane", "Erdbeere", "Zwiebel", "Orange" };
+
+        // Hier wird ein binärer Suchbaum erzeugt
+        BinarySearchTree tree = new BinarySearchTree();
+
+        // In der Schleife werden alle Elemente eingefügt
+        foreach (var element in zuSortierendeElemente)
+        {
+            tree.Insert(element);
+        }
+
+        // Der Baum wird schließlich in-order durchlaufen, und die Knoten werden in dieser Reihenfolge ausgegeben
+        List<string> results = new List<string>();
+        tree.InOrderTraversal(results);
+        Console.WriteLine(string.Join(", ", results));
+    }
+}
+
+public class TreeNode
+{
+    public string Value;
+    public TreeNode Left;
+    public TreeNode Right;
+
+    public TreeNode(string value)
+    {
+        Value = value;
+        Left = null;
+        Right = null;
+    }
+}
+
+public class BinarySearchTree
+{
+    private TreeNode root;
+
+    public void Insert(string value)
+    {
+        root = InsertRec(root, value);
+    }
+
+    private TreeNode InsertRec(TreeNode node, string value)
+    {
+        if (node == null)
+        {
+            return new TreeNode(value);
+        }
+
+        if (string.Compare(value, node.Value) < 0)
+        {
+            node.Left = InsertRec(node.Left, value);
+        }
+        else
+        {
+            node.Right = InsertRec(node.Right, value);
+        }
+
+        return node;
+    }
+
+    public void InOrderTraversal(List<string> results)
+    {
+        InOrderRec(root, results);
+    }
+
+    private void InOrderRec(TreeNode node, List<string> results)
+    {
+        if (node != null)
+        {
+            InOrderRec(node.Left, results);
+            results.Add(node.Value);
+            InOrderRec(node.Right, results);
+        }
+    }
+}
+```
 
 ### Links
 
