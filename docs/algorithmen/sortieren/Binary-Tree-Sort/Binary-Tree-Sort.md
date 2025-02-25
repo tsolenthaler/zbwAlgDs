@@ -8,3 +8,9 @@ Gegen ihn spricht die hohe Zeitkomplexität im Worst Case, der große Aufwand f�
 Stellt die genannte existierende Implementierung allerdings balancierte Suchbäume zur Verfügung, fällt ein Großteil dieser Nachteile weg.
 
 Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt. 
+
+
+
+### Links
+
+* [https://de.wikipedia.org/wiki/Binary_Tree_Sort](https://de.wikipedia.org/wiki/Binary_Tree_Sort)
