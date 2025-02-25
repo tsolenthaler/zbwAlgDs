@@ -38,62 +38,75 @@ using System;
 
 class Heapsort
 {
-    public static void Sort(int[] array)
+    public static int HeapsortBu(int[] data, int n) // zu sortierendes Feld und seine Länge
     {
-        int n = array.Length;
+        int val, parent, child;
+        int root = n >> 1; // erstes Blatt im Baum
+        int count = 0; // Zähler für Anzahl der Vergleiche
 
-        // Schritt 1: Erstelle einen Max-Heap
-        for (int i = n / 2 - 1; i >= 0; i--)
+        while (true)
         {
-            Heapify(array, n, i);
+            if (root > 0) // Teil 1: Konstruktion des Heaps
+            {
+                parent = --root;
+                val = data[root]; // zu versickernder Wert
+            }
+            else if (--n > 0) // Teil 2: eigentliche Sortierung
+            {
+                val = data[n]; // zu versickernder Wert vom Heap-Ende
+                data[n] = data[0]; // Spitze des Heaps hinter den Heap in den sortierten Bereich verschieben
+                parent = 0; // zurück zur Wurzel
+            }
+            else // Heap ist leer; Sortierung beendet
+            {
+                break;
+            }
+
+            while ((child = (parent + 1) << 1) < n) // zweites Kind; Abbruch am Ende des Heaps
+            {
+                if (++count, data[child - 1] > data[child]) // größeres Kind wählen
+                    --child;
+
+                data[parent] = data[child]; // größeres Kind nach oben rücken
+                parent = child; // in der Ebene darunter weitersuchen
+            }
+
+            if (child == n) // ein einzelnes Kind am Heap-Ende ist übersprungen worden
+            {
+                if (++count, data[--child] >= val) // größer als der zu versickernde Wert
+                {
+                    data[parent] = data[child]; // noch nach oben
+                    data[child] = val; // versickerten Wert eintragen
+                    continue;
+                }
+
+                child = parent; // 1 Ebene nach oben zurück
+            }
+            else
+            {
+                if (++count, data[parent] >= val) // das Blatt ist größer als der zu versickernde Wert
+                {
+                    data[parent] = val; // direkt eintragen
+                    continue; // direkt eintragen
+                }
+
+                child = (parent - 1) >> 1; // 2 Ebenen nach oben zurück
+            }
+
+            while (child != root) // maximal zum Ausgangspunkt zurück
+            {
+                parent = (child - 1) >> 1; // den Vergleichswert haben wir bereits nach oben verschoben
+                if (++count, data[parent] >= val) // größer als der zu versickernde Wert
+                    break; // Position gefunden
+
+                data[child] = data[parent]; // Rückverschiebung nötig
+                child = parent; // 1 Ebene nach oben zurück
+            }
+
+            data[child] = val; // versickerten Wert eintragen
         }
 
-        // Schritt 2: Extrahiere Elemente aus dem Heap
-        for (int i = n - 1; i > 0; i--)
-        {
-            // Verschiebe das aktuelle Wurzelelement (größtes Element) ans Ende
-            Swap(array, 0, i);
-
-            // Rufe Heapify auf den reduzierten Heap auf
-            Heapify(array, i, 0);
-        }
-    }
-
-    // Hilfsfunktion, um einen Teil des Heaps zu erstellen
-    private static void Heapify(int[] array, int n, int i)
-    {
-        int largest = i; // Initialisiere das größte Element als Wurzel
-        int left = 2 * i + 1; // Linkes Kind
-        int right = 2 * i + 2; // Rechtes Kind
-
-        // Wenn das linke Kind größer ist als die Wurzel
-        if (left < n && array[left] > array[largest])
-        {
-            largest = left;
-        }
-
-        // Wenn das rechte Kind größer ist als das größte bisher
-        if (right < n && array[right] > array[largest])
-        {
-            largest = right;
-        }
-
-        // Wenn das größte Element nicht die Wurzel ist
-        if (largest != i)
-        {
-            Swap(array, i, largest);
-
-            // Rekursiv Heapify den betroffenen Teilbaum
-            Heapify(array, n, largest);
-        }
-    }
-
-    // Hilfsfunktion zum Vertauschen von zwei Elementen im Array
-    private static void Swap(int[] array, int a, int b)
-    {
-        int temp = array[a];
-        array[a] = array[b];
-        array[b] = temp;
+        return count; // Anzahl der Vergleiche zurückgeben
     }
 
     // Hauptprogramm zum Testen des Heapsort-Algorithmus
@@ -103,12 +116,14 @@ class Heapsort
         Console.WriteLine("Unsortiertes Array:");
         Console.WriteLine(string.Join(", ", array));
 
-        Sort(array);
+        int comparisons = HeapsortBu(array, array.Length);
 
         Console.WriteLine("Sortiertes Array:");
         Console.WriteLine(string.Join(", ", array));
+        Console.WriteLine($"Anzahl der Vergleiche: {comparisons}");
     }
 }
+
 ```
 
 ## Link
