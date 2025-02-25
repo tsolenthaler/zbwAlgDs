@@ -24,6 +24,9 @@ Das Verfahren arbeitet also out-of-place.
 * Komplexität der Implementierung: Die Implementierung kann komplexer sein als bei anderen Sortieralgorithmen, insbesondere wenn mehrere Sortierstufen (Sub-Buckets) erforderlich sind.
 * Eingeschränkte Anwendbarkeit: Bucketsort ist am effektivsten für Daten, die in einem bestimmten Intervall liegen und gleichmäßig verteilt sind, was seine Anwendbarkeit einschränken kann.
 
+## Anwendung?
+
+## Impelementierung?
 
 ## Links
 

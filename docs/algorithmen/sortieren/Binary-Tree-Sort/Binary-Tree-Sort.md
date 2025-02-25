@@ -35,6 +35,8 @@ Stellt die genannte existierende Implementierung allerdings balancierte Suchbäu
 
 Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt. 
 
+## Anwendung?
+
 ## Implementierung
 
 ```C#
