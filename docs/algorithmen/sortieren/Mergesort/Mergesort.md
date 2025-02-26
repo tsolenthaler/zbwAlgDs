@@ -1,23 +1,26 @@
 # Mergesort
 
-## Vorteile:
+## Vorteile
 
-* Stabile Sortierung: Mergesort ist ein stabiler Sortieralgorithmus, was bedeutet, dass die relative Reihenfolge von gleichen Elementen beibehalten wird.
+* Stabile Sortierung: Mergesort ist ein stabiler Sortieralgorithmus, was bedeutet, dass die relative Reihenfolge von gleichen Elementen beibehalten wird. Dies ist besonders wichtig in Anwendungen, bei denen die Stabilität der Sortierung erforderlich ist.
 
-* Effiziente Zeitkomplexität: Die Zeitkomplexität von Mergesort beträgt O(n log n) im besten, schlechtesten und durchschnittlichen Fall, was ihn zu einem der effizientesten Sortieralgorithmen macht.
+* Effiziente Zeitkomplexität: Die Zeitkomplexität von Mergesort beträgt O(n log n) in allen Fällen (Worst-, Best- und Average-Case). Dies macht ihn hinsichtlich der Komplexität Quicksort überlegen, insbesondere da Quicksort im Worst-Case eine Komplexität von Θ(n²) aufweist.
 
-* Geeignet für große Datenmengen: Mergesort kann effizient mit großen Datenmengen umgehen, insbesondere wenn die Daten nicht in den Speicher passen, da er auch auf externen Speichermedien (wie Festplatten) gut funktioniert.
+* Geeignet für große Datenmengen: Mergesort kann effizient mit großen Datenmengen umgehen, da er auch auf externen Speichermedien gut funktioniert. Dies ist besonders vorteilhaft, wenn die Daten nicht vollständig im Hauptspeicher gehalten werden können.
 
-* Parallele Verarbeitung: Mergesort lässt sich gut parallelisieren, was bedeutet, dass er auf Mehrkernprozessoren effizienter ausgeführt werden kann.
+* Rekursive Struktur: Die rekursive Natur von Mergesort ermöglicht eine klare und elegante Implementierung, die leicht zu verstehen ist. Die Aufteilung der Daten in kleinere Teillisten und deren anschließende Zusammenführung ist intuitiv.
 
-## Nachteile:
+* Korrektheit und Terminierung: Der Rekursionsabbruch stellt sicher, dass der Algorithmus terminieren kann, und die Korrektheit wird durch die strukturierte Zusammenführung der sortierten Teillisten gewährleistet.
 
-* Zusätzlicher Speicherbedarf: Mergesort benötigt zusätzlichen Speicherplatz, um die temporären Arrays für die Zusammenführung zu speichern. Der Speicherbedarf beträgt O(n), was bei großen Datenmengen problematisch sein kann.
+## Nachteile
 
-* Langsamere Ausführung für kleine Datensätze: Für kleine Datensätze kann Mergesort langsamer sein als einfachere Algorithmen wie Insertion Sort oder Selection Sort, da der Overhead für das Teilen und Zusammenführen nicht gerechtfertigt ist.
+* Zusätzlicher Speicherbedarf: Mergesort benötigt zusätzlichen Speicherplatz, um die temporären Arrays für die Zusammenführung zu speichern, was O(n) an zusätzlichem Speicher erfordert. Dies kann bei großen Datenmengen problematisch sein, da es nicht als In-place-Verfahren gilt.
 
-* Komplexität der Implementierung: Mergesort ist im Vergleich zu einfacheren Sortieralgorithmen komplexer zu implementieren, insbesondere wenn man die Stabilität und Effizienz im Auge behalten möchte.
+* Langsame Ausführung für kleine Datensätze: Für kleine Datensätze kann Mergesort langsamer sein als einfachere Algorithmen wie Insertion Sort oder Selection Sort, da der Overhead für das Teilen und Zusammenführen nicht gerechtfertigt ist.
 
+* Komplexität der Implementierung: Obwohl die rekursive Struktur von Mergesort klar ist, kann die Implementierung des Merge-Schrittes komplex sein, insbesondere wenn man die Stabilität und Effizienz im Auge behalten möchte.
+
+* Nicht in-place bei Arrays: Mergesort arbeitet in der Regel nicht in-place bei Arrays, was bedeutet, dass zusätzliche Datenstrukturen benötigt werden, um die Sortierung durchzuführen. Dies kann die Effizienz in Bezug auf den Speicherverbrauch beeinträchtigen.
 
 ## Anwendung
 
