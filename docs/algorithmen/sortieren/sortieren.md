@@ -20,7 +20,7 @@ Bsp: Personen werden alphabetisch nach Name sortiert. Anschliessend nach Geburts
 
 ![Sorterien mit Stabilen oder Instabilen Algorithmus](sortieren-stabile-instabile.png)
 
-### In-Place
+### In-Place / Speicherplatz
 
 * In-Place heisst, dass man keine neue Sequenz füllt, sondern in der alten die beteiligten Elemente vertauscht/rotiert. Man arbeitet also mit konstantem Speicheroverhead
     * Praxis: Man will i.d.R. einfach nur die Daten sortieren. Dabei spielt dann die unsortierte Oirginalmenge keine Rolle. Daraus folgt „ich benötige diese nicht im Speicher, also tue ich das auch nicht.“ - Ausnahme ist, wenn das Orginal bestehen bleiben muss.
@@ -92,4 +92,34 @@ Function Bubblesort(Array a) {
 | OddEventsort           | O(n)            | O(n^2)          | ?              | –      | O(1)                        |
 | Cyclesort              | O(n^2)          | O(n^2)          | O(n^2)         | nein   | O(n) total, O(1) mit Hilfsmittel |
 
+## Stabilität
 
+* stabil
+    * Beispiel: Geburtsjahr und dann der Name nach ABC sortiert
+    * Sortieralgorihtmen
+        * Bubblesort
+        * Insertonsort
+        * Mergesort
+        * Radixsort
+* instabil
+    * Beispiel: Nach Geburtsjahr sortiert, aber der Name muss nicht nach ABC sortiert sein.
+    * Sortieralgorihtmen
+        * Quicksort
+        * Selectionsort
+        * Heapsort
+
+
+## Komplexität
+
+* Zeit- / Laufzeitkomplexität
+    * Best Case --> bester Fall
+    * Average Case --> 
+    * Worst Case --> Schlechtester Fall
+* Platzkomplexität
+    * unabhängig --> In-Place --> konstant --> O(1)
+    * abhängig --> Out-of-Place --> benötigen mehr Speicherplatz
+
+## Links
+
+* [https://de.wikipedia.org/wiki/Sortierverfahren](https://de.wikipedia.org/wiki/Sortierverfahren)
+* [https://studyflix.de/informatik/sortieralgorithmen-1337](https://studyflix.de/informatik/sortieralgorithmen-1337)

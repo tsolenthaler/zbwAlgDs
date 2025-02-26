@@ -124,3 +124,4 @@ class Program
 ## Links
 
 * [https://de.wikipedia.org/wiki/Quicksort](https://de.wikipedia.org/wiki/Quicksort)
+* [https://studyflix.de/informatik/quicksort-1322](https://studyflix.de/informatik/quicksort-1322)
