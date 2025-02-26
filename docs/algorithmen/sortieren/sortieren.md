@@ -80,7 +80,7 @@ Function Bubblesort(Array a) {
 | Insertionsort          | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
 | [Introsort] 🔴              | O(n log(n))     | O(n log(n))     | O(n log(n))    | nein   | –                           |
 | Merge Insertion        | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | –                           |
-| [Mergesort] 🔴             | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | Implementierung auf verketteter Liste: in-place, übliche Implementierungen (auf Array): O(n), Es gibt in-place auf Array, jedoch dann Zeitkomplex. = n * (log n) * (log n) |
+| [Mergesort](Mergesort/Mergesort.md)             | O(n log(n))     | O(n log(n))     | O(n log(n))    | ja     | Implementierung auf verketteter Liste: in-place, übliche Implementierungen (auf Array): O(n), Es gibt in-place auf Array, jedoch dann Zeitkomplex. = n * (log n) * (log n) |
 | Natural Mergesort      | O(n)            | O(n log(n))     | O(n log(n))    | ja     | –                           |
 | [Quicksort](Quicksort/Quicksort.md)            | O(n log(n))     | O(n log(n))     | O(n^2)         | nein   | O(n log(n)), übliche Implementierungen benötigen meist mehr |
 | [Selectionsort] 🔴         | O(n^2)          | O(n^2)          | O(n^2)         | nein   | –                           |
