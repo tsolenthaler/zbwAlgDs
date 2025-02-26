@@ -119,3 +119,8 @@ class Program
     }
 }
 ```
+
+
+## Links
+
+* [https://de.wikipedia.org/wiki/Quicksort](https://de.wikipedia.org/wiki/Quicksort)
