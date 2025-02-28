@@ -125,3 +125,4 @@ class Program
 
 * [https://de.wikipedia.org/wiki/Quicksort](https://de.wikipedia.org/wiki/Quicksort)
 * [https://studyflix.de/informatik/quicksort-1322](https://studyflix.de/informatik/quicksort-1322)
+* [Wikibooks](https://de.wikibooks.org/wiki/Algorithmensammlung:_Sortierverfahren:_Quicksort#C#)
