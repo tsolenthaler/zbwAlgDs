@@ -224,3 +224,4 @@ class Heapsort
 
 * [https://de.wikipedia.org/wiki/Heapsort](https://de.wikipedia.org/wiki/Heapsort)
 * [https://studyflix.de/informatik/heapsort-1326](https://studyflix.de/informatik/heapsort-1326)
+* [Wikibooks](https://de.wikibooks.org/wiki/Algorithmensammlung:_Sortierverfahren:_Heapsort#C#)
