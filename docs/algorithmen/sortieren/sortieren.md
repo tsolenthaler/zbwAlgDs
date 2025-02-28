@@ -85,7 +85,7 @@ Function Bubblesort(Array a) {
 | [Quicksort](Quicksort/Quicksort.md)            | O(n log(n))     | O(n log(n))     | O(n^2)         | nein   | O(n log(n)), übliche Implementierungen benötigen meist mehr |
 | [Selectionsort](Selectionsort/Selectionsort.md)         | O(n^2)          | O(n^2)          | O(n^2)         | nein   | –                           |
 | Shakersort (Cocktailsort) | O(n)         | O(n^2)          | O(n^2)         | ja     | –                           |
-| [Shellsort] 🔴             | O(n log(n)^2)   | O(n log(n)^2)   | O(n log(n)^2)  | nein   | –                           |
+| [Shellsort](Shellsort/Shellsort.md)  | O(n log(n))   | O(n^(3/2))   | O(n^2)  | nein   | –                           |
 | Smoothsort             | O(n)            | O(n log(n))     | O(n log(n))    | nein   | –                           |
 | Timsort                | O(n)            | O(n log(n))     | O(n log(n))    | ja     | –                           |
 | Pigeonholesort         | O(N+n)          | –               | –              | ja     | –                           |

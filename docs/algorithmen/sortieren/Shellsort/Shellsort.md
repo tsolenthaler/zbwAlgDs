@@ -37,7 +37,77 @@
 
 ## Anwendung
 
+## Einsatzbereiche von Shellsort:
+
+* Kleine bis mittelgroße Datensätze: Shellsort eignet sich gut für die Sortierung von kleinen bis mittelgroßen Datenmengen, da die Implementierung einfach ist und der Algorithmus in der Regel schneller als einfachere Sortieralgorithmen wie Insertion Sort oder Bubble Sort arbeitet.
+
+* Fast sortierte Daten: Der Algorithmus zeigt eine besonders gute Leistung, wenn die Daten bereits teilweise sortiert sind. In solchen Fällen kann die Laufzeit erheblich reduziert werden.
+
+* In-Place-Sortierung: Da Shellsort in-place arbeitet und nur einen minimalen zusätzlichen Speicher benötigt, ist er nützlich in Umgebungen, in denen der Speicher begrenzt ist.
+
+* Einfache Implementierung: Aufgrund der relativ einfachen Implementierung kann Shellsort in Anwendungen eingesetzt werden, in denen eine schnelle und unkomplizierte Sortierlösung benötigt wird.
+
+## Abgrenzung von Shellsort:
+
+* Nicht stabil: Shellsort ist kein stabiler Sortieralgorithmus, was bedeutet, dass die relative Reihenfolge von gleichen Elementen nicht garantiert ist. Dies kann in Anwendungen problematisch sein, in denen die Stabilität der Sortierung wichtig ist.
+
+* Schlechtere Worst-Case-Leistung: Im Vergleich zu effizienteren Algorithmen wie Quicksort oder Mergesort hat Shellsort im schlimmsten Fall eine Laufzeit von O(n^2). Daher ist er nicht die beste Wahl für sehr große Datensätze oder in Situationen, in denen die Leistung entscheidend ist.
+
+* Abhängigkeit von der Gap-Sequenz: Die Leistung von Shellsort hängt stark von der Wahl der Gap-Sequenz ab. Eine suboptimale Wahl kann die Effizienz des Algorithmus erheblich beeinträchtigen, was ihn weniger flexibel macht als einige andere Sortieralgorithmen.
+
+* Einsatz in speziellen Anwendungen: Shellsort wird oft in speziellen Anwendungen eingesetzt, wo die oben genannten Einschränkungen akzeptabel sind, und wo die Vorteile der In-Place-Sortierung und der einfachen Implementierung überwiegen
+
 ## Implementierung
+
+```C#
+using System;
+
+class Program
+{
+    static void Shellsort(int[] a, int n)
+    {
+        int i, j, k, h, t;
+
+        // Gap-Sequenz
+        int[] spalten = { 2147483647, 1131376761, 410151271, 157840433,
+                          58548857, 21521774, 8810089, 3501671, 
+                          1355339, 543749, 213331, 84801, 
+                          27901, 11969, 4711, 1968, 815, 
+                          271, 111, 41, 13, 4, 1 };
+
+        for (k = 0; k < spalten.Length; k++)
+        {
+            h = spalten[k];
+            // Sortiere die "Spalten" mit Insertionsort
+            for (i = h; i < n; i++)
+            {
+                t = a[i];
+                j = i;
+                while (j >= h && a[j - h] > t)
+                {
+                    a[j] = a[j - h];
+                    j = j - h;
+                }
+                a[j] = t;
+            }
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        int[] array = { 5, 2, 9, 1, 5, 6 };
+        int n = array.Length;
+
+        Console.WriteLine("Unsortiertes Array:");
+        Console.WriteLine(string.Join(", ", array));
+
+        Shellsort(array, n);
+
+        Console.WriteLine("Sortiertes Array:");
+        Console.WriteLine(string.Join(", ", array));
+    }
+}
+```
 
 ## Links
 
