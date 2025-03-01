@@ -1,5 +1,13 @@
 # Bubblesort
 
+* Array paarweise druchlaufe
+* Vergleich von immer zwei Elemente (Bubble) --> allenfalls Tauschen
+* mehrere Durchläufe
+* Laufzeit
+    * Average-Case --> O(n^2)
+    * Worst-Case --> O(n^2) --> weil Paare verglichen werden müssen
+    * Best-Case --> O(n) --> Wenn das Array bereits nach dem Kriterien soritert ist (bspw. der grösse nach)
+
 ## Vorteile von Bubblesort:
 
 * Einfachheit: Bubblesort ist leicht zu verstehen und zu implementieren. Dies macht ihn zu einem guten Lehrwerkzeug für grundlegende Konzepte des Sortierens und der Algorithmusanalyse.
@@ -176,3 +184,4 @@ class Program
 
 * [Wikipedia](https://de.wikipedia.org/wiki/Bubblesort)
 * [https://studyflix.de/informatik/bubblesort-1325](https://studyflix.de/informatik/bubblesort-1325)
+* [https://studyflix.de/informatik/bubblesort-klausuraufgabe-1684](https://studyflix.de/informatik/bubblesort-klausuraufgabe-1684)

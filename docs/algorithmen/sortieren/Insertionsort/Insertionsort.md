@@ -1,5 +1,15 @@
 # Insertionsort
 
+* Stabil
+* Prinzip: Sortieren durch Einfügen
+* Laufzeit: 
+    * Abhängig von:
+        * Anzahl verschiebungen
+        * Anordnung der Element
+    * Average Case - O(n^2)
+    * Worst Case - O(n^2)
+    * Bet-Case - O(n) --> Liste ist Vorsortiert
+
 ## Vorteile von Insertionsort:
 
 * Einfachheit der Implementierung: Insertionsort ist leicht zu verstehen und zu implementieren, was es zu einer guten Wahl für einfache Sortieraufgaben macht.
