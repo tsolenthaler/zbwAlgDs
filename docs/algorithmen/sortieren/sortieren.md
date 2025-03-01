@@ -72,7 +72,7 @@ Function Bubblesort(Array a) {
 | Sortierverfahren       | Best-Case       | Average-Case    | Worst-Case     | Stabil | Zusätzlicher Speicherbedarf |
 |------------------------|-----------------|-----------------|----------------|--------|-----------------------------|
 | [Binary Tree Sort](Binary-Tree-Sort/Binary-Tree-Sort.md)       | O(n log(n))     | O(n log(n))     | O(n^2)    | ja     | O(n)                        |
-| Bubblesort             | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
+| [Bubblesort](Bubblesort/Bubblesort.md)             | O(n)            | O(n^2)          | O(n^2)         | ja     | O(1)                        |
 | [Bucketsort](Bucketsort/Bucketsort.md)             | O(n)            | O(n)            | O(n^2)         | ja | O(n)                    |
 | Combsort               | O(n log(n))     | O(n^2)          | O(n^2)         | nein   | –                           |
 | Gnomesort              | O(n)            | O(n^2)          | O(n^2)         | ja     | –                           |

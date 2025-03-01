@@ -12,15 +12,15 @@
 
 | Sortierverfahren | BestCase       | AverageCase    | WorstCase      | stabil |
 |------------------|----------------|----------------|----------------|--------|
-| Bubblesort       | 𝑂(𝑛)          | 𝑂(𝑛²)         | 𝑂(𝑛²)         | ja     |
-| Bucketsort       | 𝑂(𝑛)          | 𝑂(𝑛)          | 𝑂(𝑛²)         | (ja)   |
-| Heapsort         | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | nein   |
-| Insertionsort    | 𝑂(𝑛)          | 𝑂(𝑛²)         | 𝑂(𝑛²)         | ja     |
-| Introsort        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | nein   |
-| Mergesort        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | ja     |
-| Quicksort        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛²)         | nein   |
-| Selectionsort    | 𝑂(𝑛²)         | 𝑂(𝑛²)         | 𝑂(𝑛²)         | nein   |
-| Shellsort        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛¹.²⁵)      | 𝑂(𝑛¹.⁵)       | nein   |
+| [Bubblesort](Bubblesort/Bubblesort.md)       | 𝑂(𝑛)          | 𝑂(𝑛²)         | 𝑂(𝑛²)         | ja     |
+| [Bucketsort](Bucketsort/Bucketsort.md)       | 𝑂(𝑛)          | 𝑂(𝑛)          | 𝑂(𝑛²)         | (ja)   |
+| [Heapsort](Heapsort/Heapsort.md)         | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | nein   |
+| [Insertionsort](Insertionsort/Insertionsort.md)    | 𝑂(𝑛)          | 𝑂(𝑛²)         | 𝑂(𝑛²)         | ja     |
+| [Introsort](Introsort/Introsort.md)        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | nein   |
+| [Mergesort](Mergesort/Mergesort.md)        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | ja     |
+| [Quicksort](Quicksort/Quicksort.md)        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛²)         | nein   |
+| [Selectionsort](Selectionsort/Selectionsort.md)    | 𝑂(𝑛²)         | 𝑂(𝑛²)         | 𝑂(𝑛²)         | nein   |
+| [Shellsort](Shellsort/Shellsort.md)        | 𝑂(𝑛 log 𝑛)    | 𝑂(𝑛¹.²⁵)      | 𝑂(𝑛¹.⁵)       | nein   |
 
 
 ## Zusammenfassung
