@@ -31,4 +31,35 @@
     * Verteilung der Daten
     * Vorsortiert (z.B. Bubblesort ist bei Einsortierung eines Elements schneller als Mergesort oder Quicksort)
 
-### SORTIEREN MIT .NET
+## SORTIEREN MIT .NET
+
+### Collections sortieren
+
+* List<T>.Sort(), ArrayList.Sort()
+    * verwendet Array.Sort()
+    * Introsort
+        * Wenn die Grösse der Partition <16 Elemente: Insertionsort
+            * -> Wieso?
+        * Wenn die Rekursionstiefe des Quicksorts >2*log n: Heapsort
+            * -> Wieso?
+        * Andernfalls: Quicksort
+    * instabiles Verfahren
+    * Elemente müssen das Interface IComparable implementieren. So können auch beliebige Objekte sortiert werden
+    * Überladung, bei der IComparer-Objekt übergeben werden kann. Dann wird dieser verwendet anstatt Icomparable
+
+### Collections sortieren
+
+* SortedList<TKey, TValue>(), SortedDictionary<TKey, TValue>()
+    * Sortiert nach Key anhand IComparer<TKey>
+
+### LINQ 🔴
+
+### Üben!! 🔴
+
+* BubbleSort
+* MergeSort parallel ausführen
+
+### Aufgabe
+* Implementieren Sie eine Klasse Person mit den Eigenschaften Name, Vorname und Grösse
+* Erstellen sie eine Liste von verschiedenen Personen
+* Wenden Sie List<Person>.Sort() an: Sortieren Sie einmal nach Name+Vorname und einmal nach Grösse
