@@ -133,6 +133,15 @@ var idx = list.BinarySearch(5);
 | Binary search tree   | O(1)    | O(log n) | O(n)    |         |                             |
 | Hashing              | O(1)    | O(1)     | O(n)    |         |                             |
 
+## Links
+
+* Linear Search
+    * [https://de.wikipedia.org/wiki/Lineare_Suche](https://de.wikipedia.org/wiki/Lineare_Suche)
+    * [https://www.studysmarter.de/schule/informatik/algorithmen-und-datenstrukturen/suchalgorithmen/](https://www.studysmarter.de/schule/informatik/algorithmen-und-datenstrukturen/suchalgorithmen/)
+* Binäre Suche
+    * https://en.wikipedia.org/wiki/Binary_search_algorithm
+    * [Binary search](https://studyflix.de/informatik/binaerer-suchbaum-1364)
+    * [https://www.studysmarter.de/schule/informatik/algorithmen-und-datenstrukturen/binaere-suche/](https://www.studysmarter.de/schule/informatik/algorithmen-und-datenstrukturen/binaere-suche/)
 
 
 ### Linear search 
