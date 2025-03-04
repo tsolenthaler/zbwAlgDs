@@ -6,7 +6,7 @@ hide:
   #- toc
 ---
 
-# Hashtable 🟢
+# Hashtable
 
 ## Ziele
 
@@ -237,9 +237,9 @@ public class Person {
 * Bearbeiten Sie das Beispiel in Cordts2018 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Maschinelle Lernverfahren – 1-Rule Klassifizierer (S. 97ff)
 
-### Aufgaben
+## Aufgaben
 
-#### 1. Aufgabe
+#### 1. Aufgabe 🟢
 Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu: 
 
 * a) geschlossene Adressierung 
