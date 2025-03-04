@@ -6,14 +6,14 @@ hide:
   #- toc
 ---
 
-# Hashtable
+# Hashtable 🟢
 
 ## Ziele
 
 - [x] Ich weiss, was eine Hashtable ist
 - [x] Ich weiss, was eine Hash-Funktion ist
-- [ ] Ich kennen die Eigenschaften einer Hash-Funktion
-- [ ] Ich weiss, wie mit Kollisionen beim Hinzufügen umgegangen werden kann
+- [x] Ich kennen die Eigenschaften einer Hash-Funktion
+- [x] Ich weiss, wie mit Kollisionen beim Hinzufügen umgegangen werden kann
 
 ### Übungen 
 
@@ -34,7 +34,6 @@ int index = GetIndex(Jane.Name)
 _array[index] = Jane;
 ```
 
-
 ### Hashing Übersicht
 * Hashing erzeugt zu einem beliebigen Input einen Wert einer fixen Grösse und Typ (z.B. Int32)
 * Stabil
@@ -46,6 +45,16 @@ _array[index] = Jane;
 * Sicher
     * Der Aufwand um zu einem Hashwert den Datenwert zu finden, soll so hoch sein, dass es «unmöglich» wird
 
+### Hashtabel Eigenschaften - Zusammengefasst
+
+* Schlüssel-Wert-Paare: Ein Hashtable speichert Daten in Form von Schlüssel-Wert-Paaren. Jeder Schlüssel ist eindeutig und wird verwendet, um den entsprechenden Wert zu identifizieren.
+* Schneller Zugriff: Der Zugriff auf die Werte erfolgt in der Regel in konstanter Zeit (O(1)), was bedeutet, dass die Zeit, die benötigt wird, um einen Wert zu finden, unabhängig von der Anzahl der gespeicherten Elemente ist.
+* Hash-Funktion: Ein Hashtable verwendet eine Hash-Funktion, um den Schlüssel in einen Hash-Wert umzuwandeln, der dann als Index für die Speicherung des Wertes im Array dient. Eine gute Hash-Funktion minimiert Kollisionen.
+* Kollisionen: Wenn zwei Schlüssel denselben Hash-Wert erzeugen, spricht man von einer Kollision. Hashtables verwenden verschiedene Techniken zur Behandlung von Kollisionen, wie z.B. Verkettung (Chaining) oder offene Adressierung.
+* Dynamische Größe: Viele Implementierungen von Hashtables können ihre Größe dynamisch anpassen, um die Effizienz zu erhalten. Wenn die Anzahl der Elemente einen bestimmten Schwellenwert überschreitet, kann die Hashtable vergrößert und die Elemente neu verteilt werden.
+* Unordnung: Die Elemente in einem Hashtable sind nicht in einer bestimmten Reihenfolge gespeichert. Der Zugriff auf die Elemente erfolgt über die Schlüssel, nicht über die Reihenfolge.
+* Speicherverbrauch: Hashtables können mehr Speicher benötigen als andere Datenstrukturen, da sie oft Platz für zukünftige Elemente reservieren, um Kollisionen zu minimieren.
+* Thread-Sicherheit: Standard-Hashtables sind in der Regel nicht thread-sicher. Für den Einsatz in multithreaded Umgebungen sind spezielle Implementierungen oder Synchronisationsmechanismen erforderlich.
 
 ### String Hashing
 
@@ -221,17 +230,16 @@ public class Person {
 }
 ```
 
-# Selbststudium
+## Selbststudium
 
 * Lesen Sie Kapitel 2.5 in Cordts2018, Lösen Sie die Aufgaben zum Kapitel (mindestens Aufgabe 1 und 2)
     * Errata: Bei Aufgabe 1 ist nicht «Methode HashtableLinearProbing» gemeint sondern «Klasse HashtableLinearProbing»
 * Bearbeiten Sie das Beispiel in Cordts2018 (Beachten Sie auch die Quellcodes zum Buch – siehe Slides «Einführung»):
     * Maschinelle Lernverfahren – 1-Rule Klassifizierer (S. 97ff)
 
+### Aufgaben
 
-## Aufgaben
-
-### 1. Aufgabe
+#### 1. Aufgabe
 Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu: 
 
 * a) geschlossene Adressierung 
@@ -243,7 +251,7 @@ Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu:
 * c……. Hierbei wird bei einer Kollision einen zweiten Hashwert berechnet. Das Resultat des zweiten Hashwertes entspricht dann den Anzahl Stellen um welche verschoben wird. 
 * a……. Bei einer Kollision werden weitere Objekte in einer verketteten Liste abgelegt. Diese Variante erfordert eine weitere Datenstruktur, was zusätzlicher Speicherverbrauch bedeutet.
 
-### 2. Aufgabe 
+#### 2. Aufgabe 
 Bestimmen Sie die Komplexitätsklasse einer Hashtable (für Add() sowie Remove(). Begründen Sie Ihre Antwort.
 
 Add() = O(1)
@@ -252,13 +260,13 @@ Remove() = O(1)
 
 Weil Array-Zugriffmechanik.
 
-### 3. Aufgabe: 
+#### 3. Aufgabe: 
 Das Lineare Sondieren als Konfliktbehandlungsalgorithmus hat den Nachteil, dass es leicht zur Bildung 
 von Clustern führt. Wie können Sie diesen Nachteil vermeiden?
 
 In dem quadratisches Sondieren oder doppeltes Hashing (zweites Hashing) verwenden.
 
-### 4. Aufgabe
+#### 4. Aufgabe
 Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt.  
 
 Die Länge der Hashtable beträgt N = 7 
@@ -330,7 +338,7 @@ Remove(14)
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- |
 | 7       | 22      |      | 3     | 0     |       |      |      |
 
-### 5. Aufgabe
+#### 5. Aufgabe
 Gegeben sei folgende Hashtable, welche mit Hilfe der offenen Adressierung Konflikte beseitigt. 
 Diesmal wird die Schrittweite mittels einer zweiten Hashfunktion (Doppel-Hashing) berechnet.  
 
@@ -342,7 +350,7 @@ Die Hashfunktion für die Schrittweite sei 𝑠𝑡𝑒𝑝𝑠(𝑖𝑛𝑑𝑒
 
 Geben Sie nach jeder Operation die resultierende Hashtable an. 
 
-#### Add(1001)
+##### Add(1001)
 
 index(1001)= (1001 / 100) % 10 = 10 % 10 = 0
 
@@ -358,7 +366,7 @@ Taschenrechner
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- | ---- | ---- |
 | 1001    |       |      |      |      |      |      |      |       |       |
 
-#### Add(1542)
+##### Add(1542)
 
 index(1542)= (1542 / 100) % 10 = 15 % 10 = 5
 
@@ -374,7 +382,7 @@ Taschenrechner
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- | ---- | ---- |
 | 1001    |       |         |      |      | 1542      |      |      |       |       |
 
-#### Add(429)
+##### Add(429)
 
 index(429)= (429 / 100) % 10 = 4 % 10 = 4
 
@@ -389,7 +397,7 @@ Taschenrechner
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- | ---- | ---- |
 | 1001    |       |         |      | 429   | 1542  |      |      |       |       |
 
-#### Add(1420)
+##### Add(1420)
 
 index(1420)= (1420 / 100) % 10 = 14 % 10 = 4
 
@@ -422,7 +430,7 @@ Taschenrechner --> bei % immer nach dem "." nehmen --> 1.4 --> 4
 | 1001    |       |         |      | 429   | 1542  |      | 1420 |       |       |
 
 
-#### Add(2116)
+##### Add(2116)
 
 index(2116)= (2116 / 100) % 10 = 21 % 10 = 1
 
@@ -442,7 +450,7 @@ index(2116)= (2116 / 100) % 10 = 21 % 10 = 1
 | ------- | -----   | ---  | ----- | ----- | ----  | ---- | ---- | ---- | ---- |
 | 1001    | 2116    |      |      | 429   | 1542  |      | 1420 |       |       |
 
-#### Add(1146)
+##### Add(1146)
 
 index(1146)= (1146 / 100) % 10 = 11 % 10 = 1
 
@@ -485,9 +493,9 @@ Remove(1146)
 
 --> selbe Berechnung für Position / Index
 
-## Aufgaben - Teil 2 🔴
+### Aufgaben - Teil 2 🔴
 
-### 1. Aufgabe Hashtable
+#### 1. Aufgabe Hashtable 🔴
 Implementieren Sie eine eigene Hashtable. Die Objekte, welche in der Hashtable gespeichert werden, sollen vom Typ Element sein:
 
 ```C#
@@ -536,7 +544,7 @@ public interface IHashtable {
 
 Die Hashtable soll «geschlossenes Hashing» verwenden.
 
-### 2. Aufgabe - Crossreferenztabelle
+#### 2. Aufgabe - Crossreferenztabelle 🔴
 
 Schreiben Sie ein Programm, welches ein C#-Programm einliest (d.h. *.cs-Datei) und in einer Hashtable alle C#-Keywords dieser Datei speichert. Zudem sollen für jeden Namen die Zeilennummern gespeichert werden, auf denen der Name vorkommt. Diese Zeilennummern sollen in einer einfach verketteten Liste abgelegt werden.
 
