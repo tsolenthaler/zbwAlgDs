@@ -239,7 +239,9 @@ public class Person {
 
 ## Aufgaben
 
-#### 1. Aufgabe 🟢
+### Aufgaben - Teil 1 🟢
+
+#### 1. Aufgabe 
 Ordnen Sie folgende Begriffe der jeweils richtigen Definition zu: 
 
 * a) geschlossene Adressierung 
