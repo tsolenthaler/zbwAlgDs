@@ -2,7 +2,7 @@
 
 ## Ziele
 
-- [ ] Ich kenne den Unterschied zwischen einem BinaryTree und einem B-Tree
+- [x] Ich kenne den Unterschied zwischen einem BinaryTree und einem B-Tree
 - [ ] Ich weiss, wie die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet werden
 
 ## Motivation
@@ -40,6 +40,39 @@ flowchart TD
     3 --> 8[53 57 63 65]
     3 --> 9[72 83 94 96]
 ```
+
+
+##  Unterschied zwischen einem BinaryTree und einem B-Tree
+
+### Binary Tree (Binärbaum)
+
+* Struktur: Ein Binärbaum ist eine Baumstruktur, in der jeder Knoten höchstens zwei Kinder hat, die als linkes und rechtes Kind bezeichnet werden.
+
+* Knoten: Jeder Knoten im Binärbaum enthält einen Wert und Verweise auf seine beiden Kinder (linkes und rechtes Kind).
+
+* Anwendung: Binärbäume werden häufig in der Informatik verwendet, z.B. in Suchbäumen (wie dem Binären Suchbaum), um Daten effizient zu speichern und zu durchsuchen.
+
+* Balancierung: Binärbäume können unausgewogen sein, was zu einer schlechten Leistung bei Suchoperationen führen kann. Es gibt jedoch balancierte Varianten wie AVL-Bäume oder Rot-Schwarz-Bäume.
+
+* Zugriffszeit: Die Zugriffszeit kann im schlimmsten Fall O(n) betragen, wenn der Baum unausgewogen ist.
+
+### B-Tree
+
+* Struktur: Ein B-Tree ist eine selbstbalancierende Baumstruktur, die für die Speicherung von Daten in einer Datenbank oder auf Festplatten optimiert ist. Jeder Knoten kann mehrere Kinder haben (mindestens zwei und maximal eine bestimmte Anzahl, die als Ordnung des Baums bezeichnet wird).
+
+* Knoten: Jeder Knoten in einem B-Tree kann mehrere Werte und Verweise auf seine Kinder enthalten. Die Werte in einem Knoten sind sortiert, und die Kinder sind so angeordnet, dass alle Werte im linken Kind kleiner und alle Werte im rechten Kind größer sind.
+
+* Anwendung: B-Bäume werden häufig in Datenbanken und Dateisystemen verwendet, da sie eine effiziente Speicherung und Suche von Daten ermöglichen, insbesondere bei großen Datenmengen, die nicht vollständig im Hauptspeicher gehalten werden können.
+
+* Balancierung: B-Bäume sind immer balanciert, was bedeutet, dass alle Blätter auf der gleichen Ebene sind. Dies sorgt für eine gleichmäßige Verteilung der Daten und eine konsistente Zugriffszeit.
+
+* Zugriffszeit: Die Zugriffszeit ist logarithmisch in Bezug auf die Anzahl der gespeicherten Elemente, typischerweise O(log n), was sie effizienter macht als unausgewogene Binärbäume.
+
+### Zusammenfassung
+
+* Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unausgewogen sein, wird häufig für Suchoperationen verwendet.
+* B-Tree: Jeder Knoten kann mehrere Kinder haben, ist immer balanciert, optimiert für Datenbanken und große Datenmengen.
+
 
 ## Aufgabe
 
