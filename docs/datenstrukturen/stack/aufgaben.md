@@ -1,4 +1,4 @@
-# Stack
+# Stack Implementieren
 
 Implementieren Sie eine einfache Methode in C#, die die Elemente eines Stacks umkehrt.
 
