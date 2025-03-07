@@ -9,7 +9,8 @@ Erstell mir einen Test mit 12 Fragen für das Theme Algorithmen und Datenstruktu
 Starte dabei mit einer einfachen Fragen mit Multiple-Choise Antworten.
 Erstellen dann Fragen mit Textantworten welche Begründungen und Lösungswege aufgezeigt werde müssen.
 Und Fragen zu Implementierung der Themen.
-Zum Schluss eine komplexe Frage zum Theme. Bspw. Rucksackproblem, etc
+Zum Schluss eine komplexe Frage zum Theme. Bspw. Rucksackproblem, etc.
+Wähle Zufällige die Themen aus.
 
 Nach meinen Antworten zum Test gibst du mir die Punktzahl und die Note nach dem Schweizer Notensystem. 
 Und zustätzlich die Korrekten Antworten mit Erklärungen.

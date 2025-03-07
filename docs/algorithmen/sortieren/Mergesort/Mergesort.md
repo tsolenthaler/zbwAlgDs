@@ -1,5 +1,35 @@
 # Mergesort
 
+## Prinzip
+
+![Mergesort](Mergesort.png)
+
+```
+funktion mergesort(liste);
+  falls (Größe von liste <= 1) dann antworte liste
+  sonst
+     halbiere die liste in linkeListe, rechteListe
+     linkeListe = mergesort(linkeListe)
+     rechteListe = mergesort(rechteListe)
+     antworte merge(linkeListe, rechteListe)
+```
+```
+funktion merge(linkeListe, rechteListe);
+  neueListe
+  solange (linkeListe und rechteListe nicht leer)
+       falls (erstes Element der linkeListe <= erstes Element der rechteListe)
+       dann füge erstes Element linkeListe in die neueListe hinten ein und entferne es aus linkeListe
+       sonst füge erstes Element rechteListe in die neueListe hinten ein und entferne es aus rechteListe
+  solange_ende
+  solange (linkeListe nicht leer)
+       füge erstes Element linkeListe in die neueListe hinten ein und entferne es aus linkeListe
+  solange_ende
+  solange (rechteListe nicht leer)
+       füge erstes Element rechteListe in die neueListe hinten ein und entferne es aus rechteListe
+  solange_ende
+  antworte neueListe
+```
+
 ## Vorteile
 
 * Stabile Sortierung: Mergesort ist ein stabiler Sortieralgorithmus, was bedeutet, dass die relative Reihenfolge von gleichen Elementen beibehalten wird. Dies ist besonders wichtig in Anwendungen, bei denen die Stabilität der Sortierung erforderlich ist.
