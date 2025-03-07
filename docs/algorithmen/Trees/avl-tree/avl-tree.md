@@ -311,6 +311,162 @@ https://en.wikipedia.org/wiki/Microsoft_Automatic_Graph_Layout
     * https://en.wikipedia.org/wiki/Binary_tree
 
 
+## Implementierung
+
+```C#
+using System;
+
+public class AVLTreeNode
+{
+    public int Key;
+    public int Height;
+    public AVLTreeNode Left;
+    public AVLTreeNode Right;
+
+    public AVLTreeNode(int key)
+    {
+        Key = key;
+        Height = 1; // Höhe des neuen Knotens ist 1
+    }
+}
+
+public class AVLTree
+{
+    private AVLTreeNode root;
+
+    public void Insert(int key)
+    {
+        root = Insert(root, key);
+    }
+
+    private AVLTreeNode Insert(AVLTreeNode node, int key)
+    {
+        // Normale BST-Einfügeoperation
+        if (node == null)
+            return new AVLTreeNode(key);
+
+        if (key < node.Key)
+            node.Left = Insert(node.Left, key);
+        else if (key > node.Key)
+            node.Right = Insert(node.Right, key);
+        else
+            return node; // Duplikate werden nicht eingefügt
+
+        // Aktualisiere die Höhe des Vorfahrenknotens
+        node.Height = 1 + Math.Max(GetHeight(node.Left), GetHeight(node.Right));
+
+        // Berechne den Balancefaktor
+        int balance = GetBalance(node);
+
+        // Wenn der Knoten unbalanciert ist, gibt es 4 Fälle
+
+        // Linker Linker Fall
+        if (balance > 1 && key < node.Left.Key)
+            return RightRotate(node);
+
+        // Rechter Rechter Fall
+        if (balance < -1 && key > node.Right.Key)
+            return LeftRotate(node);
+
+        // Linker Rechter Fall
+        if (balance > 1 && key > node.Left.Key)
+        {
+            node.Left = LeftRotate(node.Left);
+            return RightRotate(node);
+        }
+
+        // Rechter Linker Fall
+        if (balance < -1 && key < node.Right.Key)
+        {
+            node.Right = RightRotate(node.Right);
+            return LeftRotate(node);
+        }
+
+        // Rückgabe des (unveränderten) Knotenszeigers
+        return node;
+    }
+
+    private int GetHeight(AVLTreeNode node)
+    {
+        return node == null ? 0 : node.Height;
+    }
+
+    private int GetBalance(AVLTreeNode node)
+    {
+        return node == null ? 0 : GetHeight(node.Left) - GetHeight(node.Right);
+    }
+
+    private AVLTreeNode RightRotate(AVLTreeNode y)
+    {
+        AVLTreeNode x = y.Left;
+        AVLTreeNode T2 = x.Right;
+
+        // Durchführung der Rotation
+        x.Right = y;
+        y.Left = T2;
+
+        // Aktualisiere die Höhen
+        y.Height = Math.Max(GetHeight(y.Left), GetHeight(y.Right)) + 1;
+        x.Height = Math.Max(GetHeight(x.Left), GetHeight(x.Right)) + 1;
+
+        // Rückgabe des neuen Wurzelknotens
+        return x;
+    }
+
+    private AVLTreeNode LeftRotate(AVLTreeNode x)
+    {
+        AVLTreeNode y = x.Right;
+        AVLTreeNode T2 = y.Left;
+
+        // Durchführung der Rotation
+        y.Left = x;
+        x.Right = T2;
+
+        // Aktualisiere die Höhen
+        x.Height = Math.Max(GetHeight(x.Left), GetHeight(x.Right)) + 1;
+        y.Height = Math.Max(GetHeight(y.Left), GetHeight(y.Right)) + 1;
+
+        // Rückgabe des neuen Wurzelknotens
+        return y;
+    }
+
+    public void PreOrder()
+    {
+        PreOrder(root);
+    }
+
+    private void PreOrder(AVLTreeNode node)
+    {
+        if (node != null)
+        {
+            Console.Write(node.Key + " ");
+            PreOrder(node.Left);
+            PreOrder(node.Right);
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        AVLTree tree = new AVLTree();
+
+        // Beispielwerte einfügen
+        tree.Insert(10);
+        tree.Insert(20);
+        tree.Insert(30);
+        tree.Insert(40);
+        tree.Insert(50);
+        tree.Insert(25);
+
+        // Vorbestellung Traversierung
+        Console.WriteLine("Vorbestellung Traversierung des AVL-Baums:");
+        tree.PreOrder();
+    }
+}
+```
+
 ### Beispiel Rotationen
 
 #### Einfache Rotation
