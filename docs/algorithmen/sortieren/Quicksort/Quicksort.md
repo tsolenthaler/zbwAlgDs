@@ -1,5 +1,7 @@
 # Quicksort
 
+Ein rekursiver Algorithmus, der ein Pivot-Element auswählt und die Liste in zwei Teile aufteilt, die dann rekursiv sortiert werden.
+
 ## Prinzip von Quicksort
 
 ```
