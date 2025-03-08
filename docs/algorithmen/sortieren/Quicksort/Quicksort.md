@@ -46,7 +46,7 @@ funktion teile(links, rechts)
      ende
      antworte i
  ende
- ```
+```
 
 ## Vorteile
 
