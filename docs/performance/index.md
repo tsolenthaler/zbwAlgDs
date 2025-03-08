@@ -14,14 +14,7 @@ hide:
 - [x] Ich wisse, was mit asymptotischer Komplexität gemeint ist
 - [x] Ich kann die Komplexitätsklasse von Algorithmen benennen
 - [x] Ich kenne den Unterschied, zwischen Worst-Case- und Best-Case-Komplexität
-- [ ] Ich wisse, was die O Notation ist
-
-### Übungen 
-
-- **Promt:** 
-    ```
-    Erstelle mir eine Aufgabe welche zufällig eine von diesen Komplexitätsklasse von O(1), O(n), O(log(n)), O(n log(n)), O(n^2) oder O(n^k) verwendet und ich die Komplexität bei einem C# Beispiel berechnen muss.
-    ```
+- [x] Ich wisse, was die O Notation ist
 
 ## Komplexitätsklassen
 
@@ -156,3 +149,10 @@ Zusammenfassend lässt sich sagen, dass die Worst-Case-Komplexität die Leistung
 ### Was ist die O Notation?
 
 Die O-Notation, auch als Big O-Notation bekannt, beschreibt die asymptotische Laufzeit oder den Speicherbedarf eines Algorithmus und gibt die obere Schranke der Laufzeit im schlimmsten Fall in Bezug auf die Größe der Eingabedaten an. Sie konzentriert sich auf das Wachstum der Laufzeit und ignoriert konstante Faktoren sowie niedrigere Ordnungsterme, um die Effizienz von Algorithmen zu vergleichen.
+
+### Übungen 
+
+- **Promt:** 
+    ```
+    Erstelle mir eine Aufgabe welche zufällig eine von diesen Komplexitätsklasse von O(1), O(n), O(log(n)), O(n log(n)), O(n^2) oder O(n^k) verwendet und ich die Komplexität bei einem C# Beispiel berechnen muss.
+    ```
