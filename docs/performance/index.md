@@ -3,8 +3,8 @@ tags:
   - komplexitätsklassen
   - o-notation
 hide:
-  - navigation
-  - toc
+  #- navigation
+  #- toc
 ---
 
 # Performance von Algorithmen
