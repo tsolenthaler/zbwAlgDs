@@ -10,7 +10,7 @@ Starte dabei mit einer einfachen Fragen mit 6 Multiple-Choise Fragen über alle 
 Erstellen dann Fragen mit Antworten welche Begründungen und Lösungswege aufgezeigt werde müssen. (Theorie-Fragen)
 Danach Fragen zu Implementierung der Themen.
 Zum Schluss eine komplexe Frage mit den unten definierten Themen. Bspw. Rucksackproblem, Münzwechselproblem, etc.
-Wähle zufällige die Themen aus, welche du abfragst.
+Erstelle zufällige die Fragen anhand der Aufgeführten Themen aus, welche du abfragst.
 
 Nach meinen Antworten zum Test gibst du mir die Punktzahl und die Note nach dem Schweizer Notensystem. 
 Und zustätzlich die Korrekten Antworten mit Erklärungen.

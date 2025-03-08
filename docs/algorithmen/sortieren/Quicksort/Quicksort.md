@@ -91,7 +91,6 @@ funktion teile(links, rechts)
 
 ## Implementierung
 
-
 ```C#
 using System;
 
@@ -155,7 +154,6 @@ class Program
     }
 }
 ```
-
 
 ## Links
 
