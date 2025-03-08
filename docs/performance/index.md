@@ -11,10 +11,10 @@ hide:
 
 ## Ziele
 - [x] Ich kennen die Problematik bzgl. Performancemessung von Algorithmen
-- [ ] Ich wisse, was mit asymptotischer Komplexität gemeint ist
-- [ ] Ich kann die Komplexitätsklasse von Algorithmen benennen
-- [ ] Ich kenne den Unterschied, zwischen Worst-Case- und Best-Case-Komplexität
-- [ ] ICh wisse, was die O Notation ist
+- [x] Ich wisse, was mit asymptotischer Komplexität gemeint ist
+- [x] Ich kann die Komplexitätsklasse von Algorithmen benennen
+- [x] Ich kenne den Unterschied, zwischen Worst-Case- und Best-Case-Komplexität
+- [ ] Ich wisse, was die O Notation ist
 
 ### Übungen 
 
@@ -117,3 +117,42 @@ foreach (n1 in werte)
 |                      | O(n)              | O(n)              | O(n)              |                        |
 | **AVL-Tree**         | O(log n)          | O(log n)          | O(log n)          |                        |
 | **B-Tee**           | O(log n)          | O(log n)          | O(log n)          |                        |
+
+
+## Antworten
+
+### Was ist mit asymptotischer Komplexität gemeint?
+
+Asymptotische Komplexität ist ein Konzept in der Informatik, das verwendet wird, um die Effizienz von Algorithmen zu analysieren, insbesondere in Bezug auf ihre Laufzeit oder den Speicherbedarf, wenn die Eingabedaten sehr groß werden. Sie beschreibt, wie sich die Laufzeit oder der Speicherbedarf eines Algorithmus verhält, wenn die Größe der Eingabe (oft als n bezeichnet) gegen unendlich geht.
+
+Die asymptotische Komplexität wird häufig in drei Hauptkategorien unterteilt:
+
+1. O-Notation (Big O): Diese Notation beschreibt die obere Schranke der Laufzeit oder des Speicherbedarfs eines Algorithmus. Sie gibt an, wie die Laufzeit im schlimmsten Fall wächst. Zum Beispiel bedeutet O(n2), dass die Laufzeit im schlimmsten Fall quadratisch zur Größe der Eingabe wächst.
+
+2. Ω-Notation (Omega): Diese Notation beschreibt die untere Schranke der Laufzeit oder des Speicherbedarfs. Sie gibt an, wie die Laufzeit im besten Fall wächst. Zum Beispiel bedeutet Ω(n), dass die Laufzeit im besten Fall linear zur Größe der Eingabe wächst.
+
+3. Θ-Notation (Theta): Diese Notation beschreibt die genaue Wachstumsrate der Laufzeit oder des Speicherbedarfs. Sie wird verwendet, wenn die obere und untere Schranke gleich sind. Zum Beispiel bedeutet Θ(nlogn), dass die Laufzeit sowohl im besten als auch im schlimmsten Fall asymptotisch gleich nlogn ist.
+
+Die asymptotische Analyse hilft dabei, Algorithmen zu vergleichen und zu verstehen, wie sie sich verhalten, wenn die Eingabedaten wachsen, ohne sich um spezifische Implementierungsdetails oder konstante Faktoren kümmern zu müssen. Dies ist besonders nützlich, um die Skalierbarkeit von Algorithmen zu bewerten.
+
+### Was ist der Unterschied, zwischen Worst-Case- und Best-Case-Komplexität?
+
+Der Unterschied zwischen Worst-Case- und Best-Case-Komplexität bezieht sich auf die Analyse der Laufzeit oder des Speicherbedarfs eines Algorithmus unter verschiedenen Bedingungen der Eingabedaten. Hier sind die beiden Konzepte im Detail:
+
+1. **Worst-Case-Komplexität**:
+   - Die Worst-Case-Komplexität beschreibt die maximale Laufzeit oder den maximalen Speicherbedarf eines Algorithmus für die ungünstigsten Eingabewerte. 
+   - Sie gibt an, wie lange ein Algorithmus im schlimmsten Fall benötigt, um ein Ergebnis zu liefern, unabhängig von der spezifischen Eingabe.
+   - Diese Analyse ist wichtig, um sicherzustellen, dass der Algorithmus auch unter extremen Bedingungen effizient bleibt. 
+   - Beispiel: Bei einem Sortieralgorithmus könnte die Worst-Case-Komplexität \( O(n^2) \) sein, was bedeutet, dass der Algorithmus im schlimmsten Fall quadratisch zur Anzahl der Elemente in der Liste läuft.
+
+2. **Best-Case-Komplexität**:
+   - Die Best-Case-Komplexität beschreibt die minimale Laufzeit oder den minimalen Speicherbedarf eines Algorithmus für die günstigsten Eingabewerte.
+   - Sie gibt an, wie schnell ein Algorithmus im besten Fall ein Ergebnis liefern kann, wenn die Eingabe optimal ist.
+   - Diese Analyse ist weniger häufig von Interesse, da sie oft nicht repräsentativ für die tatsächliche Leistung des Algorithmus ist, aber sie kann nützlich sein, um zu verstehen, wie der Algorithmus unter idealen Bedingungen funktioniert.
+   - Beispiel: Bei einem Sortieralgorithmus könnte die Best-Case-Komplexität \( O(n) \) sein, wenn die Liste bereits sortiert ist.
+
+Zusammenfassend lässt sich sagen, dass die Worst-Case-Komplexität die Leistung eines Algorithmus unter ungünstigen Bedingungen bewertet, während die Best-Case-Komplexität die Leistung unter optimalen Bedingungen bewertet. In der Praxis konzentrieren sich viele Analysen auf die Worst-Case-Komplexität, da sie eine realistischere Einschätzung der Leistung eines Algorithmus in den meisten Szenarien bietet.
+
+### Was ist die O Notation?
+
+Die O-Notation, auch als Big O-Notation bekannt, beschreibt die asymptotische Laufzeit oder den Speicherbedarf eines Algorithmus und gibt die obere Schranke der Laufzeit im schlimmsten Fall in Bezug auf die Größe der Eingabedaten an. Sie konzentriert sich auf das Wachstum der Laufzeit und ignoriert konstante Faktoren sowie niedrigere Ordnungsterme, um die Effizienz von Algorithmen zu vergleichen.
