@@ -57,3 +57,23 @@ class Program
     }
 }
 ```
+
+### Python
+Python Code
+```Python
+def binäre_suche(folge: Sequence[int], x: int) -> Tuple[str, int]:
+    links = 0
+    rechts = len(folge) - 1
+
+    while links <= rechts:
+        mitte = links + (rechts - links) // 2  # Bereich halbieren
+        if folge[mitte] == x: 
+            return 'Position', mitte
+
+        if folge[mitte] > x:
+            rechts = mitte - 1  # im linken Abschnitt weitersuchen
+        else:
+            links = mitte + 1  # im rechten Abschnitt weitersuchen
+
+    return 'Lücke', links
+```
