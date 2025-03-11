@@ -8,6 +8,7 @@ In einem Heap befinden sich die Childs eines Nodes mit dem Index X an den Positi
 --> Falsch. In einem Heap sind die Child-Nodes nicht beim Position X+1 und X+2.
 
 Sondern:
+
 * (2 * X) + 1
 * (2 * X) + 2
 
@@ -34,7 +35,9 @@ flowchart TD
     6 --> 8
 ```
 
+
 Array:
+
 * 5 6 7 8
 
 1. Nach Add(8): [8]
@@ -48,7 +51,7 @@ Array:
 * minHeap - Der Wert eines Nodes ist kleiner oder gleich den Werten seiner Childs.
 
 ### 3. Aufgabe 🔴
-Gegeben ist nachfolgendes, korrekt funktionierendes Code-Fragment einer Listen-Klasse:$
+Gegeben ist nachfolgendes, korrekt funktionierendes Code-Fragment einer Listen-Klasse:
 
 ```C#
 public class List { 
