@@ -326,124 +326,104 @@ flowchart TD
 | Speicherzelle | 0      | 1   | 2     | 3     | 4    | 5    | 6    | 7    | 8    |
 
 
-## Aufgaben 🔴
+## Was ist der Unterschied zwischen einem BinarySearchTree und einem Heap Priorityqueue?
 
-### 1. Aufgabe 🔴
-In einem Heap befinden sich die Childs eines Nodes mit dem Index X an den Positionen X+1 und X+2. Richtig oder Falsch? Begründen Sie. 
+Ein Binary Search Tree (BST) und eine Heap Priority Queue sind beides Datenstrukturen, die zur Speicherung und Verwaltung von Daten verwendet werden, aber sie haben unterschiedliche Eigenschaften und Anwendungsfälle. Hier sind die Hauptunterschiede:
 
---> Falsch. In einem Heap sind die Child-Nodes nicht beim Position X+1 und X+2.
+### Binary Search Tree (BST)
 
-Sondern:
-* (2 * X) + 1
-* (2 * X) + 2
+1. **Struktur**: Ein BST ist ein binärer Baum, bei dem jeder Knoten maximal zwei Kinder hat. Für jeden Knoten gilt, dass alle Werte im linken Teilbaum kleiner und alle Werte im rechten Teilbaum größer sind.
 
-### 2. Aufgabe 🔴
-Auf der heap-basierenden Priorityqueue pq (realisiert durch einen MinHeap) wird die folgende Sequenz 
-von Operationen ausgeführt: 
+2. **Zugriffszeit**: Die durchschnittliche Zeitkomplexität für Such-, Einfüge- und Löschoperationen beträgt O(log n) in einem balancierten BST. Im schlimmsten Fall (z. B. bei einem nicht balancierten Baum) kann die Zeitkomplexität O(n) betragen.
 
-```C#
-pq.Add(8); 
-pq.Add(6); 
-pq.Add(7); 
-pq.Add(5); 
-pq.Add(5); 
-pq.Add(8); 
-var min = pq.Pop();
-```
- 
-Es soll im Folgenden der Heap nach jeweils jeder Operation aufgezeichnet werden:
+3. **Sortierung**: Ein BST ermöglicht eine einfache In-Order-Traversierung, um die Elemente in aufsteigender Reihenfolge zu erhalten.
 
-``` mermaid
-flowchart TD
-    5 --> 6
-    5 --> 7
-    6 --> 8
-```
+4. **Anwendungsfälle**: BSTs werden häufig verwendet, wenn eine dynamische Menge von Daten benötigt wird, bei der häufige Such-, Einfüge- und Löschoperationen erforderlich sind.
 
-Array:
-* 5 6 7 8
+### Heap Priority Queue
 
-1. Nach Add(8): [8]
-2. Nach Add(6): [6, 8]
-3. Nach Add(7): [6, 8, 7]
-4. Nach Add(5): [5, 6, 7, 8]
-5. Nach Add(5): [5, 5, 7, 8, 6]
-6. Nach Add(8): [5, 5, 7, 8, 6, 8]
-7. Nach Pop(): [5, 6, 7, 8]
+1. **Struktur**: Ein Heap ist eine spezielle Baumstruktur, die entweder ein Min-Heap oder ein Max-Heap sein kann. In einem Min-Heap ist der Wert jedes Knotens kleiner oder gleich dem Wert seiner Kinder, während in einem Max-Heap der Wert jedes Knotens größer oder gleich dem Wert seiner Kinder ist. Heaps sind oft als vollständige Binärbäume implementiert.
 
-* minHeap - Der Wert eines Nodes ist kleiner oder gleich den Werten seiner Childs.
+2. **Zugriffszeit**: Die Zeitkomplexität für das Einfügen eines Elements und das Entfernen des Minimums (oder Maximums) beträgt O(log n). Der Zugriff auf das Minimum (oder Maximum) erfolgt in O(1).
 
-### 3. Aufgabe 🔴
-Gegeben ist nachfolgendes, korrekt funktionierendes Code-Fragment einer Listen-Klasse:$
+3. **Sortierung**: Heaps sind nicht für die In-Order-Traversierung geeignet, da sie nicht die gleiche Sortierreihenfolge wie ein BST bieten. Sie sind jedoch nützlich für Sortieralgorithmen wie Heapsort.
 
-```C#
-public class List { 
-    private class Node { 
-        public int Key; 
-        public Node Next; 
-    } 
- 
-    private Node head;   // points to the first node of the list. 
-    private Node tail;   // points to the last node of the list. 
- 
-    // ... more code (insert-method, etc.) 
- 
-    public bool ContainsKey(int key) { 
-        if (this.head == null) { 
-            return false; 
-        } 
- 
-        if (this.head.Key == key) { 
-            return true; 
-        } 
- 
-        if (this.head == this.tail) { 
-            return false; 
-        } 
- 
-        Node node = this.head; 
-        do { 
-            node = node.Next; 
-            if (node.Key == key) { 
-                return true; 
-            } 
-        } while (node != tail); 
- 
-        return false; 
-    } 
-}
-```
- 
-Es soll nun die Methode ContainsKeySentinel erstellt werden, welche von aussen gesehen gleich funktioniert wie ContainsKey, aber unter Anwendung eines Sentinels. Dabei darf der Klasse keine weiteren Attribute oder Methoden hinzugefügt werden.
+4. **Anwendungsfälle**: Heaps werden häufig in Anwendungen verwendet, bei denen die Priorität von Elementen wichtig ist, wie z. B. in Warteschlangen, bei der Implementierung von Dijkstra's Algorithmus oder in anderen Algorithmen, die eine effiziente Zugriff auf das Minimum oder Maximum erfordern.
 
-```C#
-public bool ContainsKeySentinel(int key) {
-    // Erstellen eines Sentinel-Knotens
-    Node sentinel = new Node { Key = int.MinValue, Next = null };
+### Zusammenfassung
 
-    // Wenn die Liste leer ist, gibt es keinen Schlüssel
-    if (this.head == null) {
-        return false;
-    }
+- **BST**: Gut für dynamische Mengen mit häufigen Such-, Einfüge- und Löschoperationen; ermöglicht einfache Sortierung.
+- **Heap**: Gut für Prioritätswarteschlangen; ermöglicht schnellen Zugriff auf das Minimum oder Maximum, aber nicht auf die gesamte sortierte Reihenfolge.
 
-    // Verknüpfen des Sentinel-Knotens am Ende der Liste
-    Node current = this.head;
-    while (current.Next != null) {
-        current = current.Next;
-    }
-    current.Next = sentinel; // Sentinel am Ende der Liste hinzufügen
+Beide Datenstrukturen haben ihre eigenen Vor- und Nachteile, und die Wahl zwischen ihnen hängt von den spezifischen Anforderungen der Anwendung ab.
 
-    // Durchlaufen der Liste bis zum Sentinel
-    Node node = this.head;
-    while (node.Key != key) {
-        node = node.Next;
-        if (node == sentinel) {
-            return false; // Schlüssel nicht gefunden
-        }
-    }
+## was sind die grundlegenden Operationen eines Heaps
+Ein Heap ist eine spezielle Baumstruktur, die bestimmte Eigenschaften aufweist, je nachdem, ob es sich um einen Min-Heap oder einen Max-Heap handelt. Die grundlegenden Operationen eines Heaps sind:
 
-    return true; // Schlüssel gefunden
-}
+### 1. Einfügen (Insert)
+- **Beschreibung**: Fügt ein neues Element in den Heap ein.
+- **Vorgehen**: 
+  - Das Element wird zunächst am Ende des Heaps (in der letzten Position des Arrays) hinzugefügt.
+  - Danach wird das Element "nach oben" (up-heap oder bubble-up) verschoben, um die Heap-Eigenschaft wiederherzustellen. Dies geschieht, indem das Element mit seinem Elternknoten verglichen wird und gegebenenfalls vertauscht wird, bis die Heap-Eigenschaft erfüllt ist.
+- **Zeitkomplexität**: O(log n)
 
-```
+### 2. Entfernen des Minimums/Maximums (Remove Min/Max)
+- **Beschreibung**: Entfernt das kleinste Element (im Min-Heap) oder das größte Element (im Max-Heap) aus dem Heap.
+- **Vorgehen**: 
+  - Das Wurzelelement (das Minimum oder Maximum) wird entfernt.
+  - Das letzte Element im Heap wird an die Wurzelposition verschoben.
+  - Danach wird das Element "nach unten" (down-heap oder bubble-down) verschoben, um die Heap-Eigenschaft wiederherzustellen. Dies geschieht, indem das Element mit seinen Kindknoten verglichen wird und gegebenenfalls vertauscht wird, bis die Heap-Eigenschaft erfüllt ist.
+- **Zeitkomplexität**: O(log n)
 
+### 3. Zugriff auf das Minimum/Maximum (Peek)
+- **Beschreibung**: Gibt das kleinste Element (im Min-Heap) oder das größte Element (im Max-Heap) zurück, ohne es zu entfernen.
+- **Vorgehen**: Das Wurzelelement wird einfach zurückgegeben.
+- **Zeitkomplexität**: O(1)
+
+### 4. Erstellen eines Heaps (Heapify)
+- **Beschreibung**: Wandelt ein unsortiertes Array in einen Heap um.
+- **Vorgehen**: 
+  - Dies kann durch die Anwendung der "down-heap"-Operation auf alle nicht-blattknoten des Baums erfolgen, beginnend von den letzten Elternknoten bis zur Wurzel.
+- **Zeitkomplexität**: O(n)
+
+### 5. Löschen des Heaps (Clear)
+- **Beschreibung**: Entfernt alle Elemente aus dem Heap.
+- **Vorgehen**: In der Regel wird einfach der Speicher, der für den Heap verwendet wird, freigegeben.
+- **Zeitkomplexität**: O(1) (aber das Freigeben des Speichers kann je nach Implementierung variieren)
+
+### Zusammenfassung
+Die grundlegenden Operationen eines Heaps sind das Einfügen von Elementen, das Entfernen des Minimums oder Maximums, der Zugriff auf das Minimum oder Maximum und das Erstellen eines Heaps aus einem unsortierten Array. Diese Operationen ermöglichen es, Heaps effizient für verschiedene Anwendungen, wie z. B. Prioritätswarteschlangen, zu nutzen.
+
+## was sind mögliche Anwendungen eines Heaps?
+
+Heaps sind vielseitige Datenstrukturen, die in verschiedenen Anwendungen und Algorithmen eingesetzt werden. Hier sind einige der häufigsten Anwendungen von Heaps:
+
+### 1. **Prioritätswarteschlangen**
+- Heaps werden häufig zur Implementierung von Prioritätswarteschlangen verwendet, in denen Elemente mit unterschiedlichen Prioritäten verarbeitet werden. Der Zugriff auf das Element mit der höchsten oder niedrigsten Priorität erfolgt effizient.
+
+### 2. **Heapsort**
+- Heapsort ist ein effizienter Sortieralgorithmus, der einen Heap verwendet, um eine Liste von Elementen zu sortieren. Der Algorithmus hat eine Zeitkomplexität von O(n log n) und ist in der Lage, die Elemente in-place zu sortieren.
+
+### 3. **Dijkstra's Algorithmus**
+- In Graphenalgorithmen, wie Dijkstra's Algorithmus zur Berechnung der kürzesten Wege, wird ein Min-Heap verwendet, um die Knoten mit den geringsten Kosten effizient zu verwalten.
+
+### 4. **Prim's Algorithmus**
+- Ähnlich wie bei Dijkstra's Algorithmus wird ein Min-Heap auch in Prim's Algorithmus verwendet, um den minimalen Spannbaum eines Graphen zu finden.
+
+### 5. **Kleinste oder größte k-Elemente**
+- Heaps können verwendet werden, um die k kleinsten oder größten Elemente aus einer großen Menge von Daten effizient zu extrahieren. Ein Min-Heap kann verwendet werden, um die k kleinsten Elemente zu finden, während ein Max-Heap für die k größten Elemente verwendet werden kann.
+
+### 6. **Medianfindung**
+- Heaps können in Kombination verwendet werden, um den Median einer Datenmenge effizient zu finden. Ein Min-Heap und ein Max-Heap können verwendet werden, um die beiden Hälften der Daten zu verwalten, sodass der Median schnell abgerufen werden kann.
+
+### 7. **Event-Simulation**
+- In der Simulation von Ereignissen, wie z. B. in der Computeranimation oder der Netzwerk-Simulation, können Heaps verwendet werden, um Ereignisse nach ihrem Zeitpunkt zu priorisieren und zu verarbeiten.
+
+### 8. **Job-Scheduling**
+- In Betriebssystemen können Heaps verwendet werden, um Prozesse oder Jobs basierend auf ihrer Priorität zu planen und zu verwalten.
+
+### 9. **Kombinierte Datenstrukturen**
+- Heaps können auch in anderen Datenstrukturen wie Fibonacci-Heaps oder Binomial-Heaps verwendet werden, die zusätzliche Funktionen und Effizienz bieten.
+
+### Zusammenfassung
+Heaps sind eine leistungsfähige Datenstruktur, die in vielen Bereichen der Informatik und Softwareentwicklung Anwendung findet, insbesondere in Algorithmen, die mit Prioritäten, Sortierung und Graphen arbeiten. Ihre Effizienz bei bestimmten Operationen macht sie zu einer bevorzugten Wahl für viele Probleme.
