@@ -73,6 +73,38 @@ flowchart TD
 * Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unausgewogen sein, wird häufig für Suchoperationen verwendet.
 * B-Tree: Jeder Knoten kann mehrere Kinder haben, ist immer balanciert, optimiert für Datenbanken und große Datenmengen.
 
+## wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?
+Ein B-Baum ist eine selbstbalancierende Datenstruktur, die in der Informatik häufig für Datenbanken und Dateisysteme verwendet wird. Die Operationen „Einfügen“ und „Löschen“ in einem B-Baum sind so gestaltet, dass die Eigenschaften des Baums erhalten bleiben. Hier sind die grundlegenden Schritte für beide Operationen:
+
+### Einfügen in einen B-Baum
+
+1. **Finde die richtige Position**: Beginne an der Wurzel und gehe rekursiv nach unten, um die richtige Blattposition für den neuen Schlüssel zu finden. Vergleiche den neuen Schlüssel mit den vorhandenen Schlüsseln, um zu entscheiden, in welchen Kindknoten du weitergehen sollst.
+
+2. **Füge den Schlüssel ein**: Wenn du ein Blatt erreicht hast, füge den neuen Schlüssel in den Blattknoten ein. Die Schlüssel im Knoten müssen in sortierter Reihenfolge bleiben.
+
+3. **Überlauf behandeln**: Wenn der Knoten nach dem Einfügen mehr Schlüssel enthält als die maximale Anzahl (d.h. der Knoten überläuft):
+   - Teile den Knoten in zwei Knoten. Der Medianwert wird nach oben in den übergeordneten Knoten verschoben.
+   - Wenn der übergeordnete Knoten ebenfalls überläuft, wiederhole den Teilungsprozess rekursiv nach oben.
+
+### Löschen aus einem B-Baum
+
+1. **Finde den Schlüssel**: Beginne an der Wurzel und gehe rekursiv nach unten, um den Schlüssel zu finden, den du löschen möchtest.
+
+2. **Löschen des Schlüssels**:
+   - **Fall 1**: Der Schlüssel befindet sich in einem Blattknoten. Lösche den Schlüssel einfach.
+   - **Fall 2**: Der Schlüssel befindet sich in einem inneren Knoten. Finde den Vorgänger (den größten Schlüssel im linken Teilbaum) oder den Nachfolger (den kleinsten Schlüssel im rechten Teilbaum), ersetze den zu löschenden Schlüssel durch diesen und lösche dann den Vorgänger oder Nachfolger (dies wird ein Blattknoten sein oder einen weiteren Fall auslösen).
+   
+3. **Unterlauf behandeln**: Nach dem Löschen kann es sein, dass ein Knoten weniger Schlüssel hat als die minimale Anzahl (d.h. der Knoten unterläuft):
+   - Wenn möglich, leihe einen Schlüssel von einem Geschwisterknoten (links oder rechts).
+   - Wenn das nicht möglich ist, führe eine Zusammenführung durch: Kombiniere den Knoten mit einem Geschwisterknoten und verschiebe einen Schlüssel vom übergeordneten Knoten nach unten.
+
+### Eigenschaften des B-Baums
+
+- Jeder Knoten hat eine bestimmte Anzahl von Schlüsseln, die zwischen einem Minimum und Maximum liegen.
+- Alle Blätter befinden sich auf derselben Ebene.
+- Der Baum bleibt nach jeder Einfüge- oder Löschoperation balanciert.
+
+Diese Schritte gewährleisten, dass der B-Baum seine Struktur und Eigenschaften beibehält, während Schlüssel hinzugefügt oder entfernt werden.
 
 ## Aufgabe
 
