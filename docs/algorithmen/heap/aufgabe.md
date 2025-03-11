@@ -40,6 +40,7 @@ Array:
 
 * 5 6 7 8
 
+
 1. Nach Add(8): [8]
 2. Nach Add(6): [6, 8]
 3. Nach Add(7): [6, 8, 7]
@@ -47,6 +48,7 @@ Array:
 5. Nach Add(5): [5, 5, 7, 8, 6]
 6. Nach Add(8): [5, 5, 7, 8, 6, 8]
 7. Nach Pop(): [5, 6, 7, 8]
+
 
 * minHeap - Der Wert eines Nodes ist kleiner oder gleich den Werten seiner Childs.
 
