@@ -111,6 +111,39 @@ Diese Schritte gewährleisten, dass der B-Baum seine Struktur und Eigenschaften 
 * Berechnen Sie die max. Anzahl Keys, die in einem Baum 2. Ordnung (d.h. d=2) und h=3 gespeichert werden können.
 * Tipp: Überlegen Sie sich, wieviele Keys in einem BinaryTree gespeichert werden können und versuchen Sie, Ihre Überlegungen zum oben spezifizierten B-Trees zu transferieren.
 
+### Antwort
+Ein B-Baum der Ordnung \( d \) hat die folgenden Eigenschaften:
+
+1. Jeder Knoten kann maximal \( 2d \) Kinder haben.
+2. Jeder Knoten kann maximal \( 2d - 1 \) Schlüssel enthalten.
+3. Jeder Knoten (außer der Wurzel) muss mindestens \( d \) Kinder haben, wenn er nicht ein Blattknoten ist.
+4. Die Höhe des Baums ist \( h \).
+
+Für einen B-Baum der Ordnung \( d = 2 \) und Höhe \( h = 3 \) können wir die maximale Anzahl der Schlüssel wie folgt berechnen:
+
+1. **Maximale Anzahl der Kinder pro Knoten**: Da \( d = 2 \), kann jeder Knoten maximal \( 2d = 4 \) Kinder haben.
+2. **Maximale Anzahl der Schlüssel pro Knoten**: Jeder Knoten kann maximal \( 2d - 1 = 3 \) Schlüssel enthalten.
+
+Jetzt betrachten wir die Struktur des Baums:
+
+- **Ebene 0 (Wurzel)**: 1 Knoten, der maximal 3 Schlüssel enthalten kann.
+- **Ebene 1**: Die Wurzel kann maximal 4 Kinder haben, also 4 Knoten. Jeder dieser Knoten kann maximal 3 Schlüssel enthalten, also insgesamt \( 4 \times 3 = 12 \) Schlüssel.
+- **Ebene 2**: Jeder der 4 Knoten auf Ebene 1 kann ebenfalls maximal 4 Kinder haben, also insgesamt \( 4 \times 4 = 16 \) Knoten. Jeder dieser Knoten kann maximal 3 Schlüssel enthalten, also insgesamt \( 16 \times 3 = 48 \) Schlüssel.
+
+Jetzt addieren wir die maximalen Schlüssel aus allen Ebenen:
+
+- Ebene 0: 3 Schlüssel
+- Ebene 1: 12 Schlüssel
+- Ebene 2: 48 Schlüssel
+
+Die maximale Anzahl der Schlüssel in einem B-Baum der Ordnung 2 und Höhe 3 ist also:
+
+\[
+3 + 12 + 48 = 63
+\]
+
+Somit kann ein B-Baum der Ordnung 2 und Höhe 3 maximal **63 Schlüssel** speichern.
+
 ## Einfügen
 
 * Keys werden immer in Leafs eingefügt
