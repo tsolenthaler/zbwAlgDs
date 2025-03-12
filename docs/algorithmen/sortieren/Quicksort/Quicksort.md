@@ -1,6 +1,8 @@
 # Quicksort
 
-Ein rekursiver Algorithmus, der ein Pivot-Element auswählt und die Liste in zwei Teile aufteilt, die dann rekursiv sortiert werden.
+Quicksort (englisch quick ‚schnell‘ und to sort ‚sortieren‘) ist ein schneller, rekursiver, nicht-stabiler Sortieralgorithmus, der nach dem Prinzip Teile und herrsche arbeitet. Er wurde ca. 1960 von C. Antony R. Hoare in seiner Grundform entwickelt und seitdem von vielen Forschern verbessert. Der Algorithmus hat den Vorteil, dass er über eine sehr kurze innere Schleife verfügt (was die Ausführungsgeschwindigkeit stark erhöht) und dass er, abgesehen von dem für die Rekursion zusätzlichen benötigten Platz auf dem Aufruf-Stack, ohne zusätzlichen Speicherplatz auskommt.
+
+Im Durchschnitt führt der Quicksort-Algorithmus O ( n ⋅ log ⁡ ( n ) ) Vergleiche durch. Im schlechtesten Fall werden O ( n^2 ) Vergleiche durchgeführt, was aber in der Praxis sehr selten vorkommt.
 
 ## Prinzip von Quicksort
 
