@@ -180,6 +180,24 @@ class Program
 }
 ```
 
+## Beispiel
+
+Eine Reihe von fünf Zahlen soll aufsteigend sortiert werden.
+
+Die fett gedruckten Zahlen werden jeweils verglichen. Ist die linke größer als die rechte, so werden beide vertauscht; das Zahlenpaar ist dann blau markiert. Im ersten Durchlauf wandert somit die größte Zahl ganz nach rechts. Der zweite Durchlauf braucht somit die letzte und vorletzte Position nicht mehr zu vergleichen. → Dritter Durchlauf: kein Vergleich letzte/vorletzte/vorvorletzte…
+
+55 07 78 12 42   1. Durchlauf
+07 55 78 12 42
+07 55 78 12 42
+07 55 12 78 42   Letzter Vergleich
+07 55 12 42 78   2. Durchlauf
+07 55 12 42 78
+07 12 55 42 78   Letzter Vergleich
+07 12 42 55 78   3. Durchlauf
+07 12 42 55 78   Letzter Vergleich
+07 12 42 55 78   4. Durchlauf + Letzter Vergleich
+07 12 42 55 78   Fertig sortiert. 
+
 ## Links
 
 * [Wikipedia](https://de.wikipedia.org/wiki/Bubblesort)
