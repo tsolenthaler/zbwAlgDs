@@ -198,6 +198,27 @@ Die fett gedruckten Zahlen werden jeweils verglichen. Ist die linke größer als
 * <strong>07 12</strong> 42 55 78   4. Durchlauf + Letzter Vergleich
 * 07 12 42 55 78   Fertig sortiert. 
 
+## Komplexität
+
+### Ungünstigster Fall
+
+Bubblesort hat die Laufzeit O ( n^2 ) für Listen der Länge n. Im Falle der umgekehrt sortierten Liste ( n , n − 1 , … , 2 , 1 ) werden maximal n ⋅ ( n − 1 ) / 2 viele Vertauschungen ausgeführt: um das erste (und größte) Element n ganz nach rechts zu bewegen, werden n − 1 Vertauschungen vorgenommen. Allgemein: Die Bewegung des k-ten Elements an die Stelle n wird durch n − k Vertauschungen vollzogen. Aufsummieren über alle k ergibt im Ganzen 1/2*( n^2 − n ) ∈ O ( n^2 ) Vertauschungen. Da nur Paare vertauscht werden, die auch vorher verglichen wurden, benötigt der Algorithmus auch mindestens ebenso viele Vergleiche. Betrachtet man den Pseudocode des Algorithmus, so sieht man leicht ein, dass keine der Anweisungen öfter als 1/2*( n^2 − n ) -mal ausgeführt werden kann, also ist dies auch die bestmögliche untere Schranke.
+
+### Bester Fall
+
+Bei einer bereits sortierten Liste wird Bubblesort die Liste nur einmal durchgehen, d. h., es gibt nur einen Durchgang, um festzustellen, dass die Liste bereits sortiert ist, weil keine benachbarten Elemente vertauscht werden mussten. Daher benötigt Bubblesort O ( n ) Schritte, um eine bereits sortierte Liste zu bearbeiten.
+
+Falls die Elemente der Liste bereits nah den Stellen sind, die sie nach der Sortierung bekommen sollen, ist die Laufzeit erheblich besser als O ( n^2 ).
+
+### Durchschnittlicher Fall
+
+Die erwartete Anzahl der Vergleiche für eine zufällig gewählte Permutation (zufällige Anordnung) der Liste ( 1 , 2 , … , n ) ist
+    
+    
+1/2*( n^2 − n ⋅ ln ⁡ n − ( γ + ln ⁡ ( 2 ) − 1 ) ⋅ n ) + O ( Wurzel n )
+
+wobei γ die Euler-Mascheroni-Konstante bezeichnet; die erwartete Anzahl der Vertauschungen beträgt 1/4 ( n^2 − n ) 
+
 ## Links
 
 * [Wikipedia](https://de.wikipedia.org/wiki/Bubblesort)
