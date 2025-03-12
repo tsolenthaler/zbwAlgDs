@@ -7,8 +7,8 @@ Ein Binary Search Tree (BST) ist eine spezielle Art von Datenstruktur, die in de
 1. **Binäre Struktur**: Jeder Knoten in einem BST hat höchstens zwei Nachfolger, die als linkes und rechtes Kind bezeichnet werden.
 
 2. **Ordnungseigenschaft**: Für jeden Knoten gilt:
-   - Alle Werte im linken Teilbaum sind kleiner als der Wert des Knotens.
-   - Alle Werte im rechten Teilbaum sind größer als der Wert des Knotens.
+   * Alle Werte im linken Teilbaum sind kleiner als der Wert des Knotens.
+   * Alle Werte im rechten Teilbaum sind größer als der Wert des Knotens.
 
 3. **Keine Duplikate**: In der Regel werden in einem BST keine doppelten Werte gespeichert, um die Integrität der Ordnung zu gewährleisten.
 
