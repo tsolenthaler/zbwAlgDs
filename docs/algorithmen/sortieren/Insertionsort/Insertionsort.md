@@ -162,6 +162,7 @@ Im letzten Schritt wird die 3 an passender Position in die sortierte Teilliste g
 | <font color="blue">1</font> | <font color="blue">2</font> | <font color="blue">3</font>  | <font color="blue">4</font>  | <font color="blue">5</font>   | <font color="red">6</font> |
 
 Nach dem Algorithmus sind alle Felder der Folge sortiert.
+
 | 0 | 1 | 2 | 3 | 4 | 5 |
 | - | - | - | - | - | - |
 | 1 | 2 | 3 | 4 | 5 | 6 |
