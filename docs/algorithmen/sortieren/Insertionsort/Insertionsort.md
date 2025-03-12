@@ -164,11 +164,11 @@ Im letzten Schritt wird die 3 an passender Position in die sortierte Teilliste g
 Nach dem Algorithmus sind alle Felder der Folge sortiert.
 | 0 | 1 | 2 | 3 | 4 | 5 |
 | - | - | - | - | - | - |
-| <font color="blue">1</font> | <font color="blue">2</font> | <font color="blue">3</font>  | <font color="blue">4</font>  | <font color="blue">5</font>   | <font color="blue">6</font> |
+| 1 | 2 | 3 | 4 | 5 | 6 |
 
 ## Komplexität
 
-Die Anzahl der Vergleiche und Verschiebungen des Algorithmus ist von der Anordnung der Elemente in der unsortierten Eingangsfolge abhängig. Für den Average Case ist eine genaue Abschätzung der Laufzeit daher schwierig, man kann aber zeigen, dass der Average Case in O ( n^2 ) liegt. Im Best Case, wenn das Eingabearray bereits sortiert ist, ist die Komplexität linear O ( n ), d. h. sogar besser als bei den komplizierteren Verfahren (Quicksort, Mergesort, Heapsort etc.). Im Worst Case ist sie quadratisch O ( n^2 ).
+Die Anzahl der Vergleiche und Verschiebungen des Algorithmus ist von der Anordnung der Elemente in der unsortierten Eingangsfolge abhängig. Für den Average Case ist eine genaue Abschätzung der Laufzeit daher schwierig, man kann aber zeigen, dass der Average Case in O(n^2) liegt. Im Best Case, wenn das Eingabearray bereits sortiert ist, ist die Komplexität linear O(n), d. h. sogar besser als bei den komplizierteren Verfahren (Quicksort, Mergesort, Heapsort etc.). Im Worst Case ist sie quadratisch O(n^2).
 
 Wenn zur Bestimmung der richtigen Position eines Elementes die binäre Suche benutzt wird, kann man die Anzahl der Vergleiche im Worst Case durch
 
@@ -184,7 +184,7 @@ Der Worst Case ist ein absteigend sortiertes Array A, da jedes Element von seine
 
     n(n−1)/2 ∈ O(n^2)
 
-## Impelmentierung C#
+## Impelmentierung als Code
 
 ```C#
 using System;
