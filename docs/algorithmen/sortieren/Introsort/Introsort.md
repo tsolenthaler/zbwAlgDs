@@ -1,5 +1,14 @@
 # Introsort
 
+## Beschreibung
+Introsort ist ein Sortieralgorithmus. Der Begriff ist eine Kurzform für „introspektives Sortieren“. Der Algorithmus ist eine Variation von Quicksort, welche in entarteten Fällen auf ein anderes Sortierverfahren mit Worst-Case-Laufzeit Ω ( n log ⁡ n ) (zum Beispiel Heapsort) zurückfällt. Dazu wird zu Beginn jedes Rekursionsschrittes anhand einer Bewertungsfunktion entschieden, ob ein anderer Algorithmus für die Sortierung der Teilliste verwendet werden soll (zum Beispiel bei Erreichen einer bestimmten Rekursionstiefe).
+
+Auf diese Weise wird die Geschwindigkeit von Quicksort mit einer O ( n log ⁡ n ) worst-case Zeitkomplexität gekoppelt (gegenüber O(n^2) bei reinem Quicksort). Die exakte Laufzeit ist in den entarteten Fällen etwas höher als bei direkter Anwendung des optimalen Algorithmus, da bis zum Rückfall auf das alternative Sortierverfahren Quicksort durchlaufen wird.
+
+Bekannt geworden ist Introsort vor allem dadurch, dass Silicon Graphics in seiner Standard Template Library für C++ seit einigen Jahren auf Introsort statt Quicksort zurückgreift. Inzwischen wurde Introsort auch in andere Implementierungen der C++ Standard Library übernommen, unter anderem in die der GCC. 
+
+## Fakts
+
 * Hybrider Ansatz: Introsort beginnt mit Quicksort, um die Vorteile der schnellen durchschnittlichen Laufzeit zu nutzen. Wenn die Rekursionstiefe eine bestimmte Grenze überschreitet, wechselt der Algorithmus zu Heapsort, um die Worst-Case-Laufzeit zu garantieren.
 
 * Rekursionstiefe: Introsort überwacht die Rekursionstiefe während des Sortierens. Diese Tiefe wird oft auf log(n) gesetzt, wobei n die Anzahl der Elemente ist. Wenn die Rekursionstiefe diese Grenze überschreitet, wird Heapsort verwendet.
