@@ -1,5 +1,7 @@
 # Shellsort
 
+![alt text](Shell_sorting_algorithm_color_bars.svg.png)
+
 * Instabil
 * In-Place
 * Basiert auf den Insertionsort
@@ -14,7 +16,7 @@
 Shellsort ist ein von Donald L. Shell im Jahr 1959 entwickeltes Sortierverfahren, das auf dem Sortierverfahren des direkten Einfügens (Insertionsort) basiert. 
 
 ## Prinzip
-Der Grundgedanke besteht darin, die unsortierte Folge so umzuordnen, dass man eine sortierte Teilfolge enthält, wenn man jedes h-te Element entnimmt. Das soll für jedes beliebige Anfangsfeld gelten.[1]
+Der Grundgedanke besteht darin, die unsortierte Folge so umzuordnen, dass man eine sortierte Teilfolge enthält, wenn man jedes h-te Element entnimmt. Das soll für jedes beliebige Anfangsfeld gelten.
 
 Der Algorithmus von Shellsort setzt diese Idee um, indem er die unsortierte Folge in mehrere Teilfolgen aufteilt und danach die Einträge innerhalb jeder Teilfolge sortiert. Beispielsweise führt eine Aufteilung in 4 Teilfolgen zu einer Teilfolge mit den Indizes 0, 4, 8, … einer anderen mit den Indizes 1, 5, 9, … und so weiter. Nach einem solchen Sortierschritt nennt man die Folge 4-sortiert.
 
@@ -30,7 +32,6 @@ Daraus resultiert eine grobe Sortierung. Dieser Schritt wird mehrmals wiederholt
 Eine a*b-sortierte Sequenz ist nicht auch automatisch a-sortiert oder b-sortiert. Zum Beweis betrachten wir eine Sequenz aus den Zahlen 1 bis 12. Diese ist 6-sortiert, wenn wir auf eine beliebige Permutation der Zahlen 1, 2, 3, 4, 5, 6 eine ebenfalls beliebige Permutation der Zahlen 7, 8, 8, 10, 11, 12 folgen lassen. Die Permutation 6, 5, 4, 3, 2, 1 ist aber keinesfalls 2- oder 3-sortiert. 6, 5, 4, 3, 2, 1, 7, 8, 9, 10, 11, 12 ist 6-sortiert, aber nicht 2- und auch nicht 3-sortiert.
 
 Shellsort arbeitet in-place, gehört jedoch nicht zu den stabilen Sortieralgorithmen. Aufgrund der Sortierung über Distanz verliert die Sortiermethode ihre Eigenschaft „stabil“. Zwei benachbarte und sortierte Elemente landen in verschiedenen Untersequenzen und werden möglicherweise so umsortiert, dass ihre Reihenfolge vertauscht wird. 
-
 
 ## Vorteile
 
@@ -78,6 +79,37 @@ Shellsort arbeitet in-place, gehört jedoch nicht zu den stabilen Sortieralgorit
 * Abhängigkeit von der Gap-Sequenz: Die Leistung von Shellsort hängt stark von der Wahl der Gap-Sequenz ab. Eine suboptimale Wahl kann die Effizienz des Algorithmus erheblich beeinträchtigen, was ihn weniger flexibel macht als einige andere Sortieralgorithmen.
 
 * Einsatz in speziellen Anwendungen: Shellsort wird oft in speziellen Anwendungen eingesetzt, wo die oben genannten Einschränkungen akzeptabel sind, und wo die Vorteile der In-Place-Sortierung und der einfachen Implementierung überwiegen
+
+## Beispiel
+
+Zu sortieren sind die Zahlen 2, 5, 3, 4, 3, 9, 3, 2, 5, 4, 1, 3 mittels der Folge 2^n , . . . , 4 , 2 , 1
+
+Zuerst werden die Daten zeilenweise in eine Matrix mit vier Spalten eingetragen und spaltenweise sortiert. Die Zahlenfolge wird also 4-sortiert.
+
+```
+2 5 3 4        2 4 1 2
+3 9 3 2  →     3 5 3 3
+5 4 1 3        5 9 3 4
+```
+
+Die sortierte Vier-Spalten-Matrix wird nun in zwei Spalten aufgeteilt, wobei von links nach rechts gelesen wird. Diese Spalten werden nun 2-sortiert.
+
+```
+2 4         1 2
+1 2         2 3
+3 5   →     3 4
+3 3         3 4
+5 9         3 5
+3 4         5 9
+```
+
+Die sortierte Zwei-Spalten-Matrix wird nun in eine Zeile geschrieben und wieder sortiert mittels normalem Insertionsort. Der Vorteil dabei besteht darin, dass kein Element der Sequenz so weit verschoben werden muss, wie beim Insertionsort, der auf eine nicht vorsortierte Folge angewendet wird.
+
+```
+1 2 2 3 3 4 3 4 3 5 5 9  →   1 2 2 3 3 3 3 4 4 5 5 9
+```
+
+Die hier verwendete Schrittfolge 1 , 2 , 4 , 8 , 16 , . . . , 2^n (wie es 1959 original von Shell vorgeschlagen wurde) erweist sich in der Praxis allerdings als nicht zweckmäßig, da nur gerade Stellen sortiert werden und ungerade Stellen der Sequenz nur im letzten Schritt angefasst werden. Als zweckmäßiger hat sich 1, 4, 13, 40 … erwiesen (Wertn = 3×Wertn-1+1). 
 
 ## Implementierung
 
@@ -130,6 +162,47 @@ class Program
     }
 }
 ```
+
+## Komplexität
+
+Die Komplexität von Shellsort hängt von der Wahl der Distanzfolge für die Spaltenanzahl h ab. Für verschiedene Folgen sind Obergrenzen der Komplexität bewiesen worden, die damit einen Anhaltspunkt für die Laufzeit geben. Die meisten theoretischen Arbeiten über die Folgen betrachten nur die Anzahl der Vergleiche als wesentlichen Kostenfaktor. Doch in realen Implementierungen zeigt sich, dass auch die Schleifen und Kopieraktionen bei nicht riesigen Arrays eine entscheidende Rolle spielen.
+
+Ursprünglich schlug Donald Shell die Folge 1, 2, 4, 8, 16, 32 …, 2k vor. Die Performance ist allerdings sehr schlecht, weil erst im allerletzten Schritt die Elemente auf ungeraden Positionen sortiert werden. Die Komplexität ist mit Θ ( n^2 ) sehr hoch.
+
+Mit der Folge 1, 3, 7, 15, 31, 63 …, 2^k - 1 von Hibbard wird eine Komplexität von O ( n^1,5 ) erreicht.
+
+Mit der Folge 1, 2, 3, 4, 6, 8, 9, 12, 16 …, 2^p 3^q von Pratt beträgt die Komplexität O ( n ⋅ log ⁡ ( n )^2 )
+
+Donald E. Knuth hat auch einige Folgen für Shellsort erarbeitet. Eine häufig in der Literatur verwendete ist folgende: 1, 4, 13, 40, 121, 364, 1093 …, (3^k-1)/2. Bekannter ist die Berechnungsvorschrift derselben Folge: 3hk-1 + 1. Die Komplexität ist O ( n^1,5 ).
+
+Einige gute Folgen stammen von Robert Sedgewick.
+
+Die Folge 1, 8, 23, 77, 281, 1073, 4193, 16577 …, 4^k+1 + 3*2^k + 1 hat Komplexität von O ( n^4/3 ) erreicht. Eine wesentlich bessere Folge ist folgende: 1, 5, 19, 41, 109, 209, 505, 929, 2161, 3905, 8929, 16001 …, 9*2^k - 9*2^k/2 + 1 (k gerade) bzw. 8*2^k - 6*2^(k+1)/2 + 1 (k ungerade).
+
+Betrachtet man rein geometrische Folgen, so liegt ein Minimum in der größeren Umgebung von Faktor 2,3, d. h. die Folgeglieder haben das Verhältnis von ungefähr 2,3. Eine der theoretisch besten Folgen (d. h. Zahl der Vergleiche), die experimentell ermittelt wurde von Marcin Ciura, ist 1, 4, 10, 23, 57, 132, 301, 701, 1750 und basiert auf diesem Faktor. Basierend auf dem Faktor 1750/701, wird die Reihe wie folgt fortgesetzt: Sei g das letzte Glied, dann ist das nächste durch 1+floor(2,5*g) gegeben, also 701, 1753, 4383, 10958, 27396, 68491, 171228 …
+
+Eine Folge von Gonnet und Baeza-Yates basiert auf dem Faktor 2,2, die sehr gute Ergebnisse liefert.
+
+Erstaunlicherweise sind in der Praxis bessere Folgen als die von Marcin Ciura bekannt, die sich rekursiv berechnen. Die Laufzeit des Shellsort ist kürzer, obwohl die Zahl der Vergleiche höher ist (zu sortierende Elemente sind Ganzzahlen in Registerbreite). Rekursive Folgen berechnen sich aus Ganzzahlen, und das Verhältnis der Folgeglieder konvergiert gegen einen bestimmten Wert, bei den Fibonaccizahlen ist es der Goldene Schnitt.
+
+Eine solche Folge basiert auf den Fibonaccizahlen. Eine der beiden 1er am Anfang wird weggelassen und jede Zahl der Folge mit dem Doppelten des Goldenen Schnitts (ca. 3,236) potenziert, was dann zu dieser Distanzfolge führt: 1, 9, 34, 182, 836, 4025, 19001, 90358, 428481, 2034035 …
+
+Eine andere rekursive Folge wurde von Matthias Fuchs gefunden. Die Folge 1, 4, 13, 40, 124, 385, 1195, 3709, 11512, 35731 … hat als Konvergenzwert ungefähr 3.103803402. Die Berechnungsvorschrift ist fk+1 = 3*f_{k} + f_{k-2}, wobei die Folge initial mit 1, 1, 1 startet und für den Shellsort die ersten beiden 1er weggelassen werden.
+
+Andere Folgen sind nicht konstant, sondern werden aus der aktuellen Anzahl von Elementen im Array berechnet. Initialisiert werden sie mit dieser Anzahl und sinken ab, bis sie schließlich bei 1 angekommen sind:
+
+* Robert Kruse: h_{k-1} = h_{k}/3 + 1
+* Gonnet und Baeza-Yates: h_{k-1} = (5*h_{k} - 1) / 11
+
+Beide Folgen haben eine etwas schlechtere Performance als die beiden rekursiven Folgen und die sehr gute Folgen von Sedgewick und die von Marcin Ciura. Aber sie sind direkt in den Shellsort-Algorithmus integrierbar.
+
+Die Existenz einer Folge mit der Komplexität O ( n ⋅ log ⁡ ( n ) ) wurde bereits ausgeschlossen in einer Arbeit von Bjorn Poonen, Plaxton, und Suel. Doch konnte bewiesen werden, dass prinzipiell für hinreichend großes n immer eine Folge mit einer Komplexität von O ( n^1+ε ) gefunden werden kann.
+
+Die Suche nach einer optimalen Folge gestaltet sich dabei als äußerst schwierig. Zu große Abstände zwischen den Folgegliedern ergeben zu große Verschiebungen, zu enge Abstände bewirken zu viele Durchläufe bis zur letztendlichen Sortierung. Dabei gilt es bei der Wahl einer Folge zu vermeiden, dass zwei aufeinanderfolgende Glieder der Folge gemeinsame Teiler haben, da eine a*b-sortierte Folge und eine anschließende a*c-Sortierung bestimmte Unterfolgen von der Sortierung ausschließt (vgl. Anmerkung zur ursprünglichen Folge 1, 2, 4, 8, 16 …, die die ungeraden auslässt und erst bei der 1-Sortierung berücksichtigt). Über mehrere Glieder hinweg ist das durchaus von Vorteil.
+
+Ein wesentlicher Vorteil des Shellsort-Algorithmus im Vergleich zu anderen liegt darin, dass er bereits vorhandene Sortierungen ausnutzen kann. Dabei spielt es nur eine geringe Rolle, ob das Array sortiert oder invers sortiert vorliegt. Beide Fälle sind um Faktoren schneller als ein rein zufällig sortiertes Array. Bei nur 65536 Elementen beträgt der Geschwindigkeitsvorteil ca. Faktor 4, bei 128 immerhin noch mehr als Faktor 2.
+
+Insertionsort ist langsam, weil nur benachbarte Elemente ausgetauscht werden. Wenn sich zum Beispiel das kleinste Element zufällig am Ende des Feldes befindet, dann braucht der Algorithmus n Schritte, um es an den Anfang zu schieben. Shellsort ist eine einfache Erweiterung von Insertionsort, die die Effizienz dadurch erhöht, dass sie auch Elemente vertauscht, die weit voneinander entfernt sind.
 
 ## Links
 
