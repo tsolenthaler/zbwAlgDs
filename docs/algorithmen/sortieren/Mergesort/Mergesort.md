@@ -3,7 +3,9 @@
 ## Prinzip
 
 ![Mergesort](Mergesort.png)
+![Mergesort Detail](404px-Mergesort_example.png)
 
+## Pseudocode 
 ```
 funktion mergesort(liste);
   falls (Größe von liste <= 1) dann antworte liste
