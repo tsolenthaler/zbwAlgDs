@@ -1,4 +1,41 @@
 # Heapsort
+Heapsort („Haldensortierung“) ist ein in den 1960ern von Robert W. Floyd und J. W. J. Williams entwickeltes Sortierverfahren. Seine Komplexität ist bei einem Array der Länge n in der Landau-Notation ausgedrückt in O ( n ⋅ log ⁡ n ) und ist damit asymptotisch optimal für Sortieren per Vergleich. Heapsort arbeitet zwar in-place, ist jedoch nicht stabil. Der Heapsort-Algorithmus verwendet einen binären Heap als zentrale Datenstruktur. Heapsort kann als eine Verbesserung von Selectionsort verstanden werden und ist mit Treesort verwandt. 
+
+## Beschreibung
+
+Die Eingabe ist ein Array mit zu sortierenden Elementen. Als erstes wird die Eingabe in einen binären Max-Heap überführt. Aus der Heap-Eigenschaft folgt direkt, dass nun an der ersten Array-Position das größte Element steht. Dieses wird mit dem letzten Array-Element vertauscht und die Heap-Array-Größe um 1 verringert, ohne den Speicher freizugeben. Die neue Wurzel des Heaps kann die Heap-Eigenschaft verletzen. Die Heapify-Operation korrigiert gegebenenfalls den Heap, so dass nun das nächstgrößere bzw. gleich große Element an der ersten Array-Position steht. Die Vertausch-, Verkleiner- und Heapify-Schritte werden so lange wiederholt, bis die Heap-Größe 1 ist. Danach enthält das Eingabe-Array die Elemente in aufsteigend sortierter Reihenfolge. In Pseudocode: 
+
+## Pseudocode
+```
+heapsort(Array A)
+  build(A)
+  assert(isHeap(A, 0))
+  tmp = A.size
+  while (A.size > 1)
+    A.swap(0, A.size - 1)
+    A.size = A.size - 1
+    heapify(A)
+    assert(isHeap(A, 0))
+  A.size = tmp
+  assert(isSorted(A))
+```
+Bei einer Sortierung in absteigender Reihenfolge wird statt des Max-Heaps ein Min-Heap verwendet. In einem Min-Heap steht an erster Stelle das kleinste Element. Gemäß der Definition von einem binären Heap wird die Abfolge der Elemente in einem Heap durch eine Vergleichsoperation (siehe Ordnungsrelation) bestimmt, die eine totale Ordnung auf den Elementen definiert. In einem Min-Heap ist das die < {\displaystyle <}-Relation und in einem Max-Heap die > {\displaystyle >}-Relation. Der Pseudocode abstrahiert von der Vergleichsoperation.
+
+Die zu sortierenden Elemente werden auch als Schlüssel bezeichnet. Pro Index-Position kann das Eingabe-Array mehrere Datenkomponenten enthalten. In dem Fall muss eine Komponente als Sortierschlüssel definiert werden, auf der die Vergleichsoperation arbeitet. Die Vertauschoperation vertauscht komplette Array-Einträge.
+
+Die assert-Operation im Pseudocode dokumentiert, welche Eigenschaften das Array nach welchen Algorithmus-Schritten korrekterweise erfüllt bzw. erfüllen muss. 
+
+## Beispiel
+
+![Heapsort](Heapsort.svg.png)
+
+In der Abbildung wird die Sortierung der Beispielzahlenfolge
+
+ 23 1 6 19 14 18 8 24 15
+
+mit dem Heapsort-Algorithmus dargestellt. Die einzelnen Teilbilder sind von links nach rechts und von oben nach unten chronologisch angeordnet. Im ersten Teilbild ist die unsortierte Eingabe und im letzten die sortierte Ausgabe abgebildet. Der Übergang vom ersten zum zweiten Teilbild entspricht der Heapifizierung des Eingabe-Arrays. Die an einer Swap-Operation beteiligten Elemente sind rot und mit unterbrochenen Pfeilen markiert, dicke Doppelpfeile bezeichnen die an einer Heapify-Operation beteiligten Elemente und grün markierte Elemente zeigen den schon sortierten Anteil des Arrays an. Die Element-Indizes sind mit kleinen schwarzen Knoten eingezeichnet, jeweils links unten von dem Element-Wert. Eine blaue Hinterlegung der Array-Elemente indiziert die Laufzeit der Heapsort-Prozedur.
+
+Die Indizes entsprechen einer aufsteigenden Nummerierung nach Level-Order, beginnend mit 0. In einer Implementierung des Algorithmus ist die Baumstruktur implizit und das Array der Elemente zusammenhängend, was durch die Platzierung der Element-Indizes in der Abbildung angedeutet wird. 
 
 ## Vorteile:
 
@@ -30,6 +67,27 @@ In Anwendungen, in denen eine konsistente Laufzeit unabhängig von der Anordnung
 
 ### Vergleich mit anderen Algorithmen
 Heapsort kann in Situationen eingesetzt werden, in denen andere Algorithmen wie Quicksort oder Introsort aufgrund ihrer schlechteren Worst-Case-Leistung (O(n²)) nicht geeignet sind, insbesondere wenn die Datenstruktur nicht optimal für diese Algorithmen ist.
+
+## Komplexität
+
+Effizienz
+
+Man kann zeigen, dass der Aufbau des Heaps, in Landau-Notation ausgedrückt, in O ( n ) Schritten ablaufen kann. In einem großen, zufällig verteilten Datenfeld (100 bis 1010 Datenelemente) sind durchschnittlich mehr als 4, aber weniger als 5 signifikante Sortieroperationen pro Element nötig (2,5 Datenvergleiche und 2,5 Zuweisungen). Dies liegt daran, dass ein zufälliges Element mit exponentiell zunehmender Wahrscheinlichkeit einen geeigneten Vaterknoten findet (60 %, 85 %, 93 %, 97 %, …).
+
+Die Heapify-Operation benötigt im ungünstigsten Fall Θ ( log ⁡ n ) Schritte. Dies ist bei exakt inverser Reihenfolge der Fall. In dem durchschnittlichen Fall werden etwa die Hälfte der Operationen des ungünstigsten Falls und somit ebenfalls Θ ( log ⁡ n ) Schritte benötigt. Günstig ist nur ein Feld, dessen Elemente fast alle den gleichen Wert haben. Sind aber nur weniger als ca. 80 % der Daten identisch, dann entspricht die Laufzeit bereits dem durchschnittlichen Fall. Eine vorteilhafte Anordnung von Daten mit mehreren verschiedenen Werten ist prinzipbedingt unmöglich, da dies der Heapcharakteristik widerspricht.
+
+Den Worst Case stellen mit Θ ( n ⋅ log ⁡ n ) weitgehend vorsortierte Daten dar, weil der Heapaufbau de facto eine schrittweise vollständige Invertierung der Sortierreihenfolge darstellt. Der günstigste, aber unwahrscheinliche Fall ist ein bereits umgekehrt sortiertes Datenfeld (1 Vergleich pro Element, keine Zuweisung). Gleiches gilt, wenn fast alle Daten identisch sind.
+
+Auf heterogenen Daten – vorsortiert oder nicht – dominiert Heapify mit wenigstens über 60 % der Zeit, meistens über 80 %. Somit garantiert Heapsort eine Gesamtlaufzeit von O ( n ⋅ log ⁡ n ). Auch im besten Fall wird eine Laufzeit von Θ ( n ⋅ log ⁡ n ) benötigt.
+
+Eine Variante von Heapsort benötigt im Worst Case 
+
+    n ⋅ log_{2} ⁡ ( n ) + n ⋅ log_{2} ⁡ ( log_{2} ⁡ ( n ) ) + n
+
+_{Zahl} = tiefergestellt!
+
+## Abgrenzung
+Im Durchschnitt ist Heapsort nur dann schneller als Quicksort, wenn Vergleiche auf den zu sortierenden Daten sehr aufwendig sind und gleichzeitig eine für Quicksort ungünstige Datenanordnung besteht, z. B. viele gleiche Elemente. In der Praxis ist bei unsortierten oder teilweise vorsortierten Daten Quicksort oder Introsort um einen konstanten Faktor von 2 bis 5 schneller als Heapsort. Dies wird jedoch kontrovers diskutiert und es gibt Analysen, die Heapsort vorne sehen, sowohl aus Implementierungs- wie auch aus informationstheoretischen Überlegungen. Allerdings spricht das Worst-Case-Verhalten von O ( n ⋅ log ⁡ n ) gegenüber Θ ( n 2 ) bei Quicksort für Heapsort. Introsort ist dagegen in fast allen Fällen schneller als Heapsort, lediglich in entarteten Fällen 20 % bis 30 % langsamer. 
 
 ## Impelmentierung
 
@@ -217,6 +275,88 @@ class Heapsort
         Console.WriteLine(string.Join(", ", array));
         Console.WriteLine($"Anzahl der Vergleiche: {comparisons}");
     }
+}
+```
+
+### Implementierung Wikibooks
+
+```C#
+//Die Implementierung wurde der JAVA-Version nachempfunden
+
+/// <summary>
+/// sortiert ein Array mit heapsort
+/// </summary>
+/// <param name="a">Das Array</param>
+/// <remarks></remarks>
+private void heapSort(ref int[] a)
+{
+	generateMaxHeap(a);
+
+	//hier wird sortiert
+	for (int i = a.Length - 1; i > 0; i += -1) {
+		vertausche(a, i, 0);
+		versenke(a, 0, i);
+	}
+
+}
+
+/// <summary>
+/// Erstellt einen MaxHeap Baum im Array
+/// </summary>
+/// <param name="a">das array</param>
+/// <remarks></remarks>
+private void generateMaxHeap(int[] a)
+{
+	//starte von der Mitte rückwärts.
+	for (int i = (int)(a.Length / 2 - 1); i >= 0; i += -1) {
+		versenke(a, i, a.Length);
+	}
+}
+
+/// <summary>
+/// versenkt ein element im baum
+/// </summary>
+/// <param name="a">Das Array</param>
+/// <param name="i">Das zu versenkende Element</param>
+/// <param name="n">Die letzte Stelle im Baum die beachtet werden soll</param>
+/// <remarks></remarks>
+private void versenke(int[] a, int i, int n)
+{
+	while (i <= (n / 2 - 1)) {
+		int kindIndex = (i + 1) * 2 - 1;
+		//berechnet den Index des linken kind
+
+		//bestimme ob ein rechtes Kind existiert
+		if (kindIndex + 1 <= n - 1) {
+			//rechtes kind existiert
+			if (a[kindIndex] < a[kindIndex + 1])
+				kindIndex += 1;
+			//wenn rechtes kind größer ist nimm das 
+
+		}
+
+		//teste ob element sinken muss 
+		if (a[i] < a[kindIndex]) {
+			vertausche(a, i, kindIndex);
+			i = kindIndex;
+		} else { break; }
+		
+
+	}
+}
+
+/// <summary>
+/// Vertauscht die arraypositionen von i und kindIndex
+/// </summary>
+/// <param name="a">a Das Array in dem getauscht wird</param>
+/// <param name="i">i der erste index</param>
+/// <param name="kindIndex">kindIndex der 2. index</param>
+/// <remarks></remarks>
+private void vertausche(int[] a, int i, int kindIndex)
+{
+	int z = a[i];
+	a[i] = a[kindIndex];
+	a[kindIndex] = z;
 }
 ```
 
