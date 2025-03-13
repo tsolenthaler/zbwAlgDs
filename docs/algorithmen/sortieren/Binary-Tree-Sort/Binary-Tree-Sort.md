@@ -1,4 +1,5 @@
 # Binary Tree Sort
+Binary Tree Sort ist ein einfacher, in seiner primitivsten Form nicht stabiler Sortieralgorithmus. 
 
 ## Prinzip
 
@@ -35,7 +36,31 @@ Stellt die genannte existierende Implementierung allerdings balancierte Suchbäu
 
 Ähnlich wie Bubblesort wird Binary Tree Sort kaum bei realen Problemen eingesetzt. 
 
-## Anwendung?
+## Anwendung
+
+Der Binary Tree Sort (auch bekannt als Baum-Sortierung) ist ein Sortieralgorithmus, der auf der Struktur eines binären Suchbaums basiert. Hier sind einige Einsatzbereiche und Abgrenzungen des Binary Tree Sort:
+
+### Einsatzbereiche:
+
+1. **Dynamische Daten**: Binary Tree Sort eignet sich gut für Daten, die dynamisch sind und häufige Einfügungen und Löschungen erfordern. Der Baum kann während der Laufzeit angepasst werden.
+
+2. **Speicherplatz**: Da der Algorithmus in-place arbeitet, benötigt er im Vergleich zu anderen Sortieralgorithmen wie Merge Sort weniger zusätzlichen Speicherplatz, was ihn für speicherbeschränkte Umgebungen geeignet macht.
+
+3. **Sortierung von großen Datenmengen**: Bei großen Datenmengen kann der Binary Tree Sort effizient sein, insbesondere wenn die Daten bereits teilweise sortiert sind.
+
+4. **Anwendungen in Datenbanken**: In Datenbanksystemen, wo Daten häufig in Form von Bäumen organisiert sind, kann Binary Tree Sort nützlich sein.
+
+### Abgrenzung:
+
+1. **Komplexität**: Im schlimmsten Fall hat der Binary Tree Sort eine Zeitkomplexität von O(n²), wenn der Baum unausgewogen ist (z.B. wenn die Daten in aufsteigender oder absteigender Reihenfolge eingefügt werden). Im Durchschnitt hat er jedoch eine Zeitkomplexität von O(n log n), wenn der Baum ausgewogen ist.
+
+2. **Vergleichsbasierte Sortierung**: Binary Tree Sort ist ein vergleichsbasierter Algorithmus, was bedeutet, dass er nicht für nicht vergleichbare Datentypen geeignet ist. Für spezielle Datentypen oder Datenstrukturen, die nicht verglichen werden können, sind andere Sortieralgorithmen erforderlich.
+
+3. **Alternativen**: Es gibt effizientere Sortieralgorithmen wie Quicksort oder Heapsort, die in vielen Fällen schneller sind und eine bessere durchschnittliche Leistung bieten. Daher wird Binary Tree Sort oft in Situationen vermieden, in denen die Leistung kritisch ist.
+
+4. **Implementierungskomplexität**: Die Implementierung eines binären Suchbaums kann komplexer sein als die von einfacheren Sortieralgorithmen wie Bubble Sort oder Insertion Sort, was in einigen Fällen ein Nachteil sein kann.
+
+Insgesamt ist der Binary Tree Sort ein nützlicher Algorithmus in bestimmten Szenarien, hat jedoch auch Einschränkungen, die bei der Auswahl eines Sortierverfahrens berücksichtigt werden sollten.
 
 ## Implementierung
 
