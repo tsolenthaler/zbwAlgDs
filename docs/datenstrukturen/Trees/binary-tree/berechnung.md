@@ -1,4 +1,4 @@
-# Binary Tree
+# Binary Tree - Anzahl Knoten
 
 ## Maximale Anzhal Knoten berechnen
 
