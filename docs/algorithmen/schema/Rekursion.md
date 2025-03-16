@@ -1,4 +1,4 @@
-# Rekurasion
+# Rekursion
 
 ## Fakultät
 Hier ist ein einfaches Beispiel für die Implementierung der Fakultätsfunktion mit Rekursion in C#:
