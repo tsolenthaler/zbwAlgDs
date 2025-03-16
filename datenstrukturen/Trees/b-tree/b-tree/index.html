@@ -1,0 +1,4306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../avl-tree/z_aufgaben/">
+      
+      
+        <link rel="next" href="../z_aufgaben/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>B-Tree - Dokumentation ZBW Algorithmen und Datenstrukturen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-tree" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Dokumentation ZBW Algorithmen und Datenstrukturen" class="md-header__button md-logo" aria-label="Dokumentation ZBW Algorithmen und Datenstrukturen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dokumentation ZBW Algorithmen und Datenstrukturen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-Tree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Willkommen
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Test/test/" class="md-tabs__link">
+          
+  
+  Test
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../algorithmen/heap/aufgabe/" class="md-tabs__link">
+          
+  
+  Algorithmen
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../abstrakte-datentypen/" class="md-tabs__link">
+          
+  
+  Datenstrukturen
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../mathematik/mathematik/" class="md-tabs__link">
+          
+  
+  Mathematik
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../performance/" class="md-tabs__link">
+          
+  
+  Performance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../probleme/probleme/" class="md-tabs__link">
+          
+  
+  Probleme
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../rekursion/rekursion/" class="md-tabs__link">
+          
+  
+  Rekursion
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Dokumentation ZBW Algorithmen und Datenstrukturen" class="md-nav__button md-logo" aria-label="Dokumentation ZBW Algorithmen und Datenstrukturen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dokumentation ZBW Algorithmen und Datenstrukturen
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Willkommen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Test
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Test
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Test/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Algorithmen
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithmen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Heap
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Heap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/heap/aufgabe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben Heap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/heap/heap-Priorityqueue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heap Priorityqueue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Schema
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/Iteration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteration Fakultät
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/Rekursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rekursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Greedy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithmen Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/schema/tuerme-von-hanoi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Türme von Hanoi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sortieren
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sortieren
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/sortieren-net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sortieren mit .Net
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/sortieren/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sortieren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Binary Tree Sort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Binary Tree Sort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Binary-Tree-Sort/Binary-Tree-Sort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Tree Sort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bubblesort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bubblesort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Bubblesort/Bubblesort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubblesort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bucketsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bucketsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Bucketsort/Bucketsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bucketsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Heapsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Heapsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Heapsort/Heapsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heapsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_7" id="__nav_3_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Insertionsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Insertionsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Insertionsort/Insertionsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insertionsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_8" id="__nav_3_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Introsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Introsort/Introsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_9" id="__nav_3_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mergesort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Mergesort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Mergesort/Mergesort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mergesort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_10" id="__nav_3_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Quicksort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            Quicksort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Quicksort/Aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementierungen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Quicksort/Beispiel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beispiel Quicksort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Quicksort/Quicksort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quicksort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_11" id="__nav_3_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Selectionsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            Selectionsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Selectionsort/Selectionsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selectionsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_12" id="__nav_3_3_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shellsort
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_12">
+            <span class="md-nav__icon md-icon"></span>
+            Shellsort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/sortieren/Shellsort/Shellsort/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shellsort
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Suche
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Suche
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/suche/suche/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suche
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    binarySearch
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            binarySearch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/suche/binarySearch/binary-search-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary search Tree - Implementieren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/suche/binarySearch/binary-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    linearSearch
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            linearSearch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/suche/linearSearch/LinearSearchSentinel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Search mit Sentinel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../algorithmen/suche/linearSearch/linearSearch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Datenstrukturen
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Datenstrukturen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../abstrakte-datentypen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Abstrakte Datentypen - Datensturkturen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lineareDatenstrukruten/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lineare Datenstrukturen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Trees
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Trees
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../traversieren/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traversieren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Avl tree
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Avl tree
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avl-tree/avl-tree-doppel-rotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AVL-Tree Doppel Rotation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avl-tree/avl-tree-singel-rotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AVL-Tree Singel Rotation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avl-tree/avl-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AVL Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avl-tree/fragen%2Bimplementierung/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragen und Implementierung AVL-Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avl-tree/z_aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    B tree
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            B tree
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    B-Tree
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    B-Tree
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ziele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ziele
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubersicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übersicht
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenschaften
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unterschied-zwischen-einem-binarytree-und-einem-b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unterschied zwischen einem BinaryTree und einem B-Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unterschied zwischen einem BinaryTree und einem B-Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-tree-binarbaum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree (Binärbaum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      B-Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-werden-die-operationen-einfugen-und-loschen-auf-einen-b-tree-angewendet" class="md-nav__link">
+    <span class="md-ellipsis">
+      wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einfugen-in-einen-b-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen in einen B-Baum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-aus-einem-b-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen aus einem B-Baum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenschaften-des-b-baums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenschaften des B-Baums
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aufgabe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aufgabe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#antwort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Antwort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einfugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loschen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selbststudium" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selbststudium
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selbststudium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hilfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hilfe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unterschied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unterschied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-baum-der-ordnung-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      B-Baum der Ordnung 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B-Baum der Ordnung 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einfugen-von-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen von 35
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 15
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 40
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 50
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-inneren-knoten-loschen-von-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von inneren Knoten - Löschen von 20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Löschen von inneren Knoten - Löschen von 20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 17
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z_aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben B-Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Binary tree
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Binary tree
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/berechnung/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Tree - Anzahl Knoten
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/binary-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/fragen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragen Binary Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/x_aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementierung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/z_aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben Binary Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hashtable
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hashtable
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hashtable/hashtable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hashtable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hashtable/implementierung/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementierung Hashtable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    List
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../list/fragen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragen List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../list/implementierung/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementierung List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../list/list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Queue
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../queue/aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../queue/queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stack/aufgabe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgabe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stack/implementierung_01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stack Implementieren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stack/stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mathematik
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematik
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mathematik/mathematik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mathematik-Themen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Performance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance von Algorithmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../performance/Prompts-aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prompts aufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../performance/aufgaben/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Probleme
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Probleme
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../probleme/probleme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Liste von Informatik Problemen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Aufgaben
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aufgaben
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../probleme/aufgaben/rucksackproblem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rucksackproblem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Rekursion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Rekursion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rekursion/rekursion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rekursion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ziele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ziele
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubersicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übersicht
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigenschaften" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenschaften
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unterschied-zwischen-einem-binarytree-und-einem-b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unterschied zwischen einem BinaryTree und einem B-Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unterschied zwischen einem BinaryTree und einem B-Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-tree-binarbaum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree (Binärbaum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      B-Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-werden-die-operationen-einfugen-und-loschen-auf-einen-b-tree-angewendet" class="md-nav__link">
+    <span class="md-ellipsis">
+      wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einfugen-in-einen-b-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen in einen B-Baum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-aus-einem-b-baum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen aus einem B-Baum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenschaften-des-b-baums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenschaften des B-Baums
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aufgabe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aufgabe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#antwort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Antwort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einfugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loschen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selbststudium" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selbststudium
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selbststudium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hilfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hilfe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unterschied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unterschied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-baum-der-ordnung-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      B-Baum der Ordnung 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B-Baum der Ordnung 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einfugen-von-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      Einfügen von 35
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 15
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 40
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 50
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-inneren-knoten-loschen-von-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von inneren Knoten - Löschen von 20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Löschen von inneren Knoten - Löschen von 20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loschen-von-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Löschen von 17
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-tree">B-Tree</h1>
+<h2 id="ziele">Ziele</h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ich kenne den Unterschied zwischen einem BinaryTree und einem B-Tree</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ich weiss, wie die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet werden</li>
+</ul>
+<h2 id="motivation">Motivation</h2>
+<p>Die Verwendung von AVL-Trees für die Indexierung der Datenbank könnte zwar eine ausgeglichene Baumstruktur und effiziente Suchoperationen in Theorie gewährleisten, aber bei jeder Einfügung oder Löschung von Daten müssten möglicherweise mehrere Rotationen durchgeführt werden, um den Baum auszugleichen. Dies ist insbesondere problematisch, wenn die Datenbank auf einem Festplattenspeicher liegt, da jede Änderung im Baum zu potenziell vielen Plattenzugriffen führen kann, um die betroffenen Knoten zu lesen oder zu schreiben. Da Plattenzugriffe im Vergleich zu Operationen im Arbeitsspeicher sehr langsam sind, könnten die Wartungskosten des AVL-Trees in einer solchen Umgebung sehr hoch werden.</p>
+<h2 id="ubersicht">Übersicht</h2>
+<ul>
+<li>Erfunden von Rudolf Bayer und Edward M. McCreight 1972 für die Verwaltung von Indizes in relationalen Datenbanken (erfunden von Edgar F. Codd 1970)</li>
+<li>Keine Erklärung für Herkunft des Namens. Interpretation: B für balanciert, Bayer, Barbara (Frau von Bayer), Boeing (Bayer arbeitete für Boeing Scientific Research)</li>
+<li>kleiner als "&gt;1" 1 Key pro Node</li>
+<li>≥ 2 Child Nodes</li>
+<li>Self-Balancing</li>
+<li>Grössere Verzweigungsgrad reduziert die Baumhöhe und somit die Anzahl Lesezugriffe</li>
+<li>Variable Schlüsselmenge pro Node vermeidet häufiges Balancing</li>
+</ul>
+<h2 id="eigenschaften">Eigenschaften</h2>
+<ul>
+<li>Jede Page enthält höchstens 2𝑑 Keys (Elemente)</li>
+<li>Jede Page, ausser Root, enthält mindestens 𝑑 Keys</li>
+<li>Root hat min. 1 und max. 2𝑑 Keys</li>
+<li>Jede Page ist entweder Leaf, d.h. hat keine Childs oder sie hat 𝑚 + 1 Childs, wobei 𝑚 die Anzahl ihrer Keys ist</li>
+<li>Die Keys einer Page sind aufsteigend sortiert</li>
+<li>Alle Leafs liegen auf der gleichen Stufe</li>
+<li>Wie bei Binary Search Tree: Links → kleiner, rechts → grösser oder gleich</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    1[34]
+    1 --&gt; 2[12 29]
+    1 --&gt; 3[46 67]
+    2 --&gt; 4[2 8 9 10]
+    2 --&gt; 5[15 19 22 24]
+    2 --&gt; 6[30 31 32]
+    3 --&gt; 7[36 39]
+    3 --&gt; 8[53 57 63 65]
+    3 --&gt; 9[72 83 94 96]</code></pre>
+<h2 id="unterschied-zwischen-einem-binarytree-und-einem-b-tree">Unterschied zwischen einem BinaryTree und einem B-Tree</h2>
+<h3 id="binary-tree-binarbaum">Binary Tree (Binärbaum)</h3>
+<ul>
+<li>
+<p>Struktur: Ein Binärbaum ist eine Baumstruktur, in der jeder Knoten höchstens zwei Kinder hat, die als linkes und rechtes Kind bezeichnet werden.</p>
+</li>
+<li>
+<p>Knoten: Jeder Knoten im Binärbaum enthält einen Wert und Verweise auf seine beiden Kinder (linkes und rechtes Kind).</p>
+</li>
+<li>
+<p>Anwendung: Binärbäume werden häufig in der Informatik verwendet, z.B. in Suchbäumen (wie dem Binären Suchbaum), um Daten effizient zu speichern und zu durchsuchen.</p>
+</li>
+<li>
+<p>Balancierung: Binärbäume können unausgewogen sein, was zu einer schlechten Leistung bei Suchoperationen führen kann. Es gibt jedoch balancierte Varianten wie AVL-Bäume oder Rot-Schwarz-Bäume.</p>
+</li>
+<li>
+<p>Zugriffszeit: Die Zugriffszeit kann im schlimmsten Fall O(n) betragen, wenn der Baum unausgewogen ist.</p>
+</li>
+</ul>
+<h3 id="b-tree_1">B-Tree</h3>
+<ul>
+<li>
+<p>Struktur: Ein B-Tree ist eine selbstbalancierende Baumstruktur, die für die Speicherung von Daten in einer Datenbank oder auf Festplatten optimiert ist. Jeder Knoten kann mehrere Kinder haben (mindestens zwei und maximal eine bestimmte Anzahl, die als Ordnung des Baums bezeichnet wird).</p>
+</li>
+<li>
+<p>Knoten: Jeder Knoten in einem B-Tree kann mehrere Werte und Verweise auf seine Kinder enthalten. Die Werte in einem Knoten sind sortiert, und die Kinder sind so angeordnet, dass alle Werte im linken Kind kleiner und alle Werte im rechten Kind größer sind.</p>
+</li>
+<li>
+<p>Anwendung: B-Bäume werden häufig in Datenbanken und Dateisystemen verwendet, da sie eine effiziente Speicherung und Suche von Daten ermöglichen, insbesondere bei großen Datenmengen, die nicht vollständig im Hauptspeicher gehalten werden können.</p>
+</li>
+<li>
+<p>Balancierung: B-Bäume sind immer balanciert, was bedeutet, dass alle Blätter auf der gleichen Ebene sind. Dies sorgt für eine gleichmäßige Verteilung der Daten und eine konsistente Zugriffszeit.</p>
+</li>
+<li>
+<p>Zugriffszeit: Die Zugriffszeit ist logarithmisch in Bezug auf die Anzahl der gespeicherten Elemente, typischerweise O(log n), was sie effizienter macht als unausgewogene Binärbäume.</p>
+</li>
+</ul>
+<h3 id="zusammenfassung">Zusammenfassung</h3>
+<ul>
+<li>Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unausgewogen sein, wird häufig für Suchoperationen verwendet.</li>
+<li>B-Tree: Jeder Knoten kann mehrere Kinder haben, ist immer balanciert, optimiert für Datenbanken und große Datenmengen.</li>
+</ul>
+<h2 id="wie-werden-die-operationen-einfugen-und-loschen-auf-einen-b-tree-angewendet">wie werden die Operationen «Einfügen» und «Löschen» auf einen B-Tree angewendet?</h2>
+<p>Ein B-Baum ist eine selbstbalancierende Datenstruktur, die in der Informatik häufig für Datenbanken und Dateisysteme verwendet wird. Die Operationen „Einfügen“ und „Löschen“ in einem B-Baum sind so gestaltet, dass die Eigenschaften des Baums erhalten bleiben. Hier sind die grundlegenden Schritte für beide Operationen:</p>
+<h3 id="einfugen-in-einen-b-baum">Einfügen in einen B-Baum</h3>
+<ol>
+<li>
+<p><strong>Finde die richtige Position</strong>: Beginne an der Wurzel und gehe rekursiv nach unten, um die richtige Blattposition für den neuen Schlüssel zu finden. Vergleiche den neuen Schlüssel mit den vorhandenen Schlüsseln, um zu entscheiden, in welchen Kindknoten du weitergehen sollst.</p>
+</li>
+<li>
+<p><strong>Füge den Schlüssel ein</strong>: Wenn du ein Blatt erreicht hast, füge den neuen Schlüssel in den Blattknoten ein. Die Schlüssel im Knoten müssen in sortierter Reihenfolge bleiben.</p>
+</li>
+<li>
+<p><strong>Überlauf behandeln</strong>: Wenn der Knoten nach dem Einfügen mehr Schlüssel enthält als die maximale Anzahl (d.h. der Knoten überläuft):</p>
+</li>
+<li>Teile den Knoten in zwei Knoten. Der Medianwert wird nach oben in den übergeordneten Knoten verschoben.</li>
+<li>Wenn der übergeordnete Knoten ebenfalls überläuft, wiederhole den Teilungsprozess rekursiv nach oben.</li>
+</ol>
+<h3 id="loschen-aus-einem-b-baum">Löschen aus einem B-Baum</h3>
+<ol>
+<li>
+<p><strong>Finde den Schlüssel</strong>: Beginne an der Wurzel und gehe rekursiv nach unten, um den Schlüssel zu finden, den du löschen möchtest.</p>
+</li>
+<li>
+<p><strong>Löschen des Schlüssels</strong>:</p>
+</li>
+<li><strong>Fall 1</strong>: Der Schlüssel befindet sich in einem Blattknoten. Lösche den Schlüssel einfach.</li>
+<li>
+<p><strong>Fall 2</strong>: Der Schlüssel befindet sich in einem inneren Knoten. Finde den Vorgänger (den größten Schlüssel im linken Teilbaum) oder den Nachfolger (den kleinsten Schlüssel im rechten Teilbaum), ersetze den zu löschenden Schlüssel durch diesen und lösche dann den Vorgänger oder Nachfolger (dies wird ein Blattknoten sein oder einen weiteren Fall auslösen).</p>
+</li>
+<li>
+<p><strong>Unterlauf behandeln</strong>: Nach dem Löschen kann es sein, dass ein Knoten weniger Schlüssel hat als die minimale Anzahl (d.h. der Knoten unterläuft):</p>
+</li>
+<li>Wenn möglich, leihe einen Schlüssel von einem Geschwisterknoten (links oder rechts).</li>
+<li>Wenn das nicht möglich ist, führe eine Zusammenführung durch: Kombiniere den Knoten mit einem Geschwisterknoten und verschiebe einen Schlüssel vom übergeordneten Knoten nach unten.</li>
+</ol>
+<h3 id="eigenschaften-des-b-baums">Eigenschaften des B-Baums</h3>
+<ul>
+<li>Jeder Knoten hat eine bestimmte Anzahl von Schlüsseln, die zwischen einem Minimum und Maximum liegen.</li>
+<li>Alle Blätter befinden sich auf derselben Ebene.</li>
+<li>Der Baum bleibt nach jeder Einfüge- oder Löschoperation balanciert.</li>
+</ul>
+<p>Diese Schritte gewährleisten, dass der B-Baum seine Struktur und Eigenschaften beibehält, während Schlüssel hinzugefügt oder entfernt werden.</p>
+<h2 id="aufgabe">Aufgabe</h2>
+<ul>
+<li>Berechnen Sie die max. Anzahl Keys, die in einem Baum 2. Ordnung (d.h. d=2) und h=3 gespeichert werden können.</li>
+<li>Tipp: Überlegen Sie sich, wieviele Keys in einem BinaryTree gespeichert werden können und versuchen Sie, Ihre Überlegungen zum oben spezifizierten B-Trees zu transferieren.</li>
+</ul>
+<h3 id="antwort">Antwort</h3>
+<p>Ein B-Baum der Ordnung ( d ) hat die folgenden Eigenschaften:</p>
+<ol>
+<li>Jeder Knoten kann maximal ( 2d ) Kinder haben.</li>
+<li>Jeder Knoten kann maximal ( 2d - 1 ) Schlüssel enthalten.</li>
+<li>Jeder Knoten (außer der Wurzel) muss mindestens ( d ) Kinder haben, wenn er nicht ein Blattknoten ist.</li>
+<li>Die Höhe des Baums ist ( h ).</li>
+</ol>
+<p>Für einen B-Baum der Ordnung ( d = 2 ) und Höhe ( h = 3 ) können wir die maximale Anzahl der Schlüssel wie folgt berechnen:</p>
+<ol>
+<li><strong>Maximale Anzahl der Kinder pro Knoten</strong>: Da ( d = 2 ), kann jeder Knoten maximal ( 2d = 4 ) Kinder haben.</li>
+<li><strong>Maximale Anzahl der Schlüssel pro Knoten</strong>: Jeder Knoten kann maximal ( 2d - 1 = 3 ) Schlüssel enthalten.</li>
+</ol>
+<p>Jetzt betrachten wir die Struktur des Baums:</p>
+<ul>
+<li><strong>Ebene 0 (Wurzel)</strong>: 1 Knoten, der maximal 3 Schlüssel enthalten kann.</li>
+<li><strong>Ebene 1</strong>: Die Wurzel kann maximal 4 Kinder haben, also 4 Knoten. Jeder dieser Knoten kann maximal 3 Schlüssel enthalten, also insgesamt ( 4 \times 3 = 12 ) Schlüssel.</li>
+<li><strong>Ebene 2</strong>: Jeder der 4 Knoten auf Ebene 1 kann ebenfalls maximal 4 Kinder haben, also insgesamt ( 4 \times 4 = 16 ) Knoten. Jeder dieser Knoten kann maximal 3 Schlüssel enthalten, also insgesamt ( 16 \times 3 = 48 ) Schlüssel.</li>
+</ul>
+<p>Jetzt addieren wir die maximalen Schlüssel aus allen Ebenen:</p>
+<ul>
+<li>Ebene 0: 3 Schlüssel</li>
+<li>Ebene 1: 12 Schlüssel</li>
+<li>Ebene 2: 48 Schlüssel</li>
+</ul>
+<p>Die maximale Anzahl der Schlüssel in einem B-Baum der Ordnung 2 und Höhe 3 ist also:</p>
+<p>[
+3 + 12 + 48 = 63
+]</p>
+<p>Somit kann ein B-Baum der Ordnung 2 und Höhe 3 maximal <strong>63 Schlüssel</strong> speichern.</p>
+<h2 id="einfugen">Einfügen</h2>
+<ul>
+<li>Keys werden immer in Leafs eingefügt</li>
+<li>Beispiel (𝑑 = 2):</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A[32]
+    A --&gt; B[9 12 23 27]
+    A --&gt; C[33 45 54 67]</code></pre>
+<p>Einfügen 36</p>
+<pre class="mermaid"><code>flowchart TD
+    A[32 45]
+    A --&gt; B[9 12 23 27]
+    A --&gt; C[33 36]
+    A --&gt; D[54 67]</code></pre>
+<ul>
+<li>36 wird in Page C eingefügt: (33,36,45,54,67) → Overflow</li>
+<li>Der Node wird aufgeteilt und das mittlere Element (45) nach oben gezogen</li>
+<li>Nun muss Page A bzgl. Overflow geprüft werden → i.O.</li>
+</ul>
+<h2 id="loschen">Löschen</h2>
+<ul>
+<li>zwei Fälle<ul>
+<li>Das zu löschende Element liegt auf Leaf → trivial</li>
+<li>Element liegt nicht auf Leaf – das zu löschende Element wird durch das nächstgrössere (nächstkleinere) Element ersetzt. Dieses liegt immer auf Leaf (Suche analog BinarySearchTree)</li>
+</ul>
+</li>
+<li>Beide Fälle erfordern eine Prüfung der Regel: min. 𝑑 Elemente Enthält die Page P durch Entfernen weniger als d Elemente, so werden die Elemente der Page P und der benachbarten Page Q gleichmässig auf beide Pages verteilt (ausbalanciert)</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A[32 45]
+    A --&gt; B[9 12 23]
+    A --&gt; C[33 36]
+    A --&gt; D[54 67 86]</code></pre>
+<p>Element 36 löschen</p>
+<pre class="mermaid"><code>flowchart TD
+    A[32 54]
+    A --&gt; B[9 12 23]
+    A --&gt; C[33 45]
+    A --&gt; D[67 86]</code></pre>
+<ul>
+<li>Wenn kein Element zum Angliedern vorhanden (d.h. P und Q enthalten 2𝑑 − 1 Elemente)<ul>
+<li>Page P und Q werden zusammengelegt und Element wird von Parent runtergezogen (Gegenteil von Einfügen)</li>
+</ul>
+</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A[32 54]
+    A --&gt; B[9 12 23]
+    A --&gt; C[33 45]
+    A --&gt; D[67 86]</code></pre>
+<p>Element 45 löschen</p>
+<pre class="mermaid"><code>flowchart TD
+    A[32]
+    A --&gt; B[9 12 23]
+    A --&gt; C[33 54 67 86]</code></pre>
+<ul>
+<li>Das runterziehen kann die Grösse ebenfalls unter d sinken lassen<ul>
+<li>gleiche Aktion wird für diese Page wiederholt</li>
+<li>kann sich bis zum Root fortsetzen</li>
+</ul>
+</li>
+</ul>
+<h2 id="selbststudium">Selbststudium</h2>
+<ul>
+<li>B-Tree<ul>
+<li>https://en.wikipedia.org/wiki/B-tree<ul>
+<li>Wichtig: die englische Variante verwenden – die deutsche Variante verwendet eine andere Definition des B-Tree’s</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="hilfe">Hilfe</h3>
+<p><a href="https://studyflix.de/informatik/b-baum-1435">B-Tree</a></p>
+<h3 id="unterschied">Unterschied</h3>
+<ul>
+<li>
+<p>Binärbaum: Jeder Knoten hat maximal zwei Kinder, kann unterschiedliche Strukturen haben und ist oft einfacher, aber weniger effizient bei großen Datenmengen.</p>
+</li>
+<li>
+<p>B-Baum: Jeder Knoten kann mehrere Schlüssel und Kinder haben, ist selbstbalancierend und optimiert für die Speicherung und den Zugriff auf große Datenmengen, insbesondere in externen Speichersystemen</p>
+</li>
+</ul>
+<h3 id="regel">Regel</h3>
+<ul>
+<li>von unten nach oben</li>
+<li>Varbiable Anzahl Key pro Blatt (bspw. 2, 4) Begrenzung = minimum 2, maximal 4 Element pro Blatt.</li>
+<li>Maximale Anzahl an Verweisen = Verzweigungsgrad oder Ordnung --&gt; Verzweigungsgrad - 1 Eleme t<ul>
+<li>Machmal auch "Ordnung = maxiamle Anzahl an Elementen pro Knoten"</li>
+</ul>
+</li>
+</ul>
+<h4 id="beispiel">Beispiel</h4>
+<h5 id="b-baum-der-ordnung-4">B-Baum der Ordnung 4</h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>20, 50, 70
+</span></code></pre></div>
+<h6 id="einfugen-von-35">Einfügen von 35</h6>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>20, 35, 50, 70
+</span></code></pre></div>
+<ul>
+<li>--&gt; Ordnung 4 wird überschritten</li>
+<li>aufteilen</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    35
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    / \
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   20  50, 70
+</span></code></pre></div>
+<h6 id="loschen-von-15">Löschen von 15</h6>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>        20,50
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    /     |      \
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>5,10,15  30,40   55,66,77
+</span></code></pre></div>
+<ul>
+<li>Ordnung wird nicht verletzt.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>        20,50
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    /     |      \
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>5,10    30,40   55,66,77
+</span></code></pre></div>
+<h6 id="loschen-von-40">Löschen von 40</h6>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>        20,50
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    /     |      \
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>5,10    30    55,66,77
+</span></code></pre></div>
+<ul>
+<li>Ordnung wird verletzt</li>
+<li>verschieben<ul>
+<li>55 nach oben</li>
+<li>50 zu mitteleren Blatt</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>        20,55
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    /     |    \
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>5,10    30,50  66,77
+</span></code></pre></div>
+<h6 id="loschen-von-50">Löschen von 50</h6>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>        20,55
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    /     |    \
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>5,10    30    66,77
+</span></code></pre></div>
+<ul>
+<li>Ordnung wieder verletzt</li>
+<li>Knoten verschmelzen<ul>
+<li>55 zu rechten Blatt</li>
+<li>30 zu rechten Blatt</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>       20
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    /      \
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>5,10    30,55,66,77
+</span></code></pre></div>
+<h5 id="loschen-von-inneren-knoten-loschen-von-20">Löschen von inneren Knoten - Löschen von 20</h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>                  30
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>            /         \
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        10,20        40,50
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    /     |       \
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  3,7  12,15,17   23,25
+</span></code></pre></div>
+<ul>
+<li>
+<p>Nur mittlere Knoten 12,15,17, da aus 3 Elmenten besteht.</p>
+</li>
+<li>
+<p>Regel</p>
+<ul>
+<li>Linker Nachfolger: grösstes Element --&gt; bspw. 17<ul>
+<li>Der mittlere Knoten ist der Linke Nachfolger der 20. Also wir die 17 (grösstes Element) genommen.</li>
+</ul>
+</li>
+<li>Rechter Nachfolger: kleinstes Element</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>                  30
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>            /         \
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        10,17        40,50
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    /     |       \
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  3,7  12,15    23,25
+</span></code></pre></div>
+<h6 id="loschen-von-17">Löschen von 17</h6>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>                  30
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>            /         \
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        10,17        40,50
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    /     |       \
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  3,7  12,15    23,25
+</span></code></pre></div>
+<ul>
+<li>verschmelzen</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>                  30
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>            /         \
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>        10        40,50
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    /     |       
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  3,7  12,15,23,25
+</span></code></pre></div>
+<ul>
+<li>Fehlt noch ein Element im Knoten mit 10.</li>
+<li>Rechter Nachfolger --&gt; kleinstes Element 12 hochziehen</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>                  30
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>            /         \
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        10,12        40,50
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    /     |       
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  3,7  15,23,25
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "content.tabs.link", "content.code.copy", "content.action.view", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
